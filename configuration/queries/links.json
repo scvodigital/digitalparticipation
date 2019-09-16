@@ -1,0 +1,39 @@
+{
+  "size": 100,
+  "_source": [
+    "title",
+    "content",
+    "author_attribution",
+    "link",
+    "post_tags_slug",
+    "year_published"
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "term": {
+            "categories_slug": "digital-participation"
+          }
+        },
+        {
+          "term": {
+            "post_tags_slug": "digital-research"
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    {
+      "year_published": {
+        "order": "desc"
+      }
+    },
+    {
+      "title_sort": {
+        "order": "asc"
+      }
+    }
+  ]
+}

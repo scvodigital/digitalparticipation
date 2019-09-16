@@ -1,0 +1,80 @@
+{
+  "name": "signatory_search",
+  "pattern": "/charter/signatories",
+  "metaData": {
+    "title": "Signatories – Scotland's Digital Participation Charter"
+  },
+  "tasks": [
+    {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../data/elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "index": "{$../data/elasticsearch-index.txt}",
+          "type": "charter-signatory-digitalparticipation",
+          "template": ">context.metaData.handlebars.queries.signatory-search"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "supplimentaryResponses",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../data/elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": [
+          {
+            "name": "total",
+            "index": "{$../data/elasticsearch-index.txt}",
+            "type": "charter-signatory-digitalparticipation",
+            "template": ">context.metaData.handlebars.queries.signatory-total"
+          },
+          {
+            "name": "types",
+            "index": "{$../data/elasticsearch-index.txt}",
+            "type": "charter-signatory-digitalparticipation",
+            "template": ">context.metaData.handlebars.queries.signatory-aggs"
+          },
+          {
+            "name": "categories",
+            "index": "{$../data/elasticsearch-index.txt}",
+            "type": "charter-signatory-digitalparticipation",
+            "template": ">context.metaData.handlebars.queries.signatory-category-aggs"
+          }
+        ]
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.head-tags",
+              "body": ">context.metaData.handlebars.templates.charter_signatories_signatory-search",
+              "foot": ""
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "size": {{if (compare @root.route.name "home") 1 else=10}},
+  "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
+  "_source": [
+    "title",
+    "featured_image",
+    "description_truncated",
+    "publish_on",
+    "author_name_full",
+    "author_job_title",
+    "author_organisation_name",
+    "post_slug",
+    "quotation.author",
+    "quotation.text",
+    "quotation.headshot",
+    "quotation.author_title",
+    "quotation.author_url"
+  ],
+  "query": {
+    "bool": {
+      "must_not": [
+        {
+          "term": {
+            "hide_in_results": true
+          }
+        },
+        {
+          "term": {
+            "hide_from_search": "1"
+          }
+        },
+        {
+          "term": {
+            "is_press_release": true
+          }
+        }
+      ],
+      "filter": [
+        {
+          "terms": {
+            "categories_slug": [
+              "digital-participation",
+              "blog-posts"
+            ]
+          }
+        },
+        {
+          "term": {
+            "post_tags_slug": "case-studies"
+          }
+        }
+      ]
+    }
+  },
+  "sort": {
+    "publish_on": "desc"
+  }
+}

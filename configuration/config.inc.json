@@ -1,0 +1,32 @@
+{
+  "domains": [
+    "digitalparticipation.local",
+    "digitalparticipation.scot",
+    "www.digitalparticipation.scot"
+  ],
+  "routes": [
+    "{:./routes/*.json}"
+  ],
+  "metaData": {
+    "assetsVersion": "{:../package.json@version}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/digitalparticipation/",
+    "title": "Scotland's Digital Participation Charter",
+    "menus": "{:./data/menus.json}",
+    "elasticsearchUrl": "{$./data/elasticsearch-url.txt}",
+    "pledges": "{:./data/pledges.json}",
+    "handlebars": {
+      "partials": {
+        "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
+      },
+      "templates": {
+        "{$./templates/**/*.*}": ""
+      },
+      "layouts": {
+        "{$./layouts/**/*.*}": ""
+      },
+      "queries": {
+        "{$./queries/**/*.*}": ""
+      }
+    }
+  }
+}

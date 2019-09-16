@@ -1,0 +1,36 @@
+{
+  "name": "sign_up",
+  "pattern": {
+    "new": "/charter/sign-up",
+    "old": "/sign-up"
+  },
+  "metaData": {
+    "title": "Sign up – Scotland's Digital Participation Charter"
+  },
+  "tasks": [
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.head-tags",
+              "body": ">context.metaData.handlebars.templates.charter_sign-up_sign-up",
+              "foot": ""
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

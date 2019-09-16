@@ -1,0 +1,29 @@
+{
+  "size": 1,
+  "_source": [
+    "Id",
+    "organisation_id",
+    "status",
+    "title",
+    "description",
+    "date_signed",
+    "date_last_modified",
+    "logos",
+    "slug",
+    "mission_statement",
+    "description",
+    "support_offered",
+    "support_wanted",
+    "sector",
+    "category",
+    "website",
+    "blog",
+    "twitter",
+    "facebook"
+  ],
+  "query": {
+    "term": {
+      "slug": "{{@root.request.params.slug}}"
+    }
+  }
+}

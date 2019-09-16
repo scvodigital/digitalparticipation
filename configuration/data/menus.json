@@ -1,0 +1,60 @@
+{
+  "main": [
+    {
+      "label": "Home",
+      "path": "/",
+      "route": "^/$"
+    },
+    {
+      "children": [
+        {
+          "label": "Signatories",
+          "path": "/charter/signatories",
+          "route": "^/charter/signatories"
+        },
+        {
+          "label": "Sign up",
+          "path": "/charter/sign-up",
+          "route": "^/charter/sign-up"
+        }
+      ],
+      "label": "Charter",
+      "path": "/charter",
+      "route": "^/charter"
+    },
+    {
+      "children": [
+        {
+          "label": "Foundation",
+          "path": "/skills/foundation",
+          "route": "^/skills/foundation"
+        },
+        {
+          "label": "Essentials",
+          "path": "/skills/essential",
+          "route": "^/skills/essential"
+        }
+      ],
+      "label": "Skills",
+      "path": "/skills",
+      "route": "^/skills"
+    },
+    {
+      "label": "Stories",
+      "path": "/stories",
+      "route": "^/stories|^/post"
+    },
+    {
+      "children": [
+        {
+          "label": "Downloads",
+          "path": "/resources/toolkit-downloads",
+          "route": "^/resources/toolkit-downloads"
+        }
+      ],
+      "label": "Resources",
+      "path": "/resources",
+      "route": "^/resources"
+    }
+  ]
+}

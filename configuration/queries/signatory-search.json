@@ -1,0 +1,81 @@
+{
+  "size": 10,
+  "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
+  "_source": [
+    "slug",
+    "title",
+    "description",
+    "mission_statement",
+    "date_signed",
+    "status",
+    "logos"
+  ],
+  "query": {
+    "bool": {
+      {{#ifAny @root.request.params.query.sector @root.request.params.query.category @root.request.params.query.exclude_expired ~}}
+      "filter": [
+        {{#if @root.request.params.query.sector ~}}
+        {
+          "term": {
+            "sector": "{{request.params.query.sector}}"
+          }
+        }{{#ifAny @root.request.params.query.category @root.request.params.query.exclude_expired}},{{/ifAny}}
+        {{/if ~}}
+        {{#if @root.request.params.query.category ~}}
+        {
+          "term": {
+            "category": "{{request.params.query.category}}"
+          }
+        }{{#if @root.request.params.query.exclude_expired}},{{/if}}
+        {{/if ~}}
+        {{#if @root.request.params.query.exclude_expired ~}}
+        {
+          "term": {
+            "status": "Signed"
+          }
+        }
+        {{/if ~}}
+      ],
+      {{/ifAny ~}}
+      {{#if @root.request.params.query.q ~}}
+      "must": [
+        {
+          "query_string": {
+            "query": {{{stringify (default @root.request.params.query.q "")}}},
+            "default_field": "text_bag",
+            "default_operator": "AND",
+            "analyzer": "snowball"
+          }
+        }
+      ],
+      "should": [
+        {
+          "match_phrase": {
+            "title": {
+              "query": {{{stringify (default @root.request.params.query.q "")}}},
+              "boost": 10
+            }
+          }
+        }
+      ]
+      {{else}}
+      "must": [
+        {
+          "match_all": {}
+        }
+      ]
+      {{/if ~}}
+    }
+  },
+  "sort": {
+    {{#if @root.request.params.query.sort ~}}
+    "slug": "asc"
+    {{else}}
+    {{#if @root.request.params.query.q ~}}
+    "_score": "desc"
+    {{else}}
+    "date_signed": "desc"
+    {{/if ~}}
+    {{/if ~}}
+  }
+}

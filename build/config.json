@@ -1,0 +1,1518 @@
+{
+  "domains": [
+    "digitalparticipation.local",
+    "digitalparticipation.scot",
+    "www.digitalparticipation.scot"
+  ],
+  "routes": [
+    {
+      "name": "home",
+      "pattern": "/",
+      "metaData": {
+        "title": "Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "primaryResponse",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": {
+              "index": "web-content-production",
+              "type": "scvo-post",
+              "template": ">context.metaData.handlebars.queries.blog-posts"
+            }
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.home",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sign_up",
+      "pattern": {
+        "new": "/charter/sign-up",
+        "old": "/sign-up"
+      },
+      "metaData": {
+        "title": "Sign up – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_sign-up_sign-up",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sign_up_form",
+      "pattern": {
+        "new": "/charter/sign-up/form",
+        "old": "/sign-up/form"
+      },
+      "metaData": {
+        "title": "Sign up – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_sign-up_form",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sign_up_stage_1",
+      "pattern": {
+        "new": "/charter/sign-up/start",
+        "old": "/sign-up/start"
+      },
+      "metaData": {
+        "title": "Sign up – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_sign-up_form-stage-1",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sign_up_stage_2",
+      "pattern": {
+        "new": "/charter/sign-up/continue",
+        "old": "/sign-up/continue"
+      },
+      "metaData": {
+        "title": "Sign up – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_sign-up_form-stage-2",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sign_up_complete",
+      "pattern": {
+        "new": "/charter/sign-up/complete",
+        "old": "/sign-up/complete"
+      },
+      "metaData": {
+        "title": "Sign up – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_sign-up_complete",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sign_up_essential",
+      "pattern": {
+        "new": "/charter/sign-up/essential",
+        "old": "/sign-up/essential"
+      },
+      "metaData": {
+        "title": "Sign up for the Essential Digital Skills for Scotland project"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_sign-up_form-essential",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sign_up_review",
+      "pattern": {
+        "new": "/charter/sign-up/review",
+        "old": "/sign-up/review"
+      },
+      "metaData": {
+        "title": "Sign up for the Essential Digital Skills for Scotland project"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_sign-up_form-annual",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "skills_foundation",
+      "pattern": "/skills/foundation",
+      "metaData": {
+        "title": "Foundation digital skills – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.skills_foundation",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "skills_essential",
+      "pattern": "/skills/essential",
+      "metaData": {
+        "title": "Essential digital skills toolkit – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.skills_essential",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "skills_essential_results",
+      "pattern": "/skills/essential/results",
+      "metaData": {
+        "title": "Essential digital skills toolkit – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "supplimentaryResponses",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": [
+              {
+                "name": "resources_relevant",
+                "index": "web-content-production",
+                "type": "scvo-resource",
+                "template": ">context.metaData.handlebars.queries.resources-relevant"
+              }
+            ]
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.skills_essential-results",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "skills_information",
+      "pattern": "/skills/information",
+      "metaData": {
+        "title": "Learn about the essential digital skills framework – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.skills_information",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "skills_essential_feedback",
+      "pattern": "/skills/essential/feedback",
+      "metaData": {
+        "title": "Essential digital skills toolkit – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.skills_essential-feedback",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "blog_posts",
+      "pattern": "/stories",
+      "metaData": {
+        "title": "Stories – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "primaryResponse",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": {
+              "index": "web-content-production",
+              "type": "scvo-post",
+              "template": ">context.metaData.handlebars.queries.blog-posts"
+            }
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.stories_index",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "blog_post",
+      "pattern": "/post/*path",
+      "metaData": {
+        "title": "Stories – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "primaryResponse",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": {
+              "index": "web-content-production",
+              "type": "scvo-post",
+              "template": ">context.metaData.handlebars.queries.blog-post"
+            }
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags-post",
+                  "body": ">context.metaData.handlebars.templates.stories_post",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "charter",
+      "pattern": "/charter",
+      "metaData": {
+        "title": "Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_index",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "charter_pledges",
+      "pattern": "/charter/pledges",
+      "metaData": {
+        "title": "Charter pledges – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_pledges",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "signatories_redirect",
+      "pattern": "/signatories",
+      "metaData": {
+        "title": "Signatories – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "redirect",
+          "config": {
+            "location": "/charter/signatories",
+            "statusCode": 301
+          }
+        }
+      ]
+    },
+    {
+      "name": "signatory_search",
+      "pattern": "/charter/signatories",
+      "metaData": {
+        "title": "Signatories – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "primaryResponse",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": {
+              "index": "web-content-production",
+              "type": "charter-signatory-digitalparticipation",
+              "template": ">context.metaData.handlebars.queries.signatory-search"
+            }
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "supplimentaryResponses",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": [
+              {
+                "name": "total",
+                "index": "web-content-production",
+                "type": "charter-signatory-digitalparticipation",
+                "template": ">context.metaData.handlebars.queries.signatory-total"
+              },
+              {
+                "name": "types",
+                "index": "web-content-production",
+                "type": "charter-signatory-digitalparticipation",
+                "template": ">context.metaData.handlebars.queries.signatory-aggs"
+              },
+              {
+                "name": "categories",
+                "index": "web-content-production",
+                "type": "charter-signatory-digitalparticipation",
+                "template": ">context.metaData.handlebars.queries.signatory-category-aggs"
+              }
+            ]
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.charter_signatories_signatory-search",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "signatory_redirect",
+      "pattern": "/signatories/:slug",
+      "metaData": {
+        "title": "Signatory – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "url",
+          "taskModule": "render",
+          "renderer": "handlebars",
+          "config": {
+            "output": "data",
+            "template": "/charter/signatories/{{{@root.request.params.slug}}}"
+          }
+        },
+        {
+          "name": "destination",
+          "taskModule": "redirect",
+          "config": {
+            "location": ">data.url",
+            "statusCode": 301
+          }
+        }
+      ]
+    },
+    {
+      "name": "signatory",
+      "pattern": "/charter/signatories/:slug",
+      "metaData": {
+        "title": "Signatory – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "primaryResponse",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": {
+              "index": "web-content-production",
+              "type": "charter-signatory-digitalparticipation",
+              "template": ">context.metaData.handlebars.queries.signatory"
+            }
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "supplimentaryResponses",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": [
+              {
+                "name": "types",
+                "index": "web-content-production",
+                "type": "charter-signatory-digitalparticipation",
+                "template": ">context.metaData.handlebars.queries.signatory-aggs"
+              },
+              {
+                "name": "projects",
+                "index": "web-content-production",
+                "type": "scvo-grant-charter",
+                "template": ">context.metaData.handlebars.queries.signatory-projects"
+              }
+            ]
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags-signatory",
+                  "body": ">context.metaData.handlebars.templates.charter_signatories_signatory",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "resources",
+      "pattern": "/resources",
+      "metaData": {
+        "title": "Resources – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "supplimentaryResponses",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": [
+              {
+                "name": "links",
+                "index": "web-content-production",
+                "type": "scvo-resource",
+                "template": ">context.metaData.handlebars.queries.links"
+              }
+            ]
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.resources_index",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "resources_downloads",
+      "pattern": "/resources/toolkit-downloads",
+      "metaData": {
+        "title": "Downloads – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.resources_toolkit-downloads",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "resources_reports",
+      "pattern": "/resources/reports",
+      "metaData": {
+        "title": "Resources – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "supplimentaryResponses",
+          "taskModule": "elasticsearch",
+          "config": {
+            "connectionStringTemplate": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+            "elasticsearchConfig": {
+              "apiVersion": "5.6"
+            },
+            "queryTemplates": [
+              {
+                "name": "links",
+                "index": "web-content-production",
+                "type": "scvo-resource",
+                "template": ">context.metaData.handlebars.queries.links"
+              }
+            ]
+          },
+          "renderer": "handlebars"
+        },
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.resources_reports",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "resources_help_others",
+      "pattern": "/resources/help-others",
+      "metaData": {
+        "title": "Resources – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.resources_help-others",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "resources_logos",
+      "pattern": "/resources/logos",
+      "metaData": {
+        "title": "Resources – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.resources_logos",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "resources_support",
+      "pattern": "/resources/support",
+      "metaData": {
+        "title": "Resources – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.resources_support",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "contact",
+      "pattern": "/contact-us",
+      "metaData": {
+        "title": "Contact us – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.contact",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "accessibility",
+      "pattern": "/accessibility",
+      "metaData": {
+        "title": "Accessibility – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.accessibility",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "privacy",
+      "pattern": "/privacy",
+      "metaData": {
+        "title": "Privacy policy – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.privacy",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "cookies",
+      "pattern": "/cookies",
+      "metaData": {
+        "title": "Cookies policy – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.cookies",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "terms",
+      "pattern": "/terms",
+      "metaData": {
+        "title": "Terms and conditions – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.terms",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "skills",
+      "pattern": "/skills",
+      "metaData": {
+        "title": "Skills – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.skills_index",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "skills_redirect",
+      "pattern": "/skill-up",
+      "metaData": {
+        "title": "Skills – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "redirect",
+          "config": {
+            "location": "/skills",
+            "statusCode": 301
+          }
+        }
+      ]
+    },
+    {
+      "name": "charter_redirect",
+      "pattern": "/the-charter",
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "redirect",
+          "config": {
+            "location": "/charter",
+            "statusCode": 301
+          }
+        }
+      ]
+    },
+    {
+      "name": "_default",
+      "pattern": "/*path",
+      "metaData": {
+        "title": "404: Page not found – Scotland's Digital Participation Charter"
+      },
+      "tasks": [
+        {
+          "name": "destination",
+          "taskModule": "renderLayout",
+          "renderer": "handlebars",
+          "config": {
+            "logic": {
+              "if": [
+                "default"
+              ]
+            },
+            "output": "body",
+            "layouts": {
+              "default": {
+                "layout": ">context.metaData.handlebars.layouts.default",
+                "parts": {
+                  "head": ">context.metaData.handlebars.templates.head-tags",
+                  "body": ">context.metaData.handlebars.templates.404",
+                  "foot": ""
+                },
+                "contentType": "text/html"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "metaData": {
+    "assetsVersion": "0.0.1",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/digitalparticipation/",
+    "title": "Scotland's Digital Participation Charter",
+    "menus": {
+      "main": [
+        {
+          "label": "Home",
+          "path": "/",
+          "route": "^/$"
+        },
+        {
+          "children": [
+            {
+              "label": "Signatories",
+              "path": "/charter/signatories",
+              "route": "^/charter/signatories"
+            },
+            {
+              "label": "Sign up",
+              "path": "/charter/sign-up",
+              "route": "^/charter/sign-up"
+            }
+          ],
+          "label": "Charter",
+          "path": "/charter",
+          "route": "^/charter"
+        },
+        {
+          "children": [
+            {
+              "label": "Foundation",
+              "path": "/skills/foundation",
+              "route": "^/skills/foundation"
+            },
+            {
+              "label": "Essentials",
+              "path": "/skills/essential",
+              "route": "^/skills/essential"
+            }
+          ],
+          "label": "Skills",
+          "path": "/skills",
+          "route": "^/skills"
+        },
+        {
+          "label": "Stories",
+          "path": "/stories",
+          "route": "^/stories|^/post"
+        },
+        {
+          "children": [
+            {
+              "label": "Downloads",
+              "path": "/resources/toolkit-downloads",
+              "route": "^/resources/toolkit-downloads"
+            }
+          ],
+          "label": "Resources",
+          "path": "/resources",
+          "route": "^/resources"
+        }
+      ]
+    },
+    "elasticsearchUrl": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io:9243",
+    "pledges": {
+      "1": {
+        "title": "Skill Up",
+        "description": "We ensure that our staff & volunteers have the opportunity to develop essential digital skills."
+      },
+      "2": {
+        "title": "Support Staff",
+        "description": "We support our staff & volunteers to help others learn essential digital skills and embrace digital tools."
+      },
+      "3": {
+        "title": "Support Scotland",
+        "description": "We support our nation by contributing resources and practical support for Scotland in whatever ways we can."
+      },
+      "4": {
+        "title": "The Essentials",
+        "description": "We support a common language based on digital participation and essential digital skills to make our thinking and actions as clear as possible."
+      },
+      "5": {
+        "title": "Come Together",
+        "description": "We channel our efforts through the Digital Participation programme so that our activities are coordinated and build on each other."
+      }
+    },
+    "handlebars": {
+      "partials": {
+        "asset_url": "{{~#if @root.context.metaData.live~}}\n{{@root.context.metaData.assetsBase}}{{{url}}}?version={{{@root.context.metaData.assetsVersion}}}\n{{~else~}}\n/assets/{{{url}}}\n{{~/if~}}",
+        "components_advanced_checkbox_checkbox": "  <div class=\"mdc-checkbox mdc-list-item__meta\">\n    <input type=\"checkbox\" class=\"mdc-checkbox__native-control\"\n        {{#unless hideName}}name=\"{{name}}\"{{/unless}} value=\"{{value}}\"\n        id=\"cb-{{name}}-{{value}}\" {{#if checked}}checked{{/if}}\n        aria-labelledby=\"li-{{name}}-{{value}}\">\n    <div class=\"mdc-checkbox__background\">\n      <svg class=\"mdc-checkbox__checkmark\" viewBox=\"0 0 24 24\">\n        <path class=\"mdc-checkbox__checkmark-path\" fill=\"none\" d=\"M1.73,12.91 8.1,19.28 22.79,4.59\"/>\n      </svg>\n      <div class=\"mdc-checkbox__mixedmark\"></div>\n    </div>\n  </div>",
+        "components_advanced_checkbox_group": "<li class=\"mdc-list-item checkbox-list-parent {{#if hideParent}}checkbox-list-parent-hidden{{/if}}\" data-advanced-checkbox-group=\"{{name}}\"\n    role=\"checkbox\" aria-checked=\"false\" id=\"li-{{name}}-{{value}}\">\n  <label class=\"mdc-list-item__text\" for=\"cb-{{name}}-{{value}}\">\n    {{label}}\n    <span class=\"checkbox-list-indicator\" data-advanced-checkbox-group-indicator></span>\n  </label>\n  {{> components_advanced_checkbox_checkbox name=name hideName=true label=label}}\n</li>\n{{> @partial-block}}",
+        "components_advanced_checkbox_item": "<li class=\"mdc-list-item checkbox-list-child {{#if noIndent}}checkbox-list-child-no-indent{{/if}}\" data-advanced-checkbox-item=\"{{name}}\"\n    data-advanced-checkbox-group-parent=\"{{group}}\" role=\"checkbox\" aria-checked=\"{{checked}}\"\n    id=\"li-{{name}}-{{value}}\">\n  <label class=\"mdc-list-item__text\" for=\"cb-{{name}}-{{value}}\">{{label}}</label>\n  {{> components_advanced_checkbox_checkbox name=name hideName=false value=value label=label checked=checked}}\n</li>",
+        "components_advanced_checkbox_list": "<div class=\"mdc-list-group advanced-checkbox-list\" data-advanced-checkbox-list=\"{{name}}\">\n  <h3 class=\"mdc-list-group__subheader cursor-pointer noselect\" data-acl-collapse-trigger>\n    <span class=\"mdc-icon-toggle mdc-icon-toggle-xs pull-right\" data-acl-clear>\n      <span class=\"far fa-trash\" aria-hidden=\"true\"></span>\n    </span>\n    {{{label}}}\n  </h3>\n  <ul class=\"mdc-list mdc-list--dense\" style=\"display:none;\" role=\"group\" aria-label=\"{{label}}\">\n    {{> @partial-block}}\n  </ul>\n  <div class=\"collapse-trigger cursor-pointer noselect\" data-acl-collapse-trigger>\n    <span class=\"fas fa-chevron-down pull-centre\" data-acl-collapse-icon-collapsed=\"fa-chevron-down\" data-acl-collapse-icon-open=\"fa-chevron-up\"></span>\n  </div>\n</div>",
+        "components_anchored_menu": "{{#with (default menuId (concat \"menu-\" (random 1000 9999))) as |menuId|}}\n<div class=\"mdc-menu-surface--anchor {{../anchorClasses}}\">\n  <button class=\"mdc-button {{../buttonClasses}}\" id=\"{{menuId}}-trigger\">\n    {{#if ../imageUrl ~}}\n      <img src=\"{{../imageUrl}}\" class=\"{{../imageClasses}}\" />\n    {{/if}}\n    {{#if ../iconClasses}}\n      <span class=\"{{../iconClasses}}\"></span>\n    {{/if ~}}\n    {{{../buttonLabel}}}\n    {{#if ../arrowClasses}}\n      <span class=\"{{../arrowClasses}}\"></span>\n    {{/if}}\n  </button>\n  <div class=\"mdc-menu mdc-menu-surface {{../menuClasses}}\" tabindex=\"-1\" id=\"{{menuId}}\" data-menu-trigger=\"#{{menuId}}-trigger\">\n    <ul class=\"mdc-menu__items mdc-list {{../menuListClasses}}\" role=\"menu\" aria-hidden=\"true\">\n      {{> @partial-block}}\n    </ul>\n  </div>\n</div>\n{{/with}}\n",
+        "components_checkbox": "<div class=\"mdc-form-field {{fieldClasses}}\">\n  <div class=\"mdc-checkbox\">\n    <input type=\"checkbox\" class=\"mdc-checkbox__native-control\" id=\"{{id}}\" name=\"{{name}}\" value=\"{{default value label}}\"{{#if checked}} checked=\"checked\"{{/if}} />\n    <div class=\"mdc-checkbox__background\">\n      <svg class=\"mdc-checkbox__checkmark\"\n      viewBox=\"0 0 24 24\">\n      <path class=\"mdc-checkbox__checkmark-path\"\n      fill=\"none\"\n      stroke=\"white\"\n      d=\"M1.73,12.91 8.1,19.28 22.79,4.59\"/></svg>\n      <div class=\"mdc-checkbox__mixedmark\"></div>\n    </div>\n  </div>\n  <label for=\"{{id}}\">\n    {{{default label value}}}\n  </label>\n</div>\n\n",
+        "components_horizontal_card_scroller": "{{#ifAll (compare (length items) \"===\" 0) @partial-block}}\n  {{> @partial-block}}\n{{else}}\n  <div class=\"mdc-layout-grid equal-height {{outerClasses}}\">\n    {{#if (any items)}}\n    <div class=\"scroll-button scroll-left {{scrollButtonClasses}} {{scrollButtonLeftClasses}}\">\n      <span class=\"scroll-icon {{scrollIconClasses}} {{scrollLeftIconClasses}}\"></span>\n    </div>\n    <div class=\"scroll-button scroll-right {{scrollButtonClasses}} {{scrollButtonRightClasses}}\">\n      <span class=\"scroll-icon {{scrollIconClasses}} {{scrollRightIconClasses}}\"></span>\n    </div>\n    {{/if}}\n    <div class=\"mdc-layout-grid__inner scrolling-grid {{innerClasses}}\">\n      {{#if (any items)}}\n        {{#each items}}\n          <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone {{../itemClasses}}\">\n            {{> (lookup ../this 'itemsPartial')}}\n          </div>\n        {{/each}}\n        {{#if moreUrl}}\n          <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone latest-content-primary last-card {{moreClasses}}\">\n            <div class=\"mdc-card align-centre mdc-typography--body1 {{moreCardClasses}}\">\n              <a href=\"{{{moreUrl}}}\">{{default moreText \"More\"}}</a>\n            </div>\n          </div>\n        {{/if}}\n      {{/if}}\n    </div>\n  </div>\n{{/ifAll}}\n",
+        "components_radio_button": "<div class=\"mdc-form-field {{fieldClasses}}\"{{#if @partial-block ~}} data-ajax-radio-button='{{> @partial-block}}'{{/if}}>\n  <div class=\"mdc-radio {{innerClasses}}\">\n    <input class=\"mdc-radio__native-control\" type=\"radio\" id=\"{{default id name}}\" name=\"{{default name}}\" value=\"{{default value label}}\"{{#if active}} checked=\"checked\"{{/if}}{{#if required}} required{{/if}}>\n    <div class=\"mdc-radio__background\">\n      <div class=\"mdc-radio__outer-circle\"></div>\n      <div class=\"mdc-radio__inner-circle\"></div>\n    </div>\n  </div>\n  <label for=\"{{default id name}}\">{{default label value}}</label>\n</div>\n",
+        "components_scvo_bar": "<nav id=\"scvo-tab-bar\" class=\"mdc-tab-bar\">\n  <a class=\"mdc-tab{{#if (contains @root.request.url.hostname 'scvo.')}} mdc-tab--active{{/if}}\" href=\"{{#unless (contains @root.request.url.hostname 'scvo.')}}https://scvo.org{{else}}/{{/unless}}\"><span class=\"mdc-tab--label\">SCVO</span></a>\n  <a class=\"mdc-tab{{#if (contains @root.request.url.hostname 'goodmoves.')}} mdc-tab--active{{/if}}\" href=\"https://goodmoves.com\"><span class=\"mdc-tab--label\">Goodmoves</span></a>\n  <a class=\"mdc-tab{{#if (contains @root.request.url.hostname 'thirdforcenews.')}} mdc-tab--active{{/if}}\" href=\"https://thirdforcenews.org.uk\"><span class=\"mdc-tab--label\">TFN</span></a>\n  <a class=\"mdc-tab\" href=\"{{#unless (contains @root.request.url.hostname 'scvo.')}}https://scvo.org{{/unless}}/scottish-charity-awards\"><span class=\"mdc-tab--label\">Scottish Charity Awards</span></a>\n  <a class=\"mdc-tab\" href=\"{{#unless (contains @root.request.url.hostname 'scvo.')}}https://scvo.org{{/unless}}/the-gathering-2020\"><span class=\"mdc-tab--label\">The Gathering</span></a>\n  <a class=\"mdc-tab pull-right brand-logo\" href=\"{{#unless (contains @root.request.url.hostname 'scvo.')}}https://scvo.org{{else}}/{{/unless}}\" title=\"Scottish Council for Voluntary Organisations\">\n    <img src=\"{{~>asset_url url='images/logos/scvo-inverse.png'}}\" alt=\"Scottish Council for Voluntary Organisations\" />\n  </a>\n</nav>",
+        "components_tab_bar": "<div class=\"mdc-tab-bar {{extraClasses}}\" {{#if id}}id=\"{{id}}\"{{/if}} role=\"tablist\" data-tab-bar='{\n      \"defaultTabIdentifier\": {{{stringify (default defaultTabIdentifier null)}}}\n    }'>\n  <div class=\"mdc-tab-scroller\">\n    <div class=\"mdc-tab-scroller__scroll-area\">\n      <div class=\"mdc-tab-scroller__scroll-content\">\n        {{> @partial-block}}\n      </div>\n    </div>\n  </div>\n</div>\n",
+        "components_tab": "<{{#if url}}a href=\"{{{url}}}\"{{else}}button{{/if}} class=\"mdc-tab {{linkClasses}} {{#if active}} mdc-tab--active{{/if}}\"\n              role=\"tab\" {{#if active}}aria-selected=\"true\"{{else}}aria-hidden=\"true\"{{/if}} tabindex=\"0\"\n              {{#if tabName}}data-tab-name=\"{{tabName}}\"{{/if}}>\n  <span class=\"mdc-tab__content {{contentClasses}}\">\n    {{#if iconClasses}}<span class=\"mdc-tab__icon {{iconClasses}}\"></span>{{/if}}\n    <span class=\"mdc-tab__text-label {{labelClasses}}\">{{label}}</span>\n  </span>\n  <span class=\"mdc-tab-indicator {{indicatorClasses}} {{#if active}}mdc-tab-indicator--active{{/if}}\">\n    <span class=\"mdc-tab-indicator__content {{indicatorContentClasses}} mdc-tab-indicator__content--underline\"></span>\n  </span>\n  <span class=\"mdc-tab__ripple\"></span>\n  </{{#if url}}a{{else}}button{{/if}}>",
+        "pagination": "{{#compare paging.totalPages \">\" 1 ~}}\n  <ul class=\"pagination inline-list\">\n    {{#if firstLastNavigation ~}}\n      <li class=\"{{#if paging.prevPage}}{{else}}disabled{{/if}}\">\n        <a class=\"pagination-arrow\" href=\"{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query page=1 json=false}}}\">\n          <i class=\"far fa-fw fa-chevron-double-left\"></i>\n        </a>\n      </li>\n    {{/if ~}}\n    <li class=\"{{#if paging.prevPage}}{{else}}disabled{{/if}}\">\n      <a class=\"pagination-arrow\" href=\"{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query page=paging.prevPage json=false}}}\">\n        <i class=\"far fa-fw fa-chevron-left\"></i>\n      </a>\n    </li>\n    {{#each paging.pageRange ~}}\n      <li class=\"{{#compare ../paging.currentPage \"===\" this.pageNumber}}current-page {{/compare}}pagination-distance-{{this.distance}}\">\n        <a class=\"pagination-page\" href=\"{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query page=this.pageNumber json=false}}}\">\n          {{this.pageNumber}}\n        </a>\n      </li>\n    {{/each ~}}\n    <li class=\"{{#if paging.nextPage}}{{else}}disabled{{/if}}\">\n      <a class=\"pagination-arrow\" href=\"{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query page=paging.nextPage json=false}}}\">\n        <i class=\"far fa-fw fa-chevron-right\"></i>\n      </a>\n    </li>\n    {{#if firstLastNavigation ~}}\n      <li class=\"{{#if paging.nextPage}}{{else}}disabled{{/if}}\">\n        <a class=\"pagination-arrow\" href=\"{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query page=paging.totalPages json=false}}}\">\n          <i class=\"far fa-fw fa-chevron-double-right\"></i>\n        </a>\n      </li>\n    {{/if ~}}\n  </ul>\n{{/compare ~}}",
+        "query_search": "{{if (compare (querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null) \"\") \"\" else=\"?\"}}{{{querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null}}}",
+        "resource": "<div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone toolkit-topic-resources-{{slug}}\">\n  <h4>\n    <a href=\"{{link}}\">{{{title}}}</a>\n  </h4>\n  {{#compare author \"!==\" title ~}}\n  <p class=\"author\">\n    <strong>{{{author}}}</strong>\n  </p>\n  {{/compare ~}}\n  {{#if tags ~}}\n  <p class=\"tags\">\n    {{#each tags}}\n    <span class=\"tag\">{{{this}}}</span>{{#unless @last}}{{/unless}}\n    {{/each}}\n  </p>\n  {{/if ~}}\n  <p>\n    {{{content}}}\n  </p>\n  <p>\n    <strong><a href=\"{{link}}\" class=\"mdc-card__action\">Read more</a> <span class=\"fas fa-external-link\" aria-hidden=\"true\"></span></strong>\n  </p>\n</div>\n",
+        "search_info": "<form action=\"{{@root.request.url.path}}\" method=\"GET\">\n  {{#if @root.request.params.query.q ~}}\n  <input type=\"hidden\" name=\"q\" value=\"{{@root.request.params.query.q}}\" />\n  {{/if ~}}\n  {{#if @root.request.params.query.sector ~}}\n  <input type=\"hidden\" name=\"sector\" value=\"{{@root.request.params.query.sector}}\" />\n  {{/if ~}}\n  {{#if @root.request.params.query.category ~}}\n  <input type=\"hidden\" name=\"category\" value=\"{{@root.request.params.query.category}}\" />\n  {{/if ~}}\n  <div class=\"mdc-layout-grid\">\n    <div class=\"mdc-layout-grid__inner\">\n      <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n        {{#if paging.totalResults ~}}\n        <p class=\"search-info\">\n          <strong>Total results:</strong> {{addCommas paging.totalResults}}\n          {{#compare paging.totalResults \">\" 10 ~}} |\n          <strong>Current page:</strong> {{addCommas paging.currentPage}} of {{addCommas paging.totalPages}}\n          {{/compare ~}}\n        </p>\n        {{else}}\n        {{#ifAny @root.request.params.query.q @root.request.params.query.sector @root.request.params.query.category ~}}\n        <p class=\"search-info\">\n          No results could be found, please try a different search query\n        </p>\n        {{/ifAny ~}}\n        {{/if ~}}\n      </div>\n      <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n        <div class=\"mdc-form-field narrow pull-right\">\n          <div class=\"mdc-checkbox\">\n            <input type=\"checkbox\" class=\"mdc-checkbox__native-control\" id=\"exclude_expired\" name=\"exclude_expired\" onchange=\"this.form.submit();\"{{#if @root.request.params.query.exclude_expired}} checked{{/if}} />\n            <div class=\"mdc-checkbox__background\">\n              <svg class=\"mdc-checkbox__checkmark\" viewBox=\"0 0 24 24\">\n                <path class=\"mdc-checkbox__checkmark-path\" fill=\"none\" d=\"M1.73,12.91 8.1,19.28 22.79,4.59\"/>\n              </svg>\n              <div class=\"mdc-checkbox__mixedmark\"></div>\n            </div>\n          </div>\n          <label for=\"exclude_expired\">Show only active signatories</label>\n        </div>\n      </div>\n      <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n        <div class=\"mdc-form-field sort pull-right\">\n          <form action=\"{{@root.request.url.path}}\" method=\"GET\">\n          <select class=\"mdc-select\" role=\"listbox\" id=\"charter-sort\" name=\"sort\" onchange=\"this.form.submit();\">\n            <option value=\"\"{{#if @root.request.params.query.sort}}{{else}} selected{{/if}}>{{#if @root.request.params.query.q ~}}Relevance{{else}}Date signed{{/if}}</option>\n            <option value=\"AZ\"{{#if @root.request.params.query.sort}} selected{{else}}{{/if}}>Alphabetical</option>\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</form>\n",
+        "signatory_json_ld": "<script type=\"application/ld+json\" data-dynamic=\"true\">\n{\n  \"@context\": \"http://schema.org\",\n  \"@type\": \"Article\",\n  \"headline\": \"{{title}}\",\n  \"description\": \"{{default description 'Commitment not yet provided'}}\",\n  {{#if date_signed ~}}\n  \"datePublished\": \"{{momentFormat (moment date_signed 'x') 'YYYY-MM-DDTHH:mm:ssZ'}}\",\n  {{else}}\n  \"datePublished\": \"{{momentFormat (moment now 'x') 'YYYY-MM-DDTHH:mm:ssZ'}}\",\n  {{/if ~}}\n  \"dateModified\": \"{{date_last_modified}}\",\n  {{#if logos.0.uploadUrl ~}}\n  \"image\": \"{{logos.0.uploadUrl}}\",\n  {{/if ~}}\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"{{title}}\"\n  },\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://digitalparticipation.scot/charter/signatory/{{slug}}\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scottish Council for Voluntary Organisations\",\n    \"logo\": {\n        \"@type\": \"ImageObject\",\n        \"url\": \"https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/logos/scvo-logo.jpg\"\n    }\n  }\n}\n</script>"
+      },
+      "templates": {
+        "404": "<h1>Error 404: Page not found</h1>",
+        "accessibility": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <h1>Accessibility</h1>\n      <p>This website has been designed to comply with international web accessibility standards issued by the <a href=\"http://www.w3cuk.org.uk/\">World Wide Web consortium</a> (W3C) as part of their <a href=\"https://www.w3.org/WAI/\">Web Accessibility Initiative</a>.</p>\n      <p>All reasonable efforts have been made to ensure that top level and main content pages are compliant with the standards.</p>\n    </div>\n  </div>\n</div>",
+        "charter_index": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-7-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h1>Charter</h1>\n      <p>\n        When you sign Scotland's Digital Participation Charter, we ask you\n        to commit to five key pledges - allowing Scotland to work together\n        and skill up our digital nation.\n      </p>\n      <h4 class=\"margin-top\">\n        <a href=\"/charter/signatories\" class=\"mdc-button\"><span class=\"fas fa-search\" aria-hidden=\"true\"></span>&ensp;Current signatories</a>\n      </h4>\n      <h4>\n        <a href=\"/charter/sign-up\" class=\"mdc-button\"><span class=\"fas fa-file-signature\" aria-hidden=\"true\"></span>&ensp;Sign up</a>\n      </h4>\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Skill-Up-Scotland-RGB-04.png\" alt=\"Skill Up Scotland illustration\" class=\"responsive-img hide-on-med-and-up\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-1\">\n      &nbsp;\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Skill-Up-Scotland-RGB-04.png\" alt=\"Skill Up Scotland illustration\" class=\"responsive-img\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <hr />\n    </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner description pledges\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h1 class=\"align-bottom\">Our pledges</h1>\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Pledges-RGB-04.png\" alt=\"Our Pledges illustration\" class=\"responsive-img\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-12\">\n      <hr class=\"nomargin\" style=\"margin-top:-1rem;\" />\n    </div>\n  </div>\n  {{#each @root.context.metaData.pledges ~}}\n  <div class=\"mdc-layout-grid__inner expand pledge\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone\">\n      <h3>\n        <span class=\"number\">{{@key}}</span>\n      </h3>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone\">\n      <h3>\n        {{{title}}}\n      </h3>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-7-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <p>\n        {{{description}}}\n      </p>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr class=\"nomargin\" />\n    </div>\n  </div>\n  {{/each ~}}\n</div>",
+        "charter_sign-up_complete": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <h1>Thank You!</h1>\n      <h2>We will be in touch shortly with further information.</h2>\n    </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner description\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <hr />\n    </div>\n  </div>\n</div>",
+        "charter_sign-up_form-annual": "<iframe src=\"https://www.surveygizmo.eu/s3/90102537/Charter-Annual-Review?key={{request.params.query.key}}\" frameborder=\"0\" width=\"100%\" height=\"400\" style=\"overflow:hidden\"></iframe>",
+        "charter_sign-up_form-essential": "<iframe src=\"https://www.surveygizmo.eu/s3/90090548/Essential-Digital-Skills-for-Scotland\" frameborder=\"0\" width=\"100%\" height=\"200\" style=\"overflow:hidden\"></iframe>",
+        "charter_sign-up_form-stage-1": "<iframe src=\"https://www.surveygizmo.eu/s3/90088286/DigitalCharter\" frameborder=\"0\" width=\"100%\" height=\"400\" style=\"overflow:hidden\"></iframe>",
+        "charter_sign-up_form-stage-2": "<iframe src=\"https://www.surveygizmo.eu/s3/90088287/DPCSUStage2?key={{request.params.query.key}}\" frameborder=\"0\" width=\"100%\" height=\"400\" style=\"overflow:hidden\"></iframe>",
+        "charter_sign-up_form": "<iframe src=\"https://www.surveygizmo.eu/s3/90025985/charter-sign-up\" frameborder=\"0\" width=\"100%\" height=\"400\" style=\"overflow:hidden\"></iframe>",
+        "charter_sign-up_sign-up": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-7-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell-4-phone\">\n      <h1>Sign up</h1>\n      <h2>Who can sign the Charter?</h2>\n      <p>\n        Any organisation from the public, private or voluntary sectors can sign the Charter. Big or small, Scotland-based or international – as long as your organisation operates in Scotland you can sign. All we ask is that you make a commitment to digital participation i.e. a plan to skill up your own workforce or an offer you’re making to the wider community.\n      </p>\n      <p>\n        We’ll ask you for some details about your organisation and your commitments, (so you’ll need to make sure you’re authorised to sign up on their behalf). We’re happy to work with you and answer any questions so please <a href=\"/contact-us\">get in touch</a> if you need to.\n      </p>\n      <p>\n        Ready? Sign up using the form below and take a step towards a digitally smarter Scotland.\n      </p>\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Sign-Charter-RGB-04.png\" alt=\"Sign up illustration\" class=\"responsive-img hide-on-med-and-up\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-1\">\n      &nbsp;\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Sign-Charter-RGB-04.png\" alt=\"Sign up illustration\" class=\"responsive-img\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell-4-phone\">\n      {{!-- <hr /> --}}\n      <script type=\"text/javascript\" >document.write('<script src=\"http' + ( (\"https:\" == document.location.protocol) ? \"s\" : \"\") + '://www.surveygizmo.eu/s3/90088286/DigitalCharter?__output=embedjs&__ref=' + escape(document.location.origin + document.location.pathname) + '\" type=\"text/javascript\" ></scr' + 'ipt>');</script><style>.sg-survey{display:none; }</style>\n    </div>\n  </div>\n</div>\n",
+        "charter_signatories_signatory-search-legacy": "<div class=\"signatories\">\n  <h1>Signatories <span class=\"small\">({{@root.data.supplimentaryResponses.total.hits.total}})</span></h1>\n\n  <form action=\"/signatories\" [searchroute]=\"'signatory_search'\" data-auto-search=\"true\" id=\"signatory-search\">\n    <div class=\"mdc-layout-grid\">\n      <div class=\"mdc-layout-grid__inner\">\n        <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n          <h4>Search</h4>\n          <div class=\"mdc-textfield mdc-textfield--upgraded keywords\">\n            <input type=\"text\" class=\"mdc-textfield__input\" name=\"q\" id=\"charter-keywords\" value=\"{{@root.request.params.query.q}}\" placeholder=\"Search for a charter signatory\" autofocus>\n            <button type=\"submit\" class=\"mdc-toolbar__icon mdc-toolbar__search search-button-large\" aria-label=\"Search\" alt=\"Search\">\n              <span class=\"far fa-2x fa-search\" aria-hidden=\"true\"></span>\n            </button>\n          </div>\n        </div>\n        <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n          <h4>Sector</h4>\n          <div class=\"mdc-form-field sector\">\n            <select class=\"mdc-select\" role=\"listbox\" id=\"charter-sector\" name=\"sector\" data-clear-input=\"#charter-category\">\n              <option value=\"\" {{#if @root.request.params.query.sector}}{{else}}selected{{/if}}>All sectors</option>\n              {{#each @root.data.supplimentaryResponses.types.aggregations.sectors.buckets}}\n              <option value=\"{{key}}\" {{#compare @root.request.params.query.sector \"===\" key}}selected{{/compare}}>{{key}}</option>\n              {{/each}}\n            </select>\n          </div>\n        </div>\n        <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n          <h4>Category</h4>\n          <div class=\"mdc-form-field category\">\n            <select class=\"mdc-select\" role=\"listbox\" id=\"charter-category\" name=\"category\">\n              <option value=\"\" {{#if @root.request.params.query.category}}{{else}}selected{{/if}}>All categories</option>\n              {{#each @root.data.supplimentaryResponses.categories.aggregations.categories.buckets}}\n              <option value=\"{{key}}\" {{#compare @root.request.params.query.category \"===\" key}}selected{{/compare}}>{{key}}</option>\n              {{/each}}\n            </select>\n          </div>\n        </div>\n      </div>\n      <div class=\"mdc-layout-grid__inner\">\n        <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n          <h4>Total signatories found: {{data.primaryResponse.hits.total}}</h4>\n        </div>\n        <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-1-phone\">\n          <h4 class=\"sort\">Sort</h4>\n        </div>\n        <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-3-phone\">\n          <div class=\"mdc-form-field sort\">\n            <select class=\"mdc-select\" role=\"listbox\" id=\"charter-sort\" name=\"sort\">\n              <option value=\"\" {{#if @root.request.params.query.sort}}{{else}}selected{{/if}}>Date signed</option>\n              <option value=\"AZ\" {{#if @root.request.params.query.sort}}selected{{else}}{{/if}}>Alphabetical</option>\n            </select>\n          </div>\n        </div>\n      </div>\n    </div>\n  </form>\n\n  <div class=\"mdc-layout-grid signatories-search\">\n    <div class=\"mdc-layout-grid__inner\">\n      {{#each @root.data.primaryResponse.hits.hits ~}}\n      {{#with _source ~}}\n      <div class=\"mdc-layout-grid__cell signatory inner mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n        <a href=\"/charter/signatories/{{slug}}\" title=\"{{title}}\" class=\"search-result digital-charter-signatory\">\n          {{#if logos.[0] ~}}\n          <img src=\"{{logos.0.uploadUrl}}\" alt=\"{{title}}\" class=\"responsive-img resize-fit-center\" />\n          {{/if ~}}\n          <span class=\"title\">\n            {{title}}\n          </span>\n        </a>\n      </div>\n      {{/with ~}}\n      {{/each ~}}\n    </div>\n  </div>\n\n  {{> pagination paging=@root.data.primaryResponse.pagination firstLastNavigation=true}}\n</div>\n",
+        "charter_signatories_signatory-search": "<div class=\"signatories title\">\n  <h1>\n    <span class=\"counter\" title=\"{{@root.data.supplimentaryResponses.total.hits.total}} charter signatories\">\n      <span class=\"fas fa-badge-check\" aria-hidden=\"true\"></span>\n      {{@root.data.supplimentaryResponses.total.hits.total}}\n    </span>\n    Signatories\n  </h1>\n</div>\n<div class=\"signatories detail\">\n  <form action=\"/charter/signatories\" [searchroute]=\"'signatory_search'\" data-auto-search=\"true\" id=\"signatory-search\">\n    {{#if @root.request.params.query.sort ~}}\n    <input type=\"hidden\" name=\"sort\" value=\"{{@root.request.params.query.sort}}\" />\n    {{/if ~}}\n    {{#if @root.request.params.query.exclude_expired ~}}\n    <input type=\"hidden\" name=\"exclude_expired\" value=\"on\" />\n    {{/if ~}}\n    <div class=\"mdc-layout-grid\">\n      <div class=\"mdc-layout-grid__inner\">\n        <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n          <h4>Search</h4>\n          <div class=\"mdc-textfield mdc-textfield--upgraded keywords\">\n            <input type=\"text\" class=\"mdc-textfield__input\" name=\"q\" id=\"charter-keywords\" value=\"{{@root.request.params.query.q}}\" placeholder=\"Search for a charter signatory\" autofocus>\n            <button type=\"submit\" class=\"mdc-toolbar__icon mdc-toolbar__search search-button-large\" aria-label=\"Search\" alt=\"Search\">\n              <span class=\"fas fa-2x fa-search\" aria-hidden=\"true\"></span>\n            </button>\n          </div>\n        </div>\n        <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n          <h4>Sector</h4>\n          <div class=\"mdc-form-field sector\">\n            <select class=\"mdc-select\" role=\"listbox\" id=\"charter-sector\" name=\"sector\" data-clear-input=\"#charter-category\">\n              <option value=\"\" {{#if @root.request.params.query.sector}}{{else}}selected{{/if}}>All sectors</option>\n              {{#each @root.data.supplimentaryResponses.types.aggregations.sectors.buckets}}\n              <option value=\"{{key}}\" {{#compare @root.request.params.query.sector \"===\" key}}selected{{/compare}}>{{key}}</option>\n              {{/each}}\n            </select>\n          </div>\n        </div>\n        <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n          <h4>Category</h4>\n          <div class=\"mdc-form-field category\">\n            <select class=\"mdc-select\" role=\"listbox\" id=\"charter-category\" name=\"category\">\n              <option value=\"\"{{#if @root.request.params.query.category}}{{else}} selected{{/if}}>All categories</option>\n              {{#each @root.data.supplimentaryResponses.categories.aggregations.categories.buckets}}\n              <option value=\"{{key}}\"{{#compare @root.request.params.query.category \"===\" key}} selected{{/compare}}>{{key}}</option>\n              {{/each}}\n            </select>\n          </div>\n        </div>\n      </div>\n    </div>\n  </form>\n\n  {{> search_info paging=@root.data.primaryResponse.pagination}}\n\n  <div class=\"mdc-layout-grid expand\">\n    {{#each @root.data.primaryResponse.hits.hits ~}}\n    {{#with _source ~}}\n    <div class=\"mdc-layout-grid__inner\">\n      <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-1-phone\">\n        {{#if logos.[0] ~}}\n        <a href=\"/charter/signatories/{{slug}}{{> query_search}}\" title=\"{{title}}\">\n          <img src=\"{{logos.0.uploadUrl}}?version={{@root.context.metaData.assetsVersion}}\" alt=\"{{title}}\" class=\"responsive-img resize-fit-center\" />\n        </a>\n        {{/if ~}}\n      </div>\n      <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-3-phone\">\n        <h4>\n          <a href=\"/charter/signatories/{{slug}}{{> query_search}}\" title=\"{{{title}}}\">{{{title}}}</a>\n        </h4>\n        {{#compare status \"===\" \"Signed\" ~}}\n        <p class=\"signed\">\n          <span class=\"fas fa-badge-check\" aria-hidden=\"true\"></span>&ensp;Signed {{momentFromNow date_signed}}\n        </p>\n        {{/compare ~}}\n        <p>\n          {{#if description}}\n          {{{truncate (stripTags description) 250}}}\n          {{else}}\n          {{{truncate (stripTags mission_statement) 250}}}\n          {{/if}}\n          &ensp;<a href=\"/charter/signatories/{{slug}}\" title=\"{{{title}}}\"><strong>Read more</strong></a>\n        </p>\n      </div>\n    </div>\n    {{/with ~}}\n    {{/each ~}}\n  </div>\n\n  {{> pagination paging=@root.data.primaryResponse.pagination firstLastNavigation=true}}\n</div>\n",
+        "charter_signatories_signatory": "{{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}\n<div class=\"full digital-charter-signatory mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <p>\n        <strong>\n          <span class=\"fas fa-chevron-circle-left\" aria-hidden=\"true\"></span>\n          {{#unless (compare (querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null) \"\") ~}}\n          <a href=\"/charter/signatories{{> query_search}}\">Back to search results</a>\n          {{else}}\n          <a href=\"/charter/signatories\">All signatories</a>\n          {{/unless ~}}\n        </strong>\n      </p>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#if logos.[0]}}9{{else}}12{{/if}}-desktop mdc-layout-grid__cell--span-{{#if logos.[0]}}6{{else}}8{{/if}}-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h1>{{{title}}}</h1>\n      {{#compare status \"===\" \"Signed\" ~}}\n      <p class=\"signed\">\n        <span class=\"fas fa-badge-check\" aria-hidden=\"true\"></span>&ensp;Signed {{momentFromNow date_signed}}\n      </p>\n      {{/compare ~}}\n      {{#if website ~}}\n      <p>\n        <span class=\"fas fa-link\" aria-hidden=\"true\"></span>\n        <a href=\"{{#if (contains website 'http')}}{{website}}{{else}}http://{{website}}{{/if}}\" rel=\"noopener\">{{website}}</a>\n      </p>\n      {{/if ~}}\n\n      {{#if blog ~}}\n      <p>\n        <span class=\"fas fa-rss-square\" aria-hidden=\"true\"></span>\n        <a href=\"{{#if (contains blog 'http')}}{{blog}}{{else}}http://{{blog}}{{/if}}\" rel=\"noopener\">{{blog}}</a>\n      </p>\n      {{/if ~}}\n\n      {{#if twitter ~}}\n      <p>\n        <span class=\"fab fa-twitter-square\" aria-hidden=\"true\"></span>\n        <a href=\"{{#if (contains twitter 'twitter.com')}}{{twitter}}{{else}}http://twitter.com/{{twitter}}{{/if}}\" rel=\"noopener\">{{twitter}}</a>\n      </p>\n      {{/if ~}}\n\n      {{#if facebook ~}}\n      <p>\n        <span class=\"fab fa-facebook-square\" aria-hidden=\"true\"></span>\n        <a href=\"{{#if (contains facebook 'http')}}{{facebook}}{{else}}http://{{facebook}}{{/if}}\" rel=\"noopener\">{{facebook}}</a>\n      </p>\n      {{/if ~}}\n\n      {{#if sector ~}}\n      {{#if category ~}}\n      <p>\n        <strong>{{sector}} category:</strong>\n        {{category}}\n      </p>\n      {{else}}\n      <p>\n        <strong>Sector:</strong>\n        {{sector}}\n      </p>\n      {{/if ~}}\n      {{else}}\n      {{#if category ~}}\n      <p>\n        <strong>Category:</strong>\n        {{category}}\n      </p>\n      {{/if ~}}\n      {{/if ~}}\n    </div>\n    {{#if logos.[0] ~}}\n    <div class=\"signatory-logo-background mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-12-phone\">\n      <p>\n        {{#if website ~}}\n        <a href=\"{{#if (contains website 'http')}}{{website}}{{else}}http://{{website}}{{/if}}\" rel=\"noopener\">\n          {{#if logos.[0] ~}}\n          <img src=\"{{logos.0.uploadUrl}}\" alt=\"{{title}}\" class=\"responsive-img resize-fit-center\" />\n          {{/if ~}}\n        </a>\n        {{else}}\n        {{#if logos.[0] ~}}\n        <img src=\"{{logos.0.uploadUrl}}\" alt=\"{{title}}\" class=\"responsive-img resize-fit-center\" />\n        {{/if ~}}\n        {{/if ~}}\n      </p>\n    </div>\n    {{/if ~}}\n  </div>\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr />\n\n      {{#if mission_statement ~}}\n      <h4>\n        Organisation statement:\n      </h4>\n      <p>\n        {{{markdown (removeEntities mission_statement)}}}\n      </p>\n      {{/if ~}}\n\n      {{#if description ~}}\n      <h4>\n        Commitment to digital participation:\n      </h4>\n      <p>\n        {{{markdown (removeEntities description)}}}\n      </p>\n      {{/if ~}}\n\n      {{#if support_offered ~}}\n      <h4>\n        Support offered:\n      </h4>\n      <p>\n        {{{markdown (removeEntities support_offered)}}}\n      </p>\n      {{/if ~}}\n\n      {{#if support_wanted ~}}\n      <h4>\n        Support wanted:\n      </h4>\n      <p>\n        {{{markdown (removeEntities support_wanted)}}}\n      </p>\n      {{/if ~}}\n\n      {{#compare @root.data.supplimentaryResponses.projects.hits.total \">\" 0 ~}}\n      <hr />\n\n      <h3>\n        {{{title}}} has been supported by the Charter Fund\n      </h3>\n      {{#each @root.data.supplimentaryResponses.projects.hits.hits ~}}\n      {{#with _source ~}}\n      <h4>\n        {{{title}}}\n      </h4>\n      <p>\n        <span class=\"fas fa-calendar-alt\" aria-hidden=\"true\"></span>&ensp;Funding provided {{momentFromNow day_awarded}}\n      </p>\n      <p>\n        {{{truncate (stripTags (default description description_alt)) 300}}}\n        <a href=\"https://scvo.org/digital/participation/charter-fund/projects/{{slug}}\">Read more</a>\n        <span class=\"fas fa-external-link\" aria-hidden=\"true\"></span>\n      </p>\n      <p>\n        <br />\n        <a href=\"https://scvo.org/digital/participation/charter-fund\">Find out more about the Charter Fund</a>\n        <span class=\"fas fa-external-link\" aria-hidden=\"true\"></span>\n      </p>\n      {{/with ~}}\n      {{/each ~}}\n      {{/compare ~}}\n\n      {{#ifAny mission_statement description support_offered support_wanted ~}}\n      <hr />\n      {{/ifAny ~}}\n    </div>\n  </div>\n</div>\n{{/with ~}}",
+        "contact": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <h2>Contact us</h2>\n      <p><a href=\"mailto:digital@scvo.org.uk\">digital@scvo.org.uk</a></p>\n    </div>\n  </div>\n</div>",
+        "cookies": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <h1>Cookies policy</h1>\n      <h4>What is a cookie?</h4>\n      <p>\n        A cookie is a small file of letters and numbers that we may store on your browser or the hard drive of your computer or device. They cannot be used to identify you personally.\n      </p>\n      <p>\n        We use cookies to distinguish you from other users of the Site. This helps us to provide you with a good experience when you browse the Site and also allows us to improve the Site.\n      </p>\n      <p>\n        Cookies are used to improve services for you through, for example:\n      </p>\n      <ul>\n        <li>enabling a service to recognise your device so you don’t have to give the same information several times during one task;</li>\n        <li>recognising that you may already have given a username and password so you don’t need to do it for every web page requested; and</li>\n        <li>measuring how many people are using services, so they can be made easier to use and there’s enough capacity to ensure they are fast</li>\n      </ul>\n      <h4>Types of cookies used</h4>\n      <p>\n        The Site uses the following types of cookies:\n      </p>\n      <ul>\n        <li>Session cookie – this type of cookie allows websites to link the actions of a user during a browser session so that the website is able to store certain information whilst the user is browsing the site.</li>\n        <li>Google Analytics cookies – Google Analytics sets cookies to help us accurately estimate the number of visitors to the Site and volumes of usage. This is to ensure that the service is available when you want it and fast.</li>\n      </ul>\n      <p>\n        You can find more detailed information about the individual cookies we use and the purposes for which we use them in the tables below:\n      </p>\n      <h4>Cookie Info Script cookie</h4>\n      <table>\n        <tbody>\n          <tr>\n            <td><b><i>Cookie</i></b></td>\n            <td><b><i>Typical content</i></b></td>\n            <td><b><i>Purpose</i></b></td>\n            <td><b><i>Expires</i></b></td>\n          </tr>\n          <tr>\n            <td>CookieInfoScript</td>\n            <td>1</td>\n            <td>A Boolean value used to remember if the user has accepted the Cookie policy</td>\n            <td>No expiry</td>\n          </tr>\n        </tbody>\n      </table>\n      <h4>Google Analytics cookies</h4>\n      <p>\n        The information from the following cookies will be used by Google in accordance with Google’s <a href=\"http://www.google.co.uk/intl/en/policies/privacy/\">privacy policy</a>. For more information on the cookies set by Google Analytics please refer to the <a href=\"https://developers.google.com/analytics/resources/concepts/gaConceptsCookies\">Google Analytics</a> website:\n      </p>\n      <table>\n        <tbody>\n          <tr>\n            <td><b><i>Cookie</i></b></td>\n            <td><b><i>Typical content</i></b></td>\n            <td><b><i>Purpose</i></b></td>\n            <td><b><i>Expires</i></b></td>\n          </tr>\n          <tr>\n            <td>_utma</td>\n            <td>Randomly generated number</td>\n            <td>This cookie is typically written to the browser upon the first visit to our site from that web browser. This cookie is used to determine unique visitors to our site and it is updated with each page view. Additionally, this cookie is provided with a unique ID that Google Analytics uses to ensure both the validity and accessibility of the cookie as an extra security measure.</td>\n            <td>This cookie will stay on your browser for 2 years.</td>\n          </tr>\n          <tr>\n            <td>_utmb</td>\n            <td>Randomly generated number</td>\n            <td>This cookie is used to establish and continue a user session with our site. Each time a user visits a different page on our site, this cookie is updated to expire in 30 minutes, continuing a single session for as long as user activity continues within 30 minute intervals. This cookie expires when a user pauses on a page on our site for longer than 30 minutes.</td>\n            <td>This cookie will stay on your browser for 30 minutes.</td>\n          </tr>\n          <tr>\n            <td>_utmc</td>\n            <td>Randomly generated number</td>\n            <td>This cookie operates in conjunction with the utmb cookie to determine whether or not to establish a new session for the user. Should a user visit our site, exit the browser and then return to our website within 30 minutes, the absence of the utmc cookie indicates that a new session needs to be established.</td>\n            <td>End of session.</td>\n          </tr>\n          <tr>\n            <td>_utmz</td>\n            <td>Randomly generated number + info on how the site was reached (e.g. directly or via a link, organic search or paid search)</td>\n            <td>This cookie stores the type of referral used by the visitor to reach our site, whether via a direct method, a referring link, a website search, or a campaign such as an ad or an email link. It is used to calculate search engine traffic, ad campaigns and page navigation within our own site. The cookie is updated with each page view to our site.</td>\n            <td>This cookie will stay on your browser for 6 months.</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>",
+        "head-tags-post": "{{#if data.primaryResponse.hits.hits.[0] ~}}\n{{#with data.primaryResponse.hits.hits.[0]._source ~}}\n{{#if title ~}}\n<title>{{{title}}}</title>\n<meta property=\"og:title\" content=\"{{{title}}}\" data-dynamic=\"true\">\n{{else}}\n<title>{{route.metaData.title}}</title>\n<meta property=\"og:title\" content=\"{{route.metaData.title}}\" data-dynamic=\"true\">\n{{/if ~}}\n{{#ifAny og_summary description ../og_summary ../description ~}}\n<meta property=\"og:summary\" content=\"{{stripTags (regexReplace (default og_summary (default ../og_summary (default description ../description))) '\\r|\\n' 'gi' '')}}\" data-dynamic=\"true\">\n<meta name=\"description\" content=\"{{stripTags (regexReplace (default description (default ../description (default og_summary ../og_summary))) '\\r|\\n' 'gi' '')}}\" data-dynamic=\"true\">\n{{/ifAny ~}}\n{{/with ~}}\n{{else}}\n<title>{{route.metaData.title}}</title>\n<meta property=\"og:title\" content=\"{{route.metaData.title}}\" data-dynamic=\"true\">\n<meta property=\"og:summary\" content=\"We are on a mission: to give everyone in Scotland the essential digital skills they need to do their jobs, live their lives, and confidently use different digital services.\" data-dynamic=\"true\">\n<meta name=\"description\" content=\"We are on a mission: to give everyone in Scotland the essential digital skills they need to do their jobs, live their lives, and confidently use different digital services.\" data-dynamic=\"true\">\n{{/if ~}}",
+        "head-tags-signatory": "{{#if data.primaryResponse.hits.hits.[0] ~}}\n{{#with data.primaryResponse.hits.hits.[0]._source ~}}\n{{#if title ~}}\n<title>{{{title}}} is a signatory of Scotland's Digital Participation Charter</title>\n<meta property=\"og:title\" content=\"{{{title}}} is a signatory of Scotland's Digital Participation Charter\" data-dynamic=\"true\">\n{{else}}\n<title>{{route.metaData.title}}</title>\n<meta property=\"og:title\" content=\"{{route.metaData.title}}\" data-dynamic=\"true\">\n{{/if ~}}\n{{#if logos.0.uploadUrl ~}}\n<meta property=\"og:image\" content=\"{{logos.0.uploadUrl}}\" data-dynamic=\"true\">\n<meta property=\"og:image:width\" content=\"128\" data-dynamic=\"true\">\n<meta property=\"og:image:height\" content=\"128\" data-dynamic=\"true\">\n{{/if ~}}\n{{#ifAny og_summary description ../og_summary ../description ~}}\n<meta property=\"og:summary\" content=\"{{stripTags (regexReplace (default og_summary (default ../og_summary (default description ../description))) '\\r|\\n' 'gi' '')}}\" data-dynamic=\"true\">\n<meta name=\"description\" content=\"{{stripTags (regexReplace (default description (default ../description (default og_summary ../og_summary))) '\\r|\\n' 'gi' '')}}\" data-dynamic=\"true\">\n{{/ifAny ~}}\n{{> signatory_json_ld}}\n{{/with ~}}\n{{else}}\n<title>{{route.metaData.title}}</title>\n<meta property=\"og:title\" content=\"{{route.metaData.title}}\" data-dynamic=\"true\">\n<meta property=\"og:summary\" content=\"We are on a mission: to give everyone in Scotland the essential digital skills they need to do their jobs, live their lives, and confidently use different digital services.\" data-dynamic=\"true\">\n<meta name=\"description\" content=\"We are on a mission: to give everyone in Scotland the essential digital skills they need to do their jobs, live their lives, and confidently use different digital services.\" data-dynamic=\"true\">\n{{/if ~}}",
+        "head-tags": "<title>{{route.metaData.title}}</title>\n<meta property=\"og:title\" content=\"{{route.metaData.title}}\" data-dynamic=\"true\">\n<meta property=\"og:summary\" content=\"We are on a mission: to give everyone in Scotland the essential digital skills they need to do their jobs, live their lives, and confidently use different digital services.\" data-dynamic=\"true\">\n<meta name=\"description\" content=\"We are on a mission: to give everyone in Scotland the essential digital skills they need to do their jobs, live their lives, and confidently use different digital services.\" data-dynamic=\"true\">",
+        "home-json-ld": "",
+        "home": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Main-Hero-RGB-04.png\" alt=\"Illustration\" class=\"responsive-img hide-on-med-and-up\" />\n      <h1>Sign Up & Skill Up for a Digitally Smarter Scotland</h1>\n      <p>\n        We are on a mission: to give everyone in Scotland the essential digital skills they need to do their jobs, live their lives, and confidently use different digital services. To do this, we need your help&hellip;\n      </p>\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Main-Hero-RGB-04.png\" alt=\"Illustration\" class=\"responsive-img\" />\n    </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner description\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <hr />\n    </div>\n  </div>\n</div>\n<div class=\"mdc-layout-grid equal-height\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <div class=\"mdc-card\">\n        <div class=\"mdc-card__primary\">\n          <h2>\n            <i class=\"fas fa-fw fa-marker fa-2x\"></i>\n            Charter\n          </h2>\n        </div>\n        <div class=\"mdc-card__supplimentary-text\">\n          <p>\n            Scotland's Digital Participation Charter helps your organisation take a step towards a digitally smarter Scotland.\n          </p>\n        </div>\n        <div class=\"mdc-card__actions\">\n          <a href=\"/charter\" class=\"mdc-button mdc-card__action mdc-card__action--button\">\n            <span class=\"mdc-button__label\">Find out more</span>\n          </a>\n        </div>\n      </div>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <div class=\"mdc-card\">\n        <div class=\"mdc-card__primary\">\n          <h2>\n            <i class=\"fas fa-fw fa-graduation-cap fa-2x\"></i>\n            Skills\n          </h2>\n        </div>\n        <div class=\"mdc-card__supplimentary-text\">\n          <p>\n            We developed the Essential Digital Skills Toolkit in consultation with over 60 organisations, to support individuals, groups and organisations to measure their digital skills in life and in the workplace.\n          </p>\n        </div>\n        <div class=\"mdc-card__actions\">\n          <a href=\"/skills\" class=\"mdc-button mdc-card__action mdc-card__action--button\">\n            <span class=\"mdc-button__label\">Find out more</span>\n          </a>\n        </div>\n      </div>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <div class=\"mdc-card\">\n        <div class=\"mdc-card__primary\">\n          <h2>\n            <span class=\"fa-stack fa-1x\">\n              <i class=\"fas fa-stack-2x fa-search\"></i>\n              <i class=\"fas fa-stack-1x fa-pound-sign\" style=\"margin-top: -0.44rem; margin-left: -0.24em; font-size: 1.6rem;\"></i>\n            </span>\n            Funding\n          </h2>\n        </div>\n        <div class=\"mdc-card__supplimentary-text\">\n          <p>\n            The Digital Participation Charter Fund, supported by the Scottish Government and BT, invests in community digital participation projects across Scotland.\n          </p>\n        </div>\n        <div class=\"mdc-card__actions\">\n          <a href=\"https://scvo.org/digital/participation/charter-fund\" class=\"mdc-button mdc-card__action mdc-card__action--button\">\n            <span class=\"mdc-button__label\">Find out more&ensp;<span class=\"fas fa-external-link\" aria-hidden=\"true\"></span></span>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"mdc-layout-grid\">\n  {{#compare @root.data.primaryResponse.hits.total \">\" 0 ~}}\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr />\n      <h2>Latest story</h2>\n    </div>\n  </div>\n  {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}\n  <div class=\"mdc-layout-grid__inner stories\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr />\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <a href=\"/{{replace slug \"_\" \"/\"}}\"><img src=\"{{featured_image.sizes.full.source_url}}\" alt=\"title\" /></a>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h3>\n        <a href=\"/{{replace slug \"_\" \"/\"}}\">{{{title}}}</a>\n      </h3>\n      <p>\n        <a href=\"/{{replace slug \"_\" \"/\"}}\">Read this story</a>\n      </p>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      {{#if quotation}}\n      <blockquote>\n        {{#if quotation.text}}<p>“{{quotation.text}}”</p>{{/if}}\n        <cite>{{quotation.author}}</cite>\n      </blockquote>\n      {{/if}}\n    </div>\n  </div>\n  {{/with ~}}\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <p>\n        <a href=\"/stories\" class=\"mdc-button\">Read more stories</a>\n      </p>\n      <p>\n        <br />\n        Looking for something else?\n      </p>\n      <p>\n        <a href=\"/resources\" class=\"mdc-button\">Browse resources</a>\n      </p>\n\n      <hr class=\"margin-top\" />\n    </div>\n  </div>\n  {{/compare ~}}\n</div>",
+        "humans": "/* TEAM */\nWeb Development & Design Manager: Calum MacÙisdean\nGitHub: calummacuisdean\nLocation: Edinburgh, Scotland\n\nPlatform Developer: Matthew Wilkes\nGitHub: tonicblue\nLocation: Edinburgh, Scotland\n\nDirector of Digital: David McNeill\nTwitter: david_mcneill\nLocation: Edinburgh, Scotland\n\n/* THANKS */\nDog: Sasha\nLocation: Edinburgh\n\nCoding chat: Alex Nuttgens\nWebsite: https://goodhq.org\nGitHub: anuttgens\n\nOffice support: Team Digital\nWebsite: https://scvo.org/digital\nTwitter: digiscot\n\nGuidance and testing: The SCVO Staff\nWebsite: https://scvo.org/about/staff-team\nTwitter: scvotweet\nFacebook: scvo1939\nYoutube: scvotv\nLinkedIn: scvo\nGoodHQ: scvo\n\n/* SITE */\nLast update: {{momentFormat (moment) 'YYYY-MM-DD'}}\nStandards: HTML, CSS, TS\nLanguage: English\nDoctype: HTML5\nIDE: Vim, Atom\nBack-end: SCVO->Router, Elasticsearch, Google Firebase, Google Analytics\nFront-end: Material Design Components, FontAwesome, Headroom, Swiper, CookieInfoScript, Browser-Update.org\nDevelopment: Node.js, NPM, GitHub\nProductivity: Slack, Trello\nOperating Systems: Arch Linux, Ubuntu",
+        "privacy": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <h1>Privacy policy</h1>\n      <h4>Who we are</h4>\n      <p>\n        Scotland's Digital Participation Charter is operated by the Scottish Council for Voluntary Organisations (SCVO). SCVO is a Scottish Charitable Incorporated Organisation. Charity registered in Scotland SC003558. Registered office Mansfield Traquair Centre, 15 Mansfield Place, Edinburgh EH3 6BB.\n      </p>\n      <p>\n        We are committed to respecting and protecting your privacy. This policy explains how we do this. Please also read the <a href=\"/terms\">terms and conditions</a>.\n      </p>\n      <h4>What information do we collect?</h4>\n      <p>\n        Simply by browsing this website, SCVO will not record any personal data about you except your IP address. \n      </p>\n      <p>\n        Your IP address is the individual identification number that is assigned to your computer when it is connected to the Internet. It is required to be used by our EU-based servers to enable you to browse the website. It is also stored for up to a month in logs to enable us to investigate errors.\n      </p>\n      <p>\n        We use Google Analytics cookies to track how the website is used, but personal data is not recorded and your internet (IP) address is anonymised. <a href=\"/cookies\">Find out more about how we use cookies</a>.\n      </p>\n      <p>\n        If you complete the declaration sign up form on the website, you are entering into a contract on behalf of your organisation. Your organisation will be included in the list of signatories and the contact details you provide will be recorded and stored. The contact details may also be shared responsibly with third parties in relation to your organisation’s status as a signatory. \n      </p>\n      <h4>How to contact us</h4>\n      <p>\n        You can contact us at any time by writing to us at the address above, or by email or phone at: <a href=\"mailto:enquiries@scvo.org.uk\">enquiries@scvo.org.uk</a> or <a href=\"tel:+441314748000\">0131 474 8000</a>.\n      </p>\n      <h4>Your rights over your information</h4>\n      <p>\n        By law, you can ask us what information we hold about you, and you can ask us to correct it if it is inaccurate.  \n      </p>\n      <p>\n        You can also ask us to give you a copy of the information and to stop using your information.\n      </p>\n      <p>\n        To submit a request for your data, please contact us by email, post or telephone, please use the contact information provided above. \n      </p>\n      <h4>Your right to complain</h4>\n      <p>\n        If you have a complaint about our use of your information, you can contact the Information Commissioner's Office online at <a href=\"https://ico.org.uk/concerns\">https://ico.org.uk/concerns</a> or by phone on <a href=\"+443031231113\">0303 123 1113</a>.\n      </p>\n    </div>\n  </div>\n</div>\n",
+        "resources_help-others": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner detail title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <h1>Help others get online</h1>\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img hide-on-med-and-up\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img pull-right\" />\n    </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner detail\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <hr class=\"margin-bottom\" />\n\n      <h4><a href=\"https://onedigitaluk.com/\">One Digital</a></h4>\n      <p>SCVO are part of the UK wide One Digital partnership, an exciting and unique Big Lottery funded collaborative digital inclusion programme. At the heart of One Digital is the recruitment and training of Digital Champions to deliver essential digital skills support to individuals who are digitally excluded. For further information on the programme please take a look at the <a href=\"https://onedigitaluk.com/toolkit/\">One Digital toolkit</a>.</p>\n\n      <h4><a href=\"http://letsgetonline.scot/help-someone-else/\">Let's Get Online</a></h4>\n      <p>Find help and computer courses near you in Scotland</p>\n\n      <h4><a href=\"https://scvo.org/digital/participation/champions\">Digital Champions Training</a></h4>\n      <p>Free local training and support programme for voluntary sector organisations which includes access to the <a href=\"https://www.digitalchampionsnetwork.com/\">Digital Champions Network</a>. To register your interest please get in touch with our team by emailing <a href=\"mailto:onedigital@scvo.org.uk\">onedigital@scvo.org.uk</a>.</p>\n\n      <p>If you are not a voluntary sector organisation and you're keen to develop Digital Champions in your organisation, you may wish to apply directly to join the Digital Champions Network with <a href=\"https://digitalunite.com/\">Digital Unite</a>.</p>\n\n      <h4><a href=\"https://www.microsoft.com/en-gb/digitalliteracy/default.aspx\">Microsoft Digital Literacy Curriculum</a></h4>\n      <p>Teach and assess the basic concepts and skills needed to use a computer</p>\n\n      <h4><a href=\"https://www.nspcc.org.uk/preventing-abuse/keeping-children-safe/online-safety/\">NSPCC Online Safety</a></h4>\n      <p>Find out how to keep your children safe when using the internet</p>\n\n    </div>\n  </div>\n</div>\n",
+        "resources_index": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <h1>Resources</h1>\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img hide-on-med-and-up\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img pull-right\" />\n    </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner resources description\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <hr />\n\n      <h3>Scotland's Essential Digital Skills Toolkit</h3>\n      <p>\n        SCVO has developed this toolkit to help you make practical use of the framework. It contains simple checklists for measuring Foundation Skills and Essential Skills, and guidance on how to interpret the results.\n      </p>\n      <h4>\n        <a href=\"https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/10/SCV-05-Report-A4-Portrait-V5.pdf\">Full toolkit</a> (PDF)\n      </h4>\n      <h4>\n        <a href=\"{{>asset_url url=\"essential-skills-checklist-2019-02.pdf\"}}\">Essential skills checklist</a> (PDF)\n      </h4>\n      <h4>\n        <a href=\"https://storage.googleapis.com/scvo-cms/scvo-cms/wp-content/uploads/2018/09/EDS-Checklist.pdf\">Foundation skills checklist</a> (PDF)\n      </h4>\n      <hr />\n\n      <h3>Need help to get online and develop your own essential digital skills?</h3>\n      <h4>\n        <a href=\"/resources/support\">\n          Find support near you and online\n          <i class=\"material-icons\">arrow_forward</i>\n        </a>\n      </h4>\n      <hr />\n\n      <h3>Want to help others develop their essential digital skills?</h3>\n      <h4>\n        <a href=\"/resources/help-others\">\n          Get support to be a digital champion\n          <i class=\"material-icons\">arrow_forward</i>\n        </a>\n      </h4>\n      <hr />\n\n      <h3>Want to understand the latest research and evidence on digital participation?</h3>\n      <h4>\n        <a href=\"/resources/reports\">\n          View links to recent reports and publications\n          <i class=\"material-icons\">arrow_forward</i>\n        </a>\n      </h4>\n      <hr />\n\n      <h3>Want to promote Scotland's Digital Participation Charter?</h3>\n      <h4>\n        <a href=\"/resources/logos\">\n          Download our brand guidelines and logos\n          <i class=\"material-icons\">arrow_forward</i>\n        </a>\n      </h4>\n      <hr />\n    </div>\n  </div>\n</div>",
+        "resources_logos": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner detail title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <h1>Digital Participation Charter logos</h1>\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img hide-on-med-and-up\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img pull-right\" />\n    </div>\n  </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner detail\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <hr class=\"margin-bottom\" />\n\n      <p>Are you a Charter Signatory? Great!</p>\n\n      <p>Download the resources below to help you promote your commitment to the Charter amongst your staff and stakeholders.</p>\n\n      <p><a href=\"https://storage.googleapis.com/digitalparticipation/Brand-Guidelines-for-Signatories.pdf\" download>Brand guidelines</a></p>\n\n      <p><a href=\"https://storage.googleapis.com/digitalparticipation/Signatory-Logo-FullColour-RGB.png\" download>Charter signatory logo (colour) for use on screens</a></p>\n\n      <p><a href=\"https://storage.googleapis.com/digitalparticipation/Signatory-Logo-White-RGB.png\" download>Charter signatory logo (white) for use on screens</a></p>\n\n      <p><a href=\"https://storage.googleapis.com/digitalparticipation/Signatory-Logo-FullColour-CMYK.eps\" download>Charter signatory logo (colour) for use in print</a></p>\n\n      <p><a href=\"https://storage.googleapis.com/digitalparticipation/Signatory-Logo-White-CMYK.eps\" download>Charter signatory logo (white) for use in print</a></p>\n\n      <p><a href=\"https://storage.googleapis.com/digitalparticipation/Signatory-Logo-Suite.zip\" download>Download full logo suite (zipped file)</a></p>\n\n    </div>\n  </div>\n</div>",
+        "resources_reports": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <h1>Reports</h1>\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img hide-on-med-and-up\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img pull-right\" />\n    </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr />\n    </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner resources description\">\n    {{#each @root.data.supplimentaryResponses.links.hits.hits ~}}\n    {{#with _source ~}}\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4\">\n      <h4>{{{title}}}</h4>\n      <p>\n        <strong>{{{author_attribution}}}</strong>\n        {{#if year_published}}\n          &mdash; {{year_published}}\n        {{/if}}\n      </p>\n      {{{content}}}\n      {{#if link ~}}\n      <p>\n        {{#if (contains link \".pdf\") ~}}\n        <a href=\"{{link}}\" rel=\"noopener\" download>Download</a> <span class=\"fas fa-file-pdf\" aria-hidden=\"true\"></span>\n        {{else}}\n        {{#if (contains link \".zip\") ~}}\n        <a href=\"{{link}}\" rel=\"noopener\" download>Download</a> <span class=\"fas fa-file-archive\" aria-hidden=\"true\"></span>\n        {{else}}\n        <a href=\"{{link}}\" rel=\"noopener\">Read more</a> <span class=\"fas fa-external-link\" aria-hidden=\"true\"></span>\n        {{/if ~}}\n        {{/if ~}}\n      </p>\n      {{/if ~}}\n    </div>\n    {{/with ~}}\n    {{/each ~}}\n  </div>\n  <div class=\"mdc-layout-grid__inner\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr class=\"margin-top\" />\n    </div>\n  </div>\n</div>",
+        "resources_support": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner detail title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <h1>Support near you and online</h1>\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img hide-on-med-and-up\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img pull-right\" />\n    </div>\n  </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner detail\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <hr class=\"margin-bottom\" />\n\n      <p>The following sites will help you get online and develop your own essential digital skills.</p>\n\n      <h4><a href=\"http://letsgetonline.scot/\">Let's Get Online</a></h4>\n      <p>Find help and computer courses near you in Scotland</p>\n\n      <h4><a href=\"https://www.learnmyway.com/\">Learn My Way</a></h4>\n      <p>Free courses on using a computer, browsing the web, sending an email and finding work online</p>\n\n      <h4><a href=\"https://www.digitalunite.com/guides\">Digital Unite Guide</a></h4>\n      <p>Guides to improve your computer skills and boost your digital confidence</p>\n\n      <h4><a href=\"https://www.sqaacademy.org.uk/course/view.php?id=651\">SQA Digital Learner Guides</a></h4>\n      <p>Training videos to help people with common online activities</p>\n\n      <h4><a href=\"https://www.microsoft.com/en-gb/digitalliteracy/default.aspx\">Microsoft Digital Literacy Curriculum</a></h4>\n      <p>Teach and assess the basic concepts and skills needed to use a computer</p>\n\n      <h4><a href=\"http://www.rnib.org.uk/online-today\">RNIB Online Today</a></h4>\n      <p>Tailored support to for people with sight and hearing problems</p>\n\n      <h4><a href=\"https://www.abilitynet.org.uk/expert-resources/\">AbilityNet</a></h4>\n      <p>￼Specialist support to help older people and people with disabilities get more from technology</p>\n\n      <h4><a href=\"https://www.getsafeonline.org/\">Get Safe Online</a></h4>\n      <p>Information and advice on staying safe online</p>\n\n      <h4><a href=\"https://www.nspcc.org.uk/preventing-abuse/keeping-children-safe/online-safety/\">NSPCC Online Safety</a></h4>\n      <p>Find out how to keep your children safe when using the internet</p>\n\n      <h4><a href=\"https://digital.wings.uk.barclays/for-everyone/topics-and-modules/\">Barclays Digital Wings</a></h4>\n      <p>Tutorial articles focusing on key digital areas, including the basics of internet use, staying safe online and social media</p>\n    </div>\n  </div>\n</div>\n",
+        "resources_toolkit-downloads": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner detail title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <h1>Scotland's Essential Digital Skills Toolkit</h1>\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img hide-on-med-and-up\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png\" alt=\"Resources illustration\" class=\"responsive-img pull-right\" />\n    </div>\n  </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner detail\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <hr />\n      <p>\n        SCVO has developed this toolkit to help you make practical use of the framework. It contains simple checklists for measuring Foundation Skills and Essential Skills, and guidance on how to interpret the results.\n      </p>\n      <h4>\n        <a href=\"{{>asset_url url=\"documents/eds-measuring-understanding.pdf\"}}\" class=\"mdc-button\" rel=\"noopener\" download><span class=\"fas fa-file-pdf\" aria-hidden=\"true\"></span>&ensp;Full toolkit</a>\n      </h4>\n      <h4>\n        <a href=\"{{>asset_url url=\"documents/essential-skills-checklist.pdf\"}}\" class=\"mdc-button\" rel=\"noopener\" download><span class=\"fas fa-file-pdf\" aria-hidden=\"true\"></span>&ensp;Essential skills checklist</a>\n      </h4>\n      <h4>\n        <a href=\"{{>asset_url url=\"documents/foundation-skills-checklist.pdf\"}}\" class=\"mdc-button\" rel=\"noopener\" download><span class=\"fas fa-file-pdf\" aria-hidden=\"true\"></span>&ensp;Foundation skills checklist</a>\n      </h4>\n\n      <hr class=\"margin-top\" />\n    </div>\n  </div>\n</div>",
+        "robots": "User-agent: *\nDisallow:\n\nUser-agent: litefinder\nDisallow: /\n\nUser-agent: Slurp\nDisallow: /\n\nUser-agent: Baidu\nDisallow: /\n",
+        "skills_essential-feedback": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h1>Essential digital skills toolkit:<br />Feedback</h1>\n      <script type=\"text/javascript\" >document.write('<script src=\"http' + ( (\"https:\" == document.location.protocol) ? \"s\" : \"\") + '://www.surveygizmo.eu/s3/90128330/Essential-Digital-Skills-Toolkit-Feedback?__output=embedjs&__ref=' + escape(document.location.origin + document.location.pathname) + '\" type=\"text/javascript\" ></scr' + 'ipt>');</script><noscript><a href=\"https://www.surveygizmo.eu/s3/90128330/Essential-Digital-Skills-Toolkit-Feedback??jsfallback=true\">Please take the survey now</a></noscript><style>.sg-survey{display:none; }</style>\n      <hr />\n    </div>\n  </div>\n</div>",
+        "skills_essential-results": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h1>Essential digital skills toolkit:<br />Your results</h1>\n      <div class=\"radarChartDesktop responsive-img hide-on-small-only\" style=\"margin-top:2rem;margin-bottom: 2rem;height:560px;width:560px;background-image:url('{{~>asset_url url='images/toolkit-essential-labels.png'~}}');background-size:90%;background-color:#022347;border-radius:50%;background-repeat:no-repeat;background-position:center 38%;\"></div>\n      <div class=\"radarChartMobile responsive-img hide-on-med-and-up\" style=\"margin-top:1rem;height:300px;width:300px;background-image:url('{{~>asset_url url='images/toolkit-essential-labels.png'~}}');background-size:90%;background-color:#022347;border-radius:50%;background-repeat:no-repeat;background-position:center 38%;\"></div>\n      {{!-- <p>\n        To help interpret your results: if your points are closer to the edge of the circle you have a good understanding of this section, if the point is closer to the middle in each section you might need to improve your skills in this area.\n      </p>\n      <p>\n        This checklist is designed to simply provide evidence of whether or not people have Essential Digital Skills. Individal responses can obviously be looked at in details, but the most basic interpretation is:\n      </p>\n      <ol>\n        <li>Have got Essential Digital Skills<br />\n        = Answer \"I can do this\" to all of the questions\n        </li>\n        <li>\n          Have not got Essential Digital Skills<br />\n          = Answer \"I can't do\" or \"I want to learn how to do this\" to any of the questions\n        </li>\n      </ol> --}}\n      <p>\n        Thank you for using our toolkit, please <a href=\"/skills/essential/feedback\">provide us with feedback</a> or contact <a href=\"mailto:claire.sharp@scvo.org.uk\">Claire Sharp</a>.\n      </p>\n      {{!-- <p>\n        If your skills aren't what you'd like them to be, you can find more resources on improving them here:\n      </p>\n      <ul>\n        <li><a href=\"http://www.letsgetonline.scot\">Let’s Get Online</a></li>\n        <li><a href=\"http://www.learnmyway.com\">Learn My Way</a></li>\n        <li><a href=\"http://www.digitalunite.com\">Digital Unite</a></li>\n        <li><a href=\"http://www.learndigital.withgoogle.com/digitalgarage\">Google Garage</a></li>\n      </ul> --}}\n      {{#compare @root.data.supplimentaryResponses.resources_relevant.hits.total \">\" 0 ~}}\n      <h2>Useful resources based on your results</h2>\n      <div class=\"mdc-layout-grid equal-height t-padding-full\">\n        <div class=\"mdc-layout-grid__inner\">\n          {{#each @root.data.supplimentaryResponses.resources_relevant.hits.hits ~}}\n          {{#with _source ~}}\n          {{> resource slug=post_tags_slug.[0] tags=post_tags tags_slug=post_tags_slug link=link title=title author=author_attribution content=content}}\n          {{/with ~}}\n          {{/each ~}}\n        </div>\n      </div>\n      <p>\n        To view all of our skills resources <a href=\"/resources\">go to our resources page</a>.\n      </p>\n      {{/compare ~}}\n    </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr />\n    </div>\n  </div>\n</div>\n\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js\" charset=\"utf-8\"></script>\n<script>\n\n//Practically all this code comes from https://github.com/alangrafu/radar-chart-d3\n//I only made some additions and aesthetic adjustments to make the chart look better\n//(of course, that is only my point of view)\n//Such as a better placement of the titles at each line end,\n//adding numbers that reflect what each circular level stands for\n//Not placing the last level and slight differences in color\n//\n//For a bit of extra information check the blog about it:\n//http://nbremer.blogspot.nl/2013/09/making-d3-radar-chart-look-bit-better.html\n\nvar RadarChart = {\n  draw: function(id, d, options){\n    var cfg = {\n      radius: 5,\n      w: 600,\n      h: 600,\n      factor: 1,\n      factorLegend: .85,\n      levels: 3,\n      maxValue: 0,\n      radians: 2 * Math.PI,\n      opacityArea: 0,\n      ToRight: 5,\n      TranslateX: 0,\n      TranslateY: 0,\n      ExtraWidthX: 0,\n      ExtraWidthY: 0,\n      color: d3.scale.category10()\n    };\n\n    if('undefined' !== typeof options){\n      for(var i in options){\n        if('undefined' !== typeof options[i]){\n          cfg[i] = options[i];\n        }\n      }\n    }\n    cfg.maxValue = Math.max(cfg.maxValue, d3.max(d, function(i){return d3.max(i.map(function(o){return o.value;}))}));\n    var allAxis = (d[0].map(function(i, j){return i.axis}));\n    var total = allAxis.length;\n    var radius = cfg.factor*Math.min(cfg.w/2, cfg.h/2);\n    var Format = d3.format('');\n    d3.select(id).select(\"svg\").remove();\n\n    var g = d3.select(id)\n    .append(\"svg\")\n    .attr(\"width\", cfg.w+cfg.ExtraWidthX)\n    .attr(\"height\", cfg.h+cfg.ExtraWidthY)\n    .append(\"g\")\n    .attr(\"transform\", \"translate(\" + cfg.TranslateX + \",\" + cfg.TranslateY + \")\");\n\n    var tooltip;\n\n    // Background\n    g.append(\"circle\")\n    .attr(\"class\", \"gridCircle\")\n    .attr(\"r\", function(d, i){return radius*1.333;})\n    .style(\"fill\", \"#022347\")\n    .style(\"fill-opacity\", \"0\")\n    .attr(\"transform\", \"translate(\" + (cfg.w/2) + \", \" + (cfg.h/2) + \")\");\n\n    //Circular segments\n    g.selectAll(\".levels\")\n    .data(d3.range(1,(cfg.levels+1)).reverse())\n    .enter()\n    .append(\"circle\")\n    .attr(\"class\", \"gridCircle\")\n    .attr(\"r\", function(d, i){return radius/cfg.levels*d;})\n    .style(\"stroke\", \"#8FC9DC\")\n    .style(\"stroke-opacity\", \"1\")\n    .style(\"stroke-width\", \"2px\")\n    .style(\"fill-opacity\", \"0\")\n    .attr(\"transform\", \"translate(\" + (cfg.w/2) + \", \" + (cfg.h/2) + \")\");\n\n    series = 0;\n\n    var axis = g.selectAll(\".axis\")\n    .data(allAxis)\n    .enter()\n    .append(\"g\")\n    .attr(\"class\", \"axis\");\n\n    axis.append(\"line\")\n    .attr(\"x1\", cfg.w/2)\n    .attr(\"y1\", cfg.h/2)\n    .attr(\"x2\", function(d, i){return cfg.w/2*(1-cfg.factor*Math.sin(i*cfg.radians/total));})\n    .attr(\"y2\", function(d, i){return cfg.h/2*(1-cfg.factor*Math.cos(i*cfg.radians/total));})\n    .attr(\"class\", \"line\")\n    .style(\"stroke\", \"#8FC9DC\")\n    .style(\"stroke-width\", \"2px\");\n\n    // axis.append(\"text\")\n  \t// \t.attr(\"class\", \"legend\")\n  \t// \t.text(function(d){return d})\n    //   .style(\"font-family\", \"Poppins\")\n    //   .style(\"font-weight\", \"700\")\n    //   .style(\"font-size\", \"1.4rem\")\n    //   .style(\"fill\", \"#fff\")\n  \t// \t.attr(\"text-anchor\", \"middle\")\n  \t// \t.attr(\"dy\", \"1.5em\")\n  \t// \t.attr(\"transform\", function(d, i){return \"translate(0, -20)\"})\n  \t// \t.attr(\"x\", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})\n  \t// \t.attr(\"y\", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});\n\n    d.forEach(function(y, x){\n      dataValues = [];\n      g.selectAll(\".nodes\")\n      .data(y, function(j, i){\n        dataValues.push([\n          cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),\n          cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))\n        ]);\n      });\n      dataValues.push(dataValues[0]);\n      g.selectAll(\".area\")\n      .data([dataValues])\n      .enter()\n      .append(\"polygon\")\n      .attr(\"class\", \"radar-chart-serie\"+series)\n      .style(\"stroke-width\", \"3px\")\n      .style(\"stroke\", \"white\")\n      .attr(\"points\",function(d) {\n        var str=\"\";\n        for(var pti=0;pti<d.length;pti++){\n          str=str+d[pti][0]+\",\"+d[pti][1]+\" \";\n        }\n        return str;\n      })\n      .style(\"fill\", function(j, i){return \"white\"})\n      .style(\"fill-opacity\", \"0\")\n      .on('mouseover', function (d){\n        z = \"polygon.\"+d3.select(this).attr(\"class\");\n        g.selectAll(\"polygon\")\n        .transition(200)\n        .style(\"fill-opacity\", cfg.opacityArea);\n        g.selectAll(z)\n        .transition(200)\n        .style(\"fill-opacity\", cfg.opacityArea);\n      })\n      .on('mouseout', function(){\n        g.selectAll(\"polygon\")\n        .transition(200)\n        .style(\"fill-opacity\", cfg.opacityArea);\n      });\n      series++;\n    });\n    series=0;\n\n    d.forEach(function(y, x){\n      g.selectAll(\".nodes\")\n      .data(y).enter()\n      .append(\"svg:circle\")\n      .attr(\"class\", \"radar-chart-serie\"+series)\n      .attr('r', cfg.radius)\n      .attr(\"alt\", function(j){return Math.max(j.value, 0)})\n      .attr(\"cx\", function(j, i){\n        dataValues.push([\n          cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),\n          cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))\n        ]);\n        return cfg.w/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total));\n      })\n      .attr(\"cy\", function(j, i){\n        return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));\n      })\n      .attr(\"data-id\", function(j){return j.axis})\n      .style(\"fill\", \"white\").style(\"fill-opacity\", 1)\n      .append(\"svg:title\")\n      .text(function(j){return Math.max(j.value, 0)});\n\n      series++;\n    });\n  }\n};\n\n</script>\n<script>\n\nvar colorscale = d3.scale.category10();\n\n//Data\nvar d = [\n  [\n    {\n      axis: \"Communicating\",\n      value: {{{safeStringify (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s1w else=@root.request.params.query.s1)}}}\n    },\n    {\n      axis: \"Staying safe\",\n      value: {{{safeStringify (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s5w else=@root.request.params.query.s5)}}}\n    },\n    {\n      axis: \"Transacting\",\n      value: {{{safeStringify (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s4w else=@root.request.params.query.s4)}}}\n    },\n    {\n      axis: \"Problem solving\",\n      value: {{{safeStringify (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s3w else=@root.request.params.query.s3)}}}\n    },\n    {\n      axis: \"Handling info\",\n      value: {{{safeStringify (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s2w else=@root.request.params.query.s2)}}}\n    }\n  ]\n];\n\n//Options for the desktop radar chart, other than default\nvar mycfg = {\n  w: 420,\n  h: 420,\n  maxValue: 3,\n  levels: 3,\n  TranslateX: 70,\n  TranslateY: 70,\n  ExtraWidthX: 140,\n  ExtraWidthY: 140\n}\n//Call function to draw the desktop radar chart\nRadarChart.draw(\".radarChartDesktop\", d, mycfg);\n\n//Options for the mobile radar chart, other than default\nvar mycfg = {\n  w: 220,\n  h: 220,\n  maxValue: 3,\n  levels: 3,\n  TranslateX: 40,\n  TranslateY: 40,\n  ExtraWidthX: 80,\n  ExtraWidthY: 80\n}\n//Call function to draw the mobile radar chart\nRadarChart.draw(\".radarChartMobile\", d, mycfg);\n\n////////////////////////////////////////////\n/////////// Initiate legend ////////////////\n////////////////////////////////////////////\n\nvar svg = d3.select('#body')\n.selectAll('svg')\n.append('svg')\n.attr(\"width\", mycfg.w)\n.attr(\"height\", mycfg.h)\n\n</script>",
+        "skills_essential": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h1>Essential digital skills toolkit</h1>\n      <script type=\"text/javascript\" >document.write('<script src=\"http' + ( (\"https:\" == document.location.protocol) ? \"s\" : \"\") + '://www.surveygizmo.eu/s3/90124961/Essential-Digital-Skills?__output=embedjs&__ref=' + escape(document.location.origin + document.location.pathname) + '\" type=\"text/javascript\" ></scr' + 'ipt>');</script><noscript><a href=\"https://www.surveygizmo.eu/s3/90124961/Essential-Digital-Skills??jsfallback=true\">Please take this survey now</a></noscript><style>.sg-survey{display:none; }</style>\n      <hr />\n    </div>\n  </div>\n</div>",
+        "skills_foundation": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h1>Test your foundation digital skills</h1>\n      <script type=\"text/javascript\" >document.write('<script src=\"http' + ( (\"https:\" == document.location.protocol) ? \"s\" : \"\") + '://www.surveygizmo.eu/s3/90124951/Foundation-Digital-Skills?__output=embedjs&__ref=' + escape(document.location.origin + document.location.pathname) + '\" type=\"text/javascript\" ></scr' + 'ipt>');</script><style>.sg-survey{display:none; }</style>\n      <hr />\n    </div>\n  </div>\n</div>",
+        "skills_index": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h1>Skills</h1>\n      <p>\n        The internet is part of everyday life for most people. We use it to communicate, to shop, to work and to solve problems. We can use digital technology to do things that would have been unthinkable just a few years ago, and this pace of change will only get faster.\n      </p>\n      <p>\n        The <a href=\"https://www.gov.uk/government/publications/essential-digital-skills-framework\">Essential Digital Skills Framework</a> gives us a clear description of the skills we all need to make the most of these new opportunities.\n      </p>\n      <p>\n        SCVO have developed the Essential Digital Skills toolkit to help you make practical use of the framework. It contains simple checklists for measuring Foundation Skills and Essential Skills, and guidance on how to interpret the results.\n      </p>\n      <h4 class=\"margin-top\">\n        <a href=\"/skills/foundation\" class=\"mdc-button\"><span class=\"fas fa-hammer\" aria-hidden=\"true\"></span>&ensp;Foundation Skills checklist</a>\n      </h4>\n      <h4>\n        <a href=\"/skills/essential\" class=\"mdc-button\"><span class=\"fas fa-tools\" aria-hidden=\"true\"></span>&ensp;Essential Digital Skills Checklist</a>\n      </h4>\n      <h4>\n        <a href=\"/resources/toolkit-downloads\" class=\"mdc-button\"><span class=\"fas fa-file-download\" aria-hidden=\"true\"></span>&ensp;Framework downloads</a>\n      </h4>\n\n      <p class=\"t-margin-full\">\n        If you’d like to test your skills but want to know more first, or if you want to understand\n        the reasoning behind the way the toolkit works, you can follow the below link to a summary of key points surrounding the toolkit and the framework:\n      </p>\n      <h4>\n        <a href=\"/skills/information\" class=\"mdc-button\"><span class=\"fas fa-book-open\" aria-hidden=\"true\"></span>&ensp;Learn more about the framework</a>\n      </h4>\n\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Back-The-Basics-RGB-04.png\" alt=\"The Essentials illustration\" class=\"responsive-img hide-on-med-and-up\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Back-The-Basics-RGB-04.png\" alt=\"The Essentials illustration\" class=\"responsive-img\" />\n    </div>\n  </div>\n  <div class=\"mdc-layout-grid__inner\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr />\n    </div>\n  </div>\n</div>",
+        "skills_information": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/framework.png\" style=\"max-width: 100%; width: 500px; border: 2px solid #000000;\" class=\"pull-right l-margin-full b-margin-full hide-sm hide-md\">\n      <h1>Learn about the essential digital skills framework</h1>\n      <p>\n        Evidence from Digital Participation Charter Fund projects and other projects has shown that people learn best from repeated, informal, face-to-face and one-to-one support. It is also important to use the right language and conversational style when engaging with people to build relationships and facilitate future support networks.\n      </p>\n      <p>\n        The Essential Digital Skills Framework gives a clear description of the skills that everyone needs for both life and work. It has been developed in consultation with employers, charities, national and local government departments, academics and individuals. The framework provides a common language to explain what the core skills are. However, to practically use the framework, organisations need a set of assessment questions and a way of interpreting the results.\n      </p>\n      <p class=\"centre\">\n        <img src=\"https://storage.googleapis.com/digitalparticipation/images/framework.png\" style=\"max-width: 100%; width: 500px; border: 2px solid #000000;\" class=\"hide-lg\">\n      </p>\n      <p>\n        Each skill has a distinct focus, but the fifth skill – being safe, legal and confident online – is also embedded across the other four.\n      </p>\n      <p>\n        The framework includes a section on ‘foundation’ skills, which are typically required by those not currently using digital technology or using it in limited ways. It is important to check that people feel comfortable with these foundation skills before introducing the ‘Essential’ Skills.\n      </p>\n      <p>\n        When an individual or a group of people assess their skills against the framework, the results provide a snapshot of skill levels at a point in time. This record can then be used to:\n      </p>\n      <ul>\n        <li>\n          Benchmark - The advantage of sharing a common language and assessment approach is that results can be compared across different organisations and in different settings.\n        </li>\n        <li>\n          Highlight gaps - The results can demonstrate which skills people have, and which skills they need support to develop.\n        </li>\n        <li>\n          Evidence a need - In order to access funding or make the case for a Digital Skills Intervention it is important to demonstrate the need. The results of the essential skills survey can be used to demonstrate that a community or group of people do not have Essential Digital Skills, and therefore make a case for investment of time or resources.\n        </li>\n        <li>\n          Measure the success of an intervention - By carrying out regular assessments using the framework, it is possible to demonstrate the impact of a digital skills support project. Tracking the change in how people complete the checklist can show their progress towards having all of the Essential Digital Skills.\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n",
+        "stories_index": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title description\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h1 class=\"align-bottom\">Stories</h1>\n    </div>\n    <div class=\"mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone\">\n      <img src=\"https://storage.googleapis.com/digitalparticipation/images/illustrations/Pledges-RGB-04.png\" alt=\"Our Pledges illustration\" class=\"responsive-img\" />\n    </div>\n  </div>\n  {{#each @root.data.primaryResponse.hits.hits ~}}\n  {{#with _source ~}}\n  <div class=\"mdc-layout-grid__inner stories\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr class=\"margin-bottom\" />\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <a href=\"/{{replace post_slug \"_\" \"/\"}}\"><img src=\"{{featured_image.sizes.full.source_url}}\" alt=\"title\" /></a>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <h3>\n        <a href=\"/{{replace post_slug \"_\" \"/\"}}\">{{{title}}}</a>\n      </h3>\n      <p>\n        <a href=\"/{{replace post_slug \"_\" \"/\"}}\">Read this story</a>\n      </p>\n    </div>\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      {{#if quotation}}\n      <blockquote>\n        {{#if quotation.text}}<p>“{{quotation.text}}”</p>{{/if}}\n        <cite>{{quotation.author}}</cite>\n      </blockquote>\n      {{/if}}\n    </div>\n  </div>\n  {{/with ~}}\n  {{/each ~}}\n  <div class=\"mdc-layout-grid__inner\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone\">\n      <hr class=\"margin-top\" />\n    </div>\n  </div>\n\n  {{> pagination paging=@root.data.primaryResponse.pagination firstLastNavigation=false}}\n</div>",
+        "stories_post": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner detail\">\n    {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-layout-grid__cell--span-4-phone\">\n      <h1>{{{title}}}</h1>\n      <p>\n        <span class=\"fas fa-user-circle\" aria-hidden=\"true\"></span>&ensp;{{{author_name_full}}}{{#ifAny author_job_title author_organisation_name}}, {{#if author_job_title}}{{{author_job_title}}} at{{/if}} {{{author_organisation_name}}}{{else}}{{#if staff_profile.job_title}}, {{{staff_profile.job_title}}} at SCVO{{/if}}{{/ifAny}}<br />\n        <span class=\"fas fa-calendar-alt\" aria-hidden=\"true\"></span>&ensp;{{momentFormat (moment publish_on \"x\") \"Do MMM YYYY\"}}\n      </p>\n      <hr />\n      <div class=\"content\">\n        {{{content}}}\n      </div>\n      {{/with ~}}\n    </div>\n  </div>\n</div>\n",
+        "terms": "<div class=\"mdc-layout-grid\">\n  <div class=\"mdc-layout-grid__inner title\">\n    <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-12\">\n      <h1>Terms and Conditions</h1>\n\n      <p><strong>PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY BEFORE USING THIS SITE</strong></p>\n\n      <p><a href=\"/\">digitalparticipation.scot</a> (the \"<strong>Site</strong>\") is a site operated by the Scottish Council for Voluntary Organisations (\"<strong>we</strong>\", \" <strong>us</strong>\", \"<strong>our</strong>\"). We are a charity registered in Scotland, with charity no. SC003558 and we have our registered office at Mansfield Traquair Centre, 15 Mansfield Place, Edinburgh, EH3 6BB.</p>\n\n      <p>The Site operates as an information hub and signposting service.</p>\n\n      <h4>1.&#09;TERMS OF WEBSITE USE</h4>\n\n      <p>These terms of use (together with the documents referred to herein) tell you the terms on which you may make use of the Site. Use of the Site includes accessing or browsing the Site or interacting in any way with the Site.</p>\n\n      <p>Please read these terms of use carefully before you start to use the Site as these will apply to your use of the Site. We recommend that you print a copy of these terms for future reference.</p>\n\n      <p>By using the Site, you confirm that you accept these terms of use and that you agree to comply with them.</p>\n\n      <p>If you do not agree to these terms of use, you must not use the Site.</p>\n\n      <h4>2.&#09;OTHER APPLICABLE TERMS</h4>\n\n      <p>Our <a href=\"/privacy\">privacy policy</a> also applies to your use of the Site and contact you make with us through or in connection with the Site or any content on the Site. Our Privacy Policy sets out the terms on which we process any personal data we collect from you, or that you provide to us. By using the Site, you consent to such processing and you warrant that all data provided by you is accurate.</p>\n\n      <h4>3.&#09;CHANGES TO THESE TERMS</h4>\n\n      <p>We may revise these terms of use at any time by amending this page. Please check this page from time to time to take notice of any changes we make, as they are binding on you.</p>\n\n      <h4>4.&#09;CHANGES TO THE SITE</h4>\n\n      <p>We may update the Site from time to time and may change the content at any time. However, please note that any of the content on the Site may be out of date at any given time and we are under no obligation to update it.</p>\n\n      <p>We do not guarantee that the Site, or any content on it, will be free from errors or omissions.</p>\n\n      <h4>5.&#09;ACCESSING THE SITE</h4>\n\n      <p>The Site is made available free of charge.</p>\n\n      <p>We do not guarantee that the Site, or any content on it, will always be available or uninterrupted. Access to the Site is permitted on a temporary basis. We may suspend, withdraw, discontinue or change all or any part of the Site without notice. We will not be liable to you if for any reason the Site is unavailable at any time or for any period.</p>\n\n      <p>You are responsible for making all arrangements necessary for you to have access to the Site.</p>\n\n      <p>You are also responsible for ensuring that all persons who access the Site through your internet connection are aware of these terms of use and other applicable terms and conditions, and that they comply with them.</p>\n\n      <p>The Site is directed to people residing in Scotland. We do not represent that content available on or through the Site is appropriate or available in other locations. We may limit the availability of the Site or any service or product described on the Site to any person or geographic area at any time.</p>\n\n      <h4>6.&#09;INTELLECTUAL PROPERTY RIGHTS</h4>\n\n      <p>We are the owner or the licensee of all intellectual property rights in the Site, and in the material published on it. Those works are protected by copyright laws and treaties around the world. All such rights are reserved.</p>\n\n      <p>You may print off one copy, and may download extracts, of any page(s) from the Site for your personal use and you may draw the attention of others within your organisation to content posted on the Site.</p>\n\n      <p>You must not modify the paper or digital copies of any materials you have printed off or downloaded in any way, and you must not use any illustrations, photographs, video or audio sequences or any graphics separately from any accompanying text.</p>\n\n      <p>Our status (and that of any identified contributors) as the authors of content on the Site must always be acknowledged.</p>\n\n      <p>You must not use any part of the content on the Site for commercial purposes without obtaining a licence to do so from us or our licensors.</p>\n\n      <p>If you print off, copy or download any part of the Site in breach of these terms of use, your right to use the Site will cease immediately and you must, at our option, return or destroy any copies of the materials you have made.</p>\n\n      <h4>7.&#09;INFORMATION ON THE SITE</h4>\n\n      <p>The content on the Site is provided for general information only. It is not intended to amount to legal or professional advice on which you should rely. You must obtain professional or specialist advice before taking, or refraining from, any action on the basis of the content on the Site.</p>\n\n      <p>Although we make reasonable efforts to update the information on the Site, we make no representations, warranties or guarantees, whether express or implied, that the content on the Site is accurate, complete or up-to-date.</p>\n\n      <h4>8.&#09;THIRD PARTY LINKS AND RESOURCES IN THE SITE</h4>\n\n      <p>Where the Site contains links to other sites and resources provided by third parties, these links are provided for your information only.</p>\n\n      <p>We have no control over the content of those sites or resources and do not give any warranty as to their accuracy or suitability for your purposes.</p>\n\n      <h4>9.&#09;INTERACTIVE SERVICES</h4>\n\n      <p>We may from time to time provide interactive services on the Site, including, without limitation:</p>\n\n      <ul>\n        <li>survey questions; and</li>\n        <li>voting buttons.</li>\n      </ul>\n\n      <p>Use of these interactive services will not require or involve the collection of your personal data. The data collected through these interactive services will be used by us for statistical and research purposes.</p>\n\n      <p>If you are not comfortable with using these interactive services or sharing the opinions or information requested you should not use these services.</p>\n\n      <h4>10.&#09;LIMITATION OF OUR LIABILITY</h4>\n\n      <p>Nothing in these terms of use excludes or limits our liability for death or personal injury arising from our negligence,    or our fraud or fraudulent misrepresentation, or any other liability that cannot be excluded or limited by Scots law.</p>\n\n      <p>To the extent permitted by law, we exclude all conditions, warranties, representations or other terms which may apply to the Site or any content on it, whether express or implied.</p>\n\n      <p>We will not be liable to any user for any loss or damage, whether in contract, delict (including negligence), breach of statutory duty, or otherwise, even if foreseeable, arising under or in connection with:</p>\n\n      <ul>\n        <li>use of, or inability to use, the Site; or</li>\n        <li>use of or reliance on any content displayed on the Site.</li>\n      </ul>\n\n      <p>If you are a business user, please note that in particular, we will not be liable for:</p>\n\n      <ul>\n        <li>loss of profits, sales, business, or revenue;</li>\n        <li>business interruption;</li>\n        <li>loss of anticipated savings;</li>\n        <li>loss of business opportunity, goodwill or reputation; or</li>\n        <li>any indirect or consequential loss or damage.</li>\n      </ul>\n\n      <p>If you are a consumer user, please note that we only provide the Site for domestic and private use. You agree not to use the Site for any commercial or business purposes, and we have no liability to you for any loss of profit, loss of business, business interruption, or loss of business opportunity.</p>\n\n      <p>We will not be liable for any loss or damage caused by a virus, distributed denial-of-service attack, or other technologically harmful material that may infect your computer equipment, computer programs, data or other proprietary material due to your use of the Site or to your downloading of any content on it, or on any website linked to it.</p>\n\n      <p>We assume no responsibility for the content of websites linked on the Site. Such links should not be interpreted as endorsement by us of those linked websites. We will not be liable for any loss or damage that may arise from your use of them.</p>\n\n      <h4>11.&#09;VIRUSES</h4>\n\n      <p>We do not guarantee that the Site will be secure or free from bugs or viruses.</p>\n\n      <p>You are responsible for configuring your information technology, computer programmes and platform in order to access the Site. You should use your own virus protection software.</p>\n\n      <p>You must not misuse the Site by knowingly introducing viruses, trojans, worms, logic bombs or other material which is malicious or technologically harmful. You must not attempt to gain unauthorised access to the Site, the server on which the Site is stored or any server, computer or database connected to the Site. You must not attack the Site via a denial-of-service attack or a distributed denial-of service attack. By breaching this provision, you would commit a criminal offence under the Computer Misuse Act 1990. We will report any such breach to the relevant law enforcement authorities and we will co-operate with those authorities by disclosing your identity to them. In the event of such a breach, your right to use the Site will cease immediately.</p>\n\n      <h4>12.&#09;USER CONDUCT</h4>\n\n      <p>You must at all times use the Site in a respectful and legal manner.</p>\n\n      <p>You may not use the Site:</p>\n\n      <ul>\n        <li>in any way that breaches any applicable local, national or international law or regulation;</li>\n        <li>in any way that is unlawful or fraudulent, or has any unlawful or fraudulent purpose or effect;</li>\n        <li>for the purpose of harming or attempting to harm minors in any way;</li>\n        <li>to transmit, or procure the sending of, any unsolicited or unauthorised advertising or promotional material or any other form of similar solicitation (spam);</li>\n        <li>to knowingly transmit any data, send or upload any material that contains viruses, Trojan horses, worms, time-bombs, keystroke loggers, spyware, adware or any other harmful programs or similar computer code designed to adversely affect the operation of any computer software or hardware;</li>\n        <li>to reproduce, duplicate, copy or re-sell any part of the Site in contravention of the provisions of these terms of use;</li>\n        <li>to misrepresent your identity or affiliation with any other person or organisation;</li>\n        <li>to disclose any information relating to any other party using the Site unless that party has consented to such disclosure; or</li>\n        <li>to access without authority, interfere with, damage or disrupt:\n\n          <ul>\n            <li>any part of the Site;</li>\n            <li>any equipment or network on which the Site is stored;</li>\n            <li>any software used in provision of the Site; or</li>\n            <li>any equipment or network or software owned or used by any third party.</li>\n          </ul>\n        </li>\n      </ul>\n\n      <p>You may link to our home page, provided you do so in a way that is fair and legal and does not damage our reputation or take advantage of it.</p>\n\n      <p>You must not establish a link in such a way as to suggest any form of association, approval or endorsement on our part where none exists. You must not establish a link to the Site in any website that is not owned by you. The Site must not be framed on any other site, nor may you create a link to any part of the Site other than the home page.</p>\n\n      <p>We reserve the right to withdraw linking permission without notice.</p>\n\n      <p>If you wish to make any use of content on the Site other than that set out above, please contact <a href=\"mailto:ann.rowe@scvo.org.uk\">ann.rowe@scvo.org.uk</a>.</p>\n\n      <h4>13.&#09;THIRD PARTY LINKS AND RESOURCES IN THE SITE</h4>\n\n      <p>Where the Site contains links to other sites and resources provided by third parties, these links are provided for your information only.</p>\n\n      <p>We have no control over the contents of those sites or resources.</p>\n\n      <h4>14.&#09;APPLICABLE LAW</h4>\n\n      <p>These terms of use, their subject matter and formation (and any non-contractual disputes or claims) are governed by Scots law. You and we both agree to the exclusive jurisdiction of the courts of Scotland.</p>\n\n      <h4>15.&#09;CONTACT US</h4>\n\n      <p>To contact us, please email <a href=\"mailto:ann.rowe@scvo.org.uk\">ann.rowe@scvo.org.uk</a> or call us on <a href=\"tel:08081642520\">0808 164 2520</a>.</p>\n\n      <p>Thank you for visiting the Site.</p>\n    </div>\n  </div>\n</div>"
+      },
+      "layouts": {
+        "data": "{{{layoutParts.content}}}",
+        "default": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <base href=\"/\">\n  {{{layoutParts.head}}}\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n  <!--\n\n  Powered by:\n      ███████╗ ██████╗██╗   ██╗ ██████╗  ██╗   ██████╗  ██████╗ ██╗   ██╗████████╗███████╗██████╗\n     ██╔════╝██╔════╝██║   ██║██╔═══██╗ ╚██╗  ██╔══██╗██╔═══██╗██║   ██║╚══██╔══╝██╔════╝██╔══██╗\n    ███████╗██║     ██║   ██║██║   ██║  ╚██╗ ██████╔╝██║   ██║██║   ██║   ██║   █████╗  ██████╔╝\n   ╚════██║██║     ╚██╗ ██╔╝██║   ██║  ██╔╝ ██╔══██╗██║   ██║██║   ██║   ██║   ██╔══╝  ██╔══██╗\n  ███████║╚██████╗ ╚████╔╝ ╚██████╔╝ ██╔╝  ██║  ██║╚██████╔╝╚██████╔╝   ██║   ███████╗██║  ██║\n  ╚══════╝ ╚═════╝  ╚═══╝   ╚═════╝ ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═╝\n\n  -->\n\n  <link rel=\"apple-touch-icon\" sizes=\"57x57\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/apple-icon-57x57.png\">\n  <link rel=\"apple-touch-icon\" sizes=\"60x60\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/apple-icon-60x60.png\">\n  <link rel=\"apple-touch-icon\" sizes=\"72x72\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/apple-icon-72x72.png\">\n  <link rel=\"apple-touch-icon\" sizes=\"76x76\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/apple-icon-76x76.png\">\n  <link rel=\"apple-touch-icon\" sizes=\"114x114\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/apple-icon-114x114.png\">\n  <link rel=\"apple-touch-icon\" sizes=\"120x120\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/apple-icon-120x120.png\">\n  <link rel=\"apple-touch-icon\" sizes=\"144x144\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/apple-icon-144x144.png\">\n  <link rel=\"apple-touch-icon\" sizes=\"152x152\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/apple-icon-152x152.png\">\n  <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/apple-icon-180x180.png\">\n  <link rel=\"icon\" type=\"image/png\" sizes=\"192x192\"  href=\"https://storage.googleapis.com/digitalparticipation/images/icons/android-icon-192x192.png\">\n  <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/favicon-32x32.png\">\n  <link rel=\"icon\" type=\"image/png\" sizes=\"96x96\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/favicon-96x96.png\">\n  <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"https://storage.googleapis.com/digitalparticipation/images/icons/favicon-16x16.png\">\n  <link rel=\"manifest\" href=\"{{~>asset_url url='images/icons/manifest.json'}}\">\n  <meta name=\"msapplication-TileColor\" content=\"#022347\">\n  <meta name=\"msapplication-TileImage\" content=\"https://storage.googleapis.com/digitalparticipation/images/icons/ms-icon-144x144.png\">\n  <meta name=\"theme-color\" content=\"#022347\">\n\n  <!-- Global site tag (gtag.js) - Google Analytics -->\n  <script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-3467930-19\"></script>\n  <script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'UA-3467930-19', { 'send_page_view': true, 'anonymize_ip': true });\n\n  {{#ifAny request.params.query.debug (compare request.url.hostname \"digitalparticipation.local\") ~}}\n  console.log('#### DEBUG MODE ON ####');\n  console.log('Request:', {{{regexReplace (regexReplace (stringify request) \"(<\\/script)\" \"gi\" '</scr\\\" + \\\"ipt') \"(\\r|\\n)\" \"gi\" \"\"}}});\n  console.log('Route:', {{{regexReplace (regexReplace (stringify route) \"(<\\/script)\" \"gi\" '</scr\\\" + \\\"ipt') \"(\\r|\\n)\" \"gi\" \"\"}}});\n  console.log('Context:', {{{regexReplace (regexReplace (stringify context) \"(<\\/script)\" \"gi\" '</scr\\\" + \\\"ipt') \"(\\r|\\n)\" \"gi\" \"\"}}});\n  console.log('Data:', {{{regexReplace (regexReplace (stringify data) \"(<\\/script)\" \"gi\" '</scr\\\" + \\\"ipt') \"(\\r|\\n)\" \"gi\" \"\"}}});\n  console.log('Menus:', {{{regexReplace (regexReplace (stringify context.metaData.menus) \"(<\\/script)\" \"gi\" '</scr\\\" + \\\"ipt') \"(\\r|\\n)\" \"gi\" \"\"}}});\n  {{/ifAny ~}}\n  </script>\n\n  <link type=\"text/css\" rel=\"stylesheet\" href=\"{{~>asset_url url='libraries/fontawesome-pro/css/all.min.css'~}}\">\n\n  <link type=\"text/css\" rel=\"stylesheet\" href=\"{{~>asset_url url='main.css'}}\">\n</head>\n<body class=\"{{#if request.params.path}}{{replace request.params.path '_' ' '}}{{else}}home{{/if}}\">\n  <charter-site>\n    <div class=\"mdc-typography\">\n      <main>\n        <header class=\"mdc-toolbar\">\n          <div class=\"mdc-toolbar__row\">\n            <div class=\"container-fluid\">\n              <section class=\"mdc-toolbar__section mdc-toolbar__section--align-start\">\n                <span class=\"mdc-toolbar__title catalog-title\">\n                  <a href=\"/\" class=\"brand-logo\">\n                    <span class=\"digital\">Digital</span>\n                    <span class=\"participation\">Participation</span>\n                    <span class=\"charter\">Charter</span>\n                  </a>\n                </span>\n              </section>\n              <section class=\"mdc-toolbar__section mdc-toolbar__section--align-end\">\n                <nav id=\"main-tab-bar\" class=\"mdc-tab-bar\" [menu]=\"'main'\" [menulinkselector]=\"''\" [menulabelselector]=\"'span.mdc-tab--label'\" [menuactiveclass]=\"'active'\">\n                  {{#each context.metaData.menus.main ~}}\n                  <div class=\"dropdown\">\n                    <a class=\"mdc-tab{{#if (regexMatch @root.request.url.pathname route \"gi\")}} mdc-tab--active{{/if}}\" href=\"{{path}}\"><span class=\"mdc-tab--label\">{{{label}}}</span></a>\n                    {{!-- {{#if children ~}}\n                    <ul class=\"dropdown-content\">\n                    {{#each children ~}}\n                    <li><a class=\"mdc-tab{{#if (regexMatch @root.request.url.pathname route \"gi\")}} mdc-tab--active{{/if}}\" href=\"{{path}}\"><span class=\"mdc-tab--label\">{{{label}}}</span></a></li>\n                    {{/each ~}}\n                    </ul>\n                    {{/if ~}} --}}\n                  </div>\n                  {{/each ~}}\n                </nav>\n              </section>\n              <section class=\"mdc-toolbar__section mdc-toolbar__section--align-end mdc-toolbar__section--shrink-to-fit hide-lg\">\n                <button class=\"mdc-top-app-bar__navigation-icon\" data-drawer-target=\"#mobile-menu\">\n                  <span class=\"far fa-fw fa-2x fa-bars\" aria-label=\"Menu\"></span>\n                </button>\n              </section>\n            </div>\n          </div>\n        </header>\n\n        <aside class=\"mdc-drawer mdc-drawer--modal\" id=\"mobile-menu\" data-mdc-auto-init=\"MDCDrawer\">\n          <div class=\"mdc-drawer__content\">\n            <nav class=\"mdc-list\">\n              {{#each @root.context.metaData.menus.main ~}}\n              <a class=\"mdc-list-item{{#if (regexMatch @root.request.url.pathname route \"gi\")}} mdc-list-item--activated{{/if}}\"\n                 href=\"{{stripTrailingSlash path}}\" {{#if (regexMatch @root.request.url.pathname route \"gi\")}}aria-selected=\"true\"{{else}}aria-hidden=\"true\"{{/if}}>\n                {{#if icon ~}}\n                <span class=\"far fa-{{icon}} mdc-list-item__graphic\" aria-hidden=\"true\"></span>\n                {{/if ~}}\n                {{{label}}}\n              </a>\n              {{#each children ~}}\n              <a class=\"mdc-list-item{{#if (regexMatch @root.request.url.pathname route \"gi\")}} mdc-list-item--activated{{/if}} mdc-list-item--child\"\n                 href=\"{{stripTrailingSlash path}}\" {{#if (regexMatch @root.request.url.pathname route \"gi\")}}aria-selected=\"true\"{{else}}aria-hidden=\"true\"{{/if}}>\n                {{#if icon ~}}\n                <span class=\"far fa-{{icon}} mdc-list-item__graphic\" aria-hidden=\"true\"></span>\n                {{/if ~}}\n                {{{label}}}\n              </a>\n              {{/each ~}}\n              {{/each ~}}\n            </nav>\n          </div>\n        </aside>\n\n        <div class=\"mdc-drawer-scrim\"></div>\n\n        <div class=\"container-fluid\">\n          {{{layoutParts.body}}}\n        </div>\n      </main>\n\n      <footer>\n        <div class=\"footer-main\">\n          <div class=\"container-fluid\">\n            <div class=\"mdc-layout-grid\">\n              <div class=\"mdc-layout-grid__inner\">\n                <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-3-desktop\">\n                  <h3>Contact</h3>\n                  <ul class=\"fa-ul\">\n                    <li>\n                      <span class=\"fa-li\"><span class=\"fas fa-envelope\" aria-hidden=\"true\"></span></span>\n                      <a href=\"mailto:digital@scvo.org.uk\">digital@scvo.org.uk</a>\n                    </li>\n                    <li>\n                      <span class=\"fa-li\"><span class=\"fab fa-twitter\" aria-hidden=\"true\"></span></span>\n                      <a href=\"https://twitter.com/digiscot\" rel=\"noopener\">Twitter</a>\n                    </li>\n                  </ul>\n                </div>\n                <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-3-desktop\">\n                  <h3>Help</h3>\n                  <ul class=\"mdc-list\">\n                    <li class=\"mdc-list-item\">\n                      <a href=\"/accessibility\">Accessibility</a>\n                    </li>\n                    <li class=\"mdc-list-item\">\n                      <a href=\"/privacy\">Privacy</a>\n                    </li>\n                    <li class=\"mdc-list-item\">\n                      <a href=\"/cookies\">Cookies</a>\n                    </li>\n                    <li class=\"mdc-list-item\">\n                      <a href=\"/terms\">Terms &amp; conditions</a>\n                    </li>\n                  </ul>\n                </div>\n                <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-6-desktop\">\n                  <h3>About</h3>\n                  <p>\n                    <strong>Scotland's Digital Participation Charter</strong> is run by the <a href=\"https://scvo.org\">Scottish Council for Voluntary Organisations</a> with support from the <a href=\"https://www.gov.scot/policies/digital\">Scottish Government</a>.\n                  </p>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"footer-copyright\">\n          <div class=\"container-fluid\">\n            <div class=\"mdc-layout-grid\">\n              <div class=\"mdc-layout-grid__inner\">\n                <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-8-desktop\">\n                  <p>\n                    &copy; {{momentFormat (moment) \"YYYY\"}}. The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation. Charity registered in Scotland <a href=\"https://www.oscr.org.uk/about-charities/search-the-register/charity-details?number=SC003558\">SC003558</a>. Registered office Mansfield Traquair Centre, 15 Mansfield Place, Edinburgh EH3 6BB.\n                  </p>\n                </div>\n                <div class=\"mdc-layout-grid__cell mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-desktop\">\n                  <a href=\"https://www.gov.scot/policies/digital\">\n                    <img src=\"{{~>asset_url url='images/logos/sg_reversed_white.png'~}}\" alt=\"Scottish Government\"  class=\"logo digital-scotland\" />\n                  </a>\n                  <a href=\"https://scvo.org\" title=\"Scottish Council for Voluntary Organisations\">\n                    <img src=\"{{~>asset_url url='images/logos/scvo.png'~}}\" alt=\"Scottish Council for Voluntary Organisations\" class=\"logo scvo\" />\n                  </a>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </footer>\n    </div>\n  </charter-site>\n  {{#if (contains request.url.host '.local')}}\n  <script type=\"text/javascript\" src=\"https://unpkg.com/material-components-web@0.39.1/dist/material-components-web.js\"></script>\n  {{else}}\n  <script type=\"text/javascript\" src=\"https://unpkg.com/material-components-web@0.39.1/dist/material-components-web.min.js\"></script>\n  {{/if}}\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n  <script type=\"text/javascript\">\n  var $buoop = {required:{e:-3,f:-3,o:-3,s:-1,c:-3},insecure:true,unsupported:true,api:2018.07 };\n  function $buo_f(){\n   var e = document.createElement(\"script\");\n   e.src = \"//browser-update.org/update.min.js\";\n   document.body.appendChild(e);\n  };\n  try {document.addEventListener(\"DOMContentLoaded\", $buo_f,false)}\n  catch(e){window.attachEvent(\"onload\", $buo_f)}\n  </script>\n  <script type=\"text/javascript\" id=\"cookieinfo\" src=\"{{~>asset_url url='cookieinfo.min.js'~}}\" data-message=\"We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies.\" data-font-family=\"'Open Sans',Helvetica,Arial,sans-serif\" data-bg=\"#fff\" data-link=\"#022347\" data-divlink=\"#fff\" data-divlinkbg=\"#022347\" data-position=\"bottom\" data-accept-on-scroll=\"true\" data-moreinfo=\"/cookies\" data-cookie=\"CookieInfoScript\" data-text-align=\"left\"></script>\n  <script>\n   window.intercomSettings = {\n     app_id: \"r95jtxvv\"\n   };\n  </script>\n  <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic===\"function\"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/r95jtxvv';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>\n  <script type=\"text/javascript\" src=\"{{~>asset_url url='root.js'~}}\"></script>\n\n  <script type=\"text/javascript\" src=\"{{~>asset_url url='main.js'~}}\"></script>\n\n  {{{layoutParts.foot}}}\n</body>\n</html>\n"
+      },
+      "queries": {
+        "blog-post": "{\n  \"size\": 1,\n  \"_source\": [\n    \"title\",\n    \"sub_title\",\n    \"og_title\",\n    \"og_image\",\n    \"og_summary\",\n    \"author_name_full\",\n    \"author_job_title\",\n    \"author_organisation_name\",\n    \"content\",\n    \"staff_profile.job_title\",\n    \"publish_on\"\n  ],\n  \"query\": {\n    \"term\": {\n      \"post_slug\": \"{{@root.request.params.path}}\"\n    }\n  }\n}\n",
+        "blog-posts": "{\n  \"size\": {{if (compare @root.route.name \"home\") 1 else=10}},\n  \"from\": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},\n  \"_source\": [\n    \"title\",\n    \"featured_image\",\n    \"description_truncated\",\n    \"publish_on\",\n    \"author_name_full\",\n    \"author_job_title\",\n    \"author_organisation_name\",\n    \"post_slug\",\n    \"quotation.author\",\n    \"quotation.text\",\n    \"quotation.headshot\",\n    \"quotation.author_title\",\n    \"quotation.author_url\"\n  ],\n  \"query\": {\n    \"bool\": {\n      \"must_not\": [\n        {\n          \"term\": {\n            \"hide_in_results\": true\n          }\n        },\n        {\n          \"term\": {\n            \"hide_from_search\": \"1\"\n          }\n        },\n        {\n          \"term\": {\n            \"is_press_release\": true\n          }\n        }\n      ],\n      \"filter\": [\n        {\n          \"terms\": {\n            \"categories_slug\": [\n              \"digital-participation\",\n              \"blog-posts\"\n            ]\n          }\n        },\n        {\n          \"term\": {\n            \"post_tags_slug\": \"case-studies\"\n          }\n        }\n      ]\n    }\n  },\n  \"sort\": {\n    \"publish_on\": \"desc\"\n  }\n}\n",
+        "links": "{\n  \"size\": 100,\n  \"_source\": [\n    \"title\",\n    \"content\",\n    \"author_attribution\",\n    \"link\",\n    \"post_tags_slug\",\n    \"year_published\"\n  ],\n  \"query\": {\n    \"bool\": {\n      \"filter\": [\n        {\n          \"term\": {\n            \"categories_slug\": \"digital-participation\"\n          }\n        },\n        {\n          \"term\": {\n            \"post_tags_slug\": \"digital-research\"\n          }\n        }\n      ]\n    }\n  },\n  \"sort\": [\n    {\n      \"year_published\": {\n        \"order\": \"desc\"\n      }\n    },\n    {\n      \"title_sort\": {\n        \"order\": \"asc\"\n      }\n    }\n  ]\n}",
+        "resources-relevant": "{\n  \"size\": 6,\n  \"_source\": [\n    \"title\",\n    \"content\",\n    \"author_attribution\",\n    \"link\",\n    \"post_tags\",\n    \"post_tags_slug\"\n  ],\n  \"query\": {\n    \"function_score\": {\n      \"query\": {\n        \"bool\": {\n          \"filter\": [\n            {\n              \"terms\": {\n                \"post_tags_slug\": [\n                  \"communicating\",\n                  \"handling-info\",\n                  \"problem-solving\",\n                  \"transacting\",\n                  \"online-safety\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"term\": {\n                \"categories_slug\": \"digital-participation\"\n              }\n            }\n          ]\n        }\n      },\n      \"boost\": \"1\",\n      \"functions\": [\n        {\n          \"field_value_factor\": {\n            \"field\": \"weight\",\n            \"factor\": 10,\n            \"modifier\": \"reciprocal\",\n            \"missing\": 1\n          }\n        },\n        {\n          \"filter\": {\n            \"term\": {\n              \"post_tags_slug\": \"communicating\"\n            }\n          },\n          \"random_score\": {},\n          \"weight\": {{subtract (if (compare @root.request.params.query.type \"work\") 5 else=3) (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s1w else=@root.request.params.query.s1)}}\n        },\n        {\n          \"filter\": {\n            \"term\": {\n              \"post_tags_slug\": \"handling-info\"\n            }\n          },\n          \"random_score\": {},\n          \"weight\": {{subtract (if (compare @root.request.params.query.type \"work\") 5 else=3) (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s2w else=@root.request.params.query.s2)}}\n        },\n        {\n          \"filter\": {\n            \"term\": {\n              \"post_tags_slug\": \"problem-solving\"\n            }\n          },\n          \"random_score\": {},\n          \"weight\": {{subtract (if (compare @root.request.params.query.type \"work\") 5 else=3) (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s3w else=@root.request.params.query.s3)}}\n        },\n        {\n          \"filter\": {\n            \"term\": {\n              \"post_tags_slug\": \"transacting\"\n            }\n          },\n          \"random_score\": {},\n          \"weight\": {{subtract (if (compare @root.request.params.query.type \"work\") 5 else=3) (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s4w else=@root.request.params.query.s4)}}\n        },\n        {\n          \"filter\": {\n            \"term\": {\n              \"post_tags_slug\": \"online-safety\"\n            }\n          },\n          \"random_score\": {},\n          \"weight\": {{subtract (if (compare @root.request.params.query.type \"work\") 5 else=3) (if (compare @root.request.params.query.type \"work\") @root.request.params.query.s5w else=@root.request.params.query.s5)}}\n        }\n      ],\n      \"max_boost\": {{if (compare @root.request.params.query.type \"work\") 5 else=3}},\n      \"score_mode\": \"max\",\n      \"boost_mode\": \"multiply\",\n      \"min_score\" : 0\n    }\n  }\n}",
+        "signatory-aggs": "{\n  \"size\": 0,\n  \"_source\": false,\n  \"aggs\": {\n    \"sectors\": {\n      \"terms\": {\n        \"field\": \"sector\",\n        \"order\": {\n          \"_term\": \"asc\"\n        },\n        \"size\": 10000\n      }\n    },\n    \"categories\": {\n      \"terms\": {\n        \"field\": \"category\",\n        \"order\": {\n          \"_term\": \"asc\"\n        },\n        \"size\": 10000\n      }\n    }\n  }\n}\n",
+        "signatory-category-aggs": "{\n  \"size\": 12,\n  \"from\": {{multiply (subtract (default request.params.query.page 1) 1) 12}},\n  \"_source\": false,\n  \"query\": {\n    \"bool\": {\n      \"filter\": [\n        {{#if request.params.query.sector}}\n        {\n          \"term\": {\n            \"sector\": \"{{request.params.query.sector}}\"\n          }\n        }\n        {{/if}}\n      ]\n    }\n  },\n  \"aggs\": {\n    \"categories\": {\n      \"terms\": {\n        \"field\": \"category\",\n        \"order\": {\n          \"_term\": \"asc\"\n        },\n        \"size\": 10000\n      }\n    }\n  }\n}\n",
+        "signatory-projects": "{\n  \"size\": 100,\n  \"from\": 0,\n  \"_source\": [\n    \"title\",\n    \"call\",\n    \"amount_awarded\",\n    \"description\",\n    \"description_alt\",\n    \"day_awarded\",\n    \"slug\"\n  ],\n  \"query\": {\n    \"bool\": {\n      \"must\": [\n        {\n          \"term\": {\n            \"recipient_id\": \"{{@root.data.primaryResponse.hits.hits.[0]._source.organisation_id}}\"\n          }\n        }\n      ]\n    }\n  },\n  \"sort\": {\n    \"planned_start\": \"desc\"\n  }\n}",
+        "signatory-search": "{\n  \"size\": 10,\n  \"from\": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},\n  \"_source\": [\n    \"slug\",\n    \"title\",\n    \"description\",\n    \"mission_statement\",\n    \"date_signed\",\n    \"status\",\n    \"logos\"\n  ],\n  \"query\": {\n    \"bool\": {\n      {{#ifAny @root.request.params.query.sector @root.request.params.query.category @root.request.params.query.exclude_expired ~}}\n      \"filter\": [\n        {{#if @root.request.params.query.sector ~}}\n        {\n          \"term\": {\n            \"sector\": \"{{request.params.query.sector}}\"\n          }\n        }{{#ifAny @root.request.params.query.category @root.request.params.query.exclude_expired}},{{/ifAny}}\n        {{/if ~}}\n        {{#if @root.request.params.query.category ~}}\n        {\n          \"term\": {\n            \"category\": \"{{request.params.query.category}}\"\n          }\n        }{{#if @root.request.params.query.exclude_expired}},{{/if}}\n        {{/if ~}}\n        {{#if @root.request.params.query.exclude_expired ~}}\n        {\n          \"term\": {\n            \"status\": \"Signed\"\n          }\n        }\n        {{/if ~}}\n      ],\n      {{/ifAny ~}}\n      {{#if @root.request.params.query.q ~}}\n      \"must\": [\n        {\n          \"query_string\": {\n            \"query\": {{{stringify (default @root.request.params.query.q \"\")}}},\n            \"default_field\": \"text_bag\",\n            \"default_operator\": \"AND\",\n            \"analyzer\": \"snowball\"\n          }\n        }\n      ],\n      \"should\": [\n        {\n          \"match_phrase\": {\n            \"title\": {\n              \"query\": {{{stringify (default @root.request.params.query.q \"\")}}},\n              \"boost\": 10\n            }\n          }\n        }\n      ]\n      {{else}}\n      \"must\": [\n        {\n          \"match_all\": {}\n        }\n      ]\n      {{/if ~}}\n    }\n  },\n  \"sort\": {\n    {{#if @root.request.params.query.sort ~}}\n    \"slug\": \"asc\"\n    {{else}}\n    {{#if @root.request.params.query.q ~}}\n    \"_score\": \"desc\"\n    {{else}}\n    \"date_signed\": \"desc\"\n    {{/if ~}}\n    {{/if ~}}\n  }\n}",
+        "signatory-total": "{\n  \"size\": 0,\n  \"_source\": false,\n  \"query\": {\n    \"match_all\": {}\n  }\n}\n",
+        "signatory": "{\n  \"size\": 1,\n  \"_source\": [\n    \"Id\",\n    \"organisation_id\",\n    \"status\",\n    \"title\",\n    \"description\",\n    \"date_signed\",\n    \"date_last_modified\",\n    \"logos\",\n    \"slug\",\n    \"mission_statement\",\n    \"description\",\n    \"support_offered\",\n    \"support_wanted\",\n    \"sector\",\n    \"category\",\n    \"website\",\n    \"blog\",\n    \"twitter\",\n    \"facebook\"\n  ],\n  \"query\": {\n    \"term\": {\n      \"slug\": \"{{@root.request.params.slug}}\"\n    }\n  }\n}"
+      }
+    }
+  }
+}
