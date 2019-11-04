@@ -1,6 +1,10 @@
 {
   "name": "blog_post",
-  "pattern": "/post/*path",
+  "debug": true,
+  "pattern": {
+    "post_path": "/post(/:year)(/:month)(/:day)(/:slug)",
+    "post_id": "/p/*id(/:year)(/:month)(/:day)(/:slug)"
+  },
   "metaData": {
     "title": "Stories – Scotland's Digital Participation Charter"
   },
