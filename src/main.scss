@@ -18,9 +18,8 @@ $brand-green:                       #6beda0;
 
 $toolbar-shadow-reverse: 0px -3px 5px -1px rgba(0, 0, 0, 0.2), 0px -5px 8px 0px rgba(0, 0, 0, 0.14), 0px -1px 14px 0px rgba(0, 0, 0, 0.12);
 
-$mdc-theme-footer: #37474F;
-$mdc-theme-footer-light: #E1E3E4;
-$mdc-theme-footer-dark: #263238;
+$theme-footer: #385665;
+$theme-footer-light: #FEF9F9;
 
 // Base variables
 
@@ -62,7 +61,7 @@ body {
   font-size: $base-font-size;
   font-weight: $base-font-weight;
   color: $brand-typography;
-  background-color: $mdc-theme-footer-dark;
+  background-color: $theme-footer-light;
 }
 
 h1, h2, h3, h4, h5 {
@@ -182,7 +181,7 @@ body {
   font-size: $base-font-size;
   font-weight: $base-font-weight;
   color: $brand-typography;
-  background-color: $mdc-theme-footer-dark;
+  background-color: $theme-footer;
   min-height: 100%;
   padding: 0;
   margin: 0;
@@ -1219,11 +1218,11 @@ footer {
   --mdc-layout-grid-gutter-tablet: $unit;
   --mdc-layout-grid-margin-phone: $unit;
   --mdc-layout-grid-gutter-phone: $unit;
-  background-color: $mdc-theme-footer-dark;
+  background-color: $theme-footer-light;
   p, li, div {
     font-family: $footer-font-family;
     font-weight: $footer-font-weight;
-    color: $mdc-theme-footer;
+    color: white;
     font-size: 1.05rem;
   }
   h3, a, strong {
@@ -1235,44 +1234,24 @@ footer {
   }
   .footer-main {
     padding: 0 0 $unit/2;
-    background-color: $mdc-theme-footer-light;
-    // background-image: linear-gradient(
-    // -120deg,
-    // $scvo-background,
-    // $scvo-background $unit*2,
-    // $brand-teal $unit*2.05,
-    // $brand-teal $unit*2.5,
-    // $brand-pink $unit*2.55,
-    // $brand-pink $unit*3,
-    // $brand-green $unit*3.05,
-    // $brand-green $unit*3.5,
-    // $brand-yellow $unit*3.55,
-    // $brand-yellow $unit*4,
-    // white $unit*4.05,
-    // white $unit*4.5,
-    // $brand-typography $unit*4.55,
-    // $brand-typography
-    // );
-    // box-shadow: $toolbar-shadow-reverse;
-    border-top: 0.4rem solid white;
-    // background-image: linear-gradient(160deg, $brand-typography, $brand-typography 60%, $scvo-background 110%, $scvo-background);
+    background-color: $theme-footer;
   }
   h3 {
     font-size: 1.1rem;
     margin: $unit 0;
     padding-bottom: $unit/2;
-    color: $mdc-theme-footer;
+    color: white;
     font-weight: $heading-font-weight;
-    text-transform: uppercase;
+    text-transform: none;
   }
   a {
-    color: $mdc-theme-footer;
+    color: white;
     text-decoration: none;
   }
   a:hover,
   a:active,
   a:focus {
-    color: $mdc-theme-footer;
+    color: white;
     text-decoration: underline;
   }
   .mdc-list .mdc-list-item a:hover {
@@ -1318,7 +1297,7 @@ footer {
     }
   }
   .footer-copyright {
-    background-color: $mdc-theme-footer-dark;
+    background-color: $theme-footer-light;
     padding-bottom: $unit/2;
     .container-fluid {
       padding: $unit 0 .9rem;
@@ -1332,7 +1311,7 @@ footer {
     a:hover,
     a:active,
     a:focus {
-      color: white;
+      color: $theme-footer;
     }
   }
   .logo.scvo {
@@ -1343,7 +1322,7 @@ footer {
   }
   .logo.digital-scotland {
     width: 160px;
-    margin-top: 12px;
+    margin-top: 8px;
     // height: 50px;
     position: absolute;
     // bottom: 0.7rem;
