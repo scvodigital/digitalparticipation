@@ -24,13 +24,6 @@
                 ]
               }
             }
-          ],
-          "must": [
-            {
-              "term": {
-                "categories_slug": "digital-participation"
-              }
-            }
           ]
         }
       },
