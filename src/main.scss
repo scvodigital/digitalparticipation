@@ -5,6 +5,7 @@
 @import url('//fonts.googleapis.com/css?family=Roboto:300,400,700|Poppins:700|Open+Sans:400,600,700');
 
 $unit: 1rem;
+$thick-line: 5px;
 
 // Brand colours
 
@@ -38,6 +39,58 @@ $footer-font-size:                  1rem;
 $footer-font-weight:                400;
 
 $brand-border-width:                0.2rem;
+
+$gray-color: #D5D8DC;
+$secondary-color: #244B5A;
+
+$footer-font-family:                "Ingra", Helvetica, Arial, sans-serif;
+
+.scvo-link-bar,
+footer {
+  p, li, div, h3, a, strong {
+    font-family: $footer-font-family;
+  }
+}
+
+.scvo-link-bar {
+  background-color: $gray-color;
+  height: 40px;
+  padding: 0 $unit;
+  width: 100%;
+  box-sizing: border-box;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    li {
+      display: inline;
+    }
+  }
+  .text-link {
+    font-size: 1.065rem;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: $thick-line solid transparent;
+    margin-right: $unit*(3/4);
+    color: $secondary-color;
+    transition: border 0.3s;
+  }
+  .text-link:hover {
+    text-decoration: none;
+    border-bottom: $thick-line solid $secondary-color;
+  }
+  .brand-logo {
+    // margin-left: $unit/4;
+    line-height: 38px;
+    // width: 90px;
+    img {
+      height: 30px !important;
+      vertical-align: middle;
+    }
+  }
+}
 
 :root {
   --mdc-layout-grid-margin-desktop: $unit;
@@ -88,6 +141,7 @@ h4 a {
   float: right;
 }
 
+.container,
 .container-fluid {
   max-width: 1280px;
   width: 100%;
