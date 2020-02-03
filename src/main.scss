@@ -1287,11 +1287,11 @@ footer {
     position: relative;
   }
   .footer-main {
-    padding: 0 0 $unit/2;
+    padding: $unit/2 0 $unit;
     background-color: $theme-footer;
   }
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin: $unit 0;
     padding-bottom: $unit/2;
     color: white;
@@ -1357,7 +1357,7 @@ footer {
       padding: $unit 0 .9rem;
     }
     p {
-      font-size: 0.95rem;
+      font-size: 1rem;
       margin: 0;
     }
     p,
