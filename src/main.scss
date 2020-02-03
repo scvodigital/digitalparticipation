@@ -42,6 +42,7 @@ $brand-border-width:                0.2rem;
 
 $gray-color: #D5D8DC;
 $secondary-color: #244B5A;
+$transition-speed: 0.3s;
 
 $footer-font-family:                "Ingra", Helvetica, Arial, sans-serif;
 
@@ -75,7 +76,7 @@ footer {
     border-bottom: $thick-line solid transparent;
     margin-right: $unit;
     color: $secondary-color;
-    transition: border 0.3s;
+    transition: border $transition-speed;
   }
   .text-link:hover {
     text-decoration: none;
@@ -114,7 +115,7 @@ body {
   font-size: $base-font-size;
   font-weight: $base-font-weight;
   color: $brand-typography;
-  background-color: $theme-footer-light;
+  background-color: $theme-footer;
 }
 
 h1, h2, h3, h4, h5 {
@@ -518,6 +519,7 @@ main {
     padding: $unit/4 $unit/2;
     border: $brand-border-width solid $brand-typography;
     background: transparent;
+    transition: border $transition-speed, background $transition-speed;
   }
   .mdc-button--active,
   .mdc-button:hover {
@@ -1272,7 +1274,7 @@ footer {
   --mdc-layout-grid-gutter-tablet: $unit;
   --mdc-layout-grid-margin-phone: $unit;
   --mdc-layout-grid-gutter-phone: $unit;
-  background-color: $theme-footer-light;
+  background-color: $theme-footer;
   p, li, div {
     font-family: $footer-font-family;
     font-weight: $footer-font-weight;
@@ -1287,7 +1289,7 @@ footer {
     position: relative;
   }
   .footer-main {
-    padding: $unit/2 0 $unit;
+    padding: $unit*1.5 0 $unit/2;
     background-color: $theme-footer;
   }
   h3 {
@@ -1300,17 +1302,21 @@ footer {
   }
   a {
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
+    border-bottom: $thick-line solid transparent;
+    transition: border $transition-speed;
   }
   a:hover,
   a:active,
   a:focus {
     color: white;
-    text-decoration: underline;
+    border-bottom-color: white;
+    text-decoration: none !important;
+    // text-decoration: underline;
   }
-  .mdc-list .mdc-list-item a:hover {
-    text-decoration: underline !important;
-  }
+  // .mdc-list .mdc-list-item a:hover {
+  //   text-decoration: underline !important;
+  // }
   .brand-logo {
     display: block;
     text-align: right;
@@ -1343,7 +1349,7 @@ footer {
   .mdc-list {
     padding: 0;
     .mdc-list-item {
-      height: $unit*1.5;
+      height: auto;
       a {
         font-weight: 600;
         text-decoration: none;
@@ -1351,7 +1357,7 @@ footer {
     }
   }
   .footer-copyright {
-    background-color: $theme-footer-light;
+    // background-color: $theme-footer-light;
     padding-bottom: $unit/2;
     .container-fluid {
       padding: $unit 0 .9rem;
@@ -1360,22 +1366,22 @@ footer {
       font-size: 1rem;
       margin: 0;
     }
-    p,
-    a,
-    a:hover,
-    a:active,
-    a:focus {
-      color: $theme-footer;
-    }
+    // p,
+    // a,
+    // a:hover,
+    // a:active,
+    // a:focus {
+    //   color: $theme-footer;
+    // }
   }
   .logo.scvo {
     position: absolute;
     height: 45px;
-    bottom: 0.7rem;
+    // bottom: 0.7rem;
     right: 0;
   }
   .logo.digital-scotland {
-    width: 160px;
+    width: 170px;
     margin-top: 8px;
     // height: 50px;
     position: absolute;
