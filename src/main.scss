@@ -19,8 +19,8 @@ $brand-green:                       #6beda0;
 
 $toolbar-shadow-reverse: 0px -3px 5px -1px rgba(0, 0, 0, 0.2), 0px -5px 8px 0px rgba(0, 0, 0, 0.14), 0px -1px 14px 0px rgba(0, 0, 0, 0.12);
 
-$theme-footer: #244B5A;
-$theme-footer-light: #FEF9F9;
+$primary-color: #FF595A;
+$secondary-color: #244B5A;
 
 // Base variables
 
@@ -115,7 +115,7 @@ body {
   font-size: $base-font-size;
   font-weight: $base-font-weight;
   color: $brand-typography;
-  background-color: $theme-footer;
+  background-color: $secondary-color;
 }
 
 h1, h2, h3, h4, h5 {
@@ -236,7 +236,7 @@ body {
   font-size: $base-font-size;
   font-weight: $base-font-weight;
   color: $brand-typography;
-  background-color: $theme-footer;
+  background-color: $secondary-color;
   min-height: 100%;
   padding: 0;
   margin: 0;
@@ -1275,7 +1275,7 @@ footer {
   --mdc-layout-grid-gutter-tablet: $unit;
   --mdc-layout-grid-margin-phone: $unit;
   --mdc-layout-grid-gutter-phone: $unit;
-  background-color: $theme-footer;
+  background-color: $secondary-color;
   p, li, div {
     font-family: $footer-font-family;
     font-weight: $footer-font-weight;
@@ -1291,7 +1291,7 @@ footer {
   }
   .footer-main {
     padding: $unit*1.5 0 $unit/2;
-    background-color: $theme-footer;
+    background-color: $secondary-color;
   }
   h3 {
     font-size: 1.5rem;
@@ -1304,14 +1304,14 @@ footer {
   a {
     color: white;
     text-decoration: none !important;
-    border-bottom: $thick-line solid transparent;
-    transition: border $transition-speed;
+    // border-bottom: $thick-line solid transparent;
+    transition: color $transition-speed;
   }
   a:hover,
   a:active,
   a:focus {
-    color: white;
-    border-bottom-color: white;
+    color: $primary-color;
+    // border-bottom-color: white;
     text-decoration: none !important;
     // text-decoration: underline;
   }
@@ -1358,7 +1358,6 @@ footer {
     }
   }
   .footer-copyright {
-    // background-color: $theme-footer-light;
     padding-bottom: $unit/2;
     .container-fluid {
       padding: $unit 0 .9rem;
@@ -1372,7 +1371,7 @@ footer {
     // a:hover,
     // a:active,
     // a:focus {
-    //   color: $theme-footer;
+    //   color: $secondary-color;
     // }
   }
   .logo.scvo {
