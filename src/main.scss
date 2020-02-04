@@ -385,6 +385,7 @@ a {
       text-transform: uppercase;
       border: $brand-border-width solid transparent;
       background: transparent;
+      transition: border $transition-speed, background $transition-speed;
     }
     .mdc-tab--active,
     .mdc-tab:hover {
@@ -1376,7 +1377,7 @@ footer {
   }
   .logo.scvo {
     position: absolute;
-    height: 45px;
+    width: 125px;
     // bottom: 0.7rem;
     right: 0;
   }

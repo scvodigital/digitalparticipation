@@ -37,11 +37,8 @@
       ],
       "filter": [
         {
-          "terms": {
-            "categories_slug": [
-              "digital-participation",
-              "blog-posts"
-            ]
+          "term": {
+            "post_tags_slug": "digital-participation"
           }
         },
         {
