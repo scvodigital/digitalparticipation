@@ -1,0 +1,104 @@
+{{#with (getProperty @root.data.checkup section) ~}}
+<form action="/skills/checkup/{{next_section}}" method="post" class="checkup-section b-padding-full" id="checkup-{{../section}}">
+  {{> checkup_answers section=@root.request.body.answer-section}}
+  <input type="hidden" name="answer-section" value="{{../section}}" />
+  <div class="checkup-section-header b-padding-full v-margin-full">
+    <div class="container-fluid">
+      <div class="container-content">
+        {{#if progress ~}}
+        {{> checkup_progress progress=progress}}
+        {{/if ~}}
+        {{!-- {{#if name ~}}
+        <div class="mdc-typography--body2">{{{name}}}</div>
+        {{/if ~}} --}}
+        {{#if title ~}}
+        <h1 class="mdc-typography--headline3">{{{title}}}</h1>
+        {{/if ~}}
+        {{#if heading ~}}
+        <h2 class="mdc-typography--headline4">{{{heading}}}</h2>
+        {{/if ~}}
+        {{#if description ~}}
+        <div class="mdc-typography--body1">{{{description}}}</div>
+        {{/if ~}}
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="container-content">
+      <div class="mdc-typography--body2">
+        * required information
+      </div>
+      {{#each questions ~}}
+      <div class="question-block">
+        <div class="question">
+          {{#if title ~}}
+          <h2 class="mdc-typography--headline5 question-title">{{{title}}}</h2>
+          {{/if ~}}
+          {{#if description ~}}
+          <div class="mdc-typography--body1 question-description">{{{description}}}</div>
+          {{/if ~}}
+        </div>
+        {{#ifAny (compare type "select-one") (compare type "select-many") ~}}
+        <ul class="answer-block">
+          {{#each options ~}}
+          {{#switch ../type ~}}
+          {{#case "select-one" ~}}
+          {{#if answer ~}}
+          <li class="answer">{{> components_radio_button label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value required="true"}}</li>
+          {{/if ~}}
+          {{/case ~}}
+          {{#case "select-many" ~}}
+          {{#if answer ~}}
+          <li class="answer">{{> components_checkbox label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value}}</li>
+          {{/if ~}}
+          {{/case ~}}
+          {{/switch ~}}
+          {{/each ~}}
+        </ul>
+        {{/ifAny ~}}
+        {{#compare type "select-skill" ~}}
+        <p class="mdc-typography--body1">
+          Measuring your skills
+        </p>
+        <ul class="answer-block">
+          {{#each (split "I can do this,I can partially do this,I can’t do this" ",") ~}}
+          <li class="answer">{{> components_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-measuring") value=(slugify this) required="true"}}</li>
+          {{/each ~}}
+        </ul>
+        <p class="mdc-typography--body1">
+          Developing your skills
+        </p>
+        <ul class="answer-block">
+          {{#each (split "I can confidently show others how to do this,I’d like to learn how to do this,N/A to job role" ",") ~}}
+          <li class="answer">{{> components_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-developing") value=(slugify this) required="true"}}</li>
+          {{/each ~}}
+        </ul>
+        {{/compare ~}}
+        {{#compare type "freetext" ~}}
+        <div class="answer-block">
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
+            <textarea id="{{slugify title}}" name="answers-{{../../section}}-{{value}}" class="mdc-text-field__input" rows="5" placeholder="{{placeholder}}"{{#if required}} required{{/if}}></textarea>
+            <label for="{{slugify title}}" class="mdc-floating-label"></label>
+          </div>
+        </div>
+        {{/compare ~}}
+        {{#compare type "text" ~}}
+        <div class="answer-block">
+          <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+            <input type="text" id="{{slugify title}}" name="answers-{{../../section}}-{{value}}" class="mdc-text-field__input mdc-text-field--fullwidth" value="" data-lpignore="true" autocomplete="off" placeholder="{{placeholder}}"{{#if required}} required{{/if}}>
+            <label class="mdc-floating-label" for="{{slugify title}}">
+              {{{title}}}
+            </label>
+            <div class="mdc-line-ripple"></div>
+          </div>
+        </div>
+        {{/compare ~}}
+      </div>
+      {{/each ~}}
+      <div class="cta b-padding-full">
+        <button type="submit" class="mdc-button">Next section</button>
+      </div>
+    </div>
+  </div>
+</form>
+{{/with ~}}

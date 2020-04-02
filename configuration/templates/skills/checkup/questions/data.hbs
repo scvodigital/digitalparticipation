@@ -1,0 +1,432 @@
+{
+  "section-demographic": {
+    "name": "Demographic questions",
+    "title": "Skills checkup",
+    "heading": "",
+    "description": "",
+    "icon": "",
+    "progress": 0,
+    "questions": [
+      {
+        "title": "Name of Organisation",
+        "value": "organisation_name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "title": "Which sector do you work in?",
+        "value": "sector",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Public"
+          },
+          {
+            "answer": "Private"
+          },
+          {
+            "answer": "Voluntary"
+          },
+          {
+            "answer": "N/A"
+          }
+        ]
+      },
+      {
+        "title": "What age are you?",
+        "value": "age_group",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Under 18"
+          },
+          {
+            "answer": "18-24"
+          },
+          {
+            "answer": "25-34"
+          },
+          {
+            "answer": "35-44"
+          },
+          {
+            "answer": "55-64"
+          },
+          {
+            "answer": "65 and over"
+          },
+          {
+            "answer": "Prefer not to say"
+          }
+        ]
+      },
+      {
+        "title": "Tick which (if any) devices you use for work",
+        "value": "devices",
+        "type": "select-many",
+        "options": [
+          {
+            "answer": "Desktop Computer"
+          },
+          {
+            "answer": "Laptop"
+          },
+          {
+            "answer": "Tablet/iPad"
+          },
+          {
+            "answer": "Smartphone"
+          }
+        ]
+      },
+      {
+        "title": "Is your job office-based?",
+        "value": "office_based",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Yes"
+          },
+          {
+            "answer": "No"
+          },
+          {
+            "answer": "Prefer not to say"
+          }
+        ]
+      },
+      {
+        "title": "Are you currently able to work remotely?",
+        "value": "working_remotely",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Yes"
+          },
+          {
+            "answer": "No"
+          },
+          {
+            "answer": "Prefer not to say"
+          }
+        ]
+      },
+      {
+        "title": "How often do you work remotely?",
+        "value": "working_remotely_frequency",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Every day"
+          },
+          {
+            "answer": "A few days a week"
+          },
+          {
+            "answer": "A few days a month"
+          },
+          {
+            "answer": "Once a month"
+          },
+          {
+            "answer": "Less than once a month"
+          }
+        ]
+      }
+    ],
+    "next_section": "confidence"
+  },
+  "confidence": {
+    "name": "Confidence questions",
+    "title": "Confidence",
+    "heading": "",
+    "description": "",
+    "icon": "",
+    "progress": 14,
+    "questions": [
+      {
+        "title": "How confident are you in your digital skills for work",
+        "value": "confidence_skills",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Very confident"
+          },
+          {
+            "answer": "Confident"
+          },
+          {
+            "answer": "Fairly confident"
+          },
+          {
+            "answer": "Not very confident"
+          },
+          {
+            "answer": "Not confident at all"
+          }
+        ]
+      },
+      {
+        "title": "How confident are you when using devices in relation to your job role?",
+        "value": "confidence_devices",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Very confident"
+          },
+          {
+            "answer": "Confident"
+          },
+          {
+            "answer": "Fairly confident"
+          },
+          {
+            "answer": "Not very confident"
+          },
+          {
+            "answer": "Not confident at all"
+          }
+        ]
+      }
+    ],
+    "next_section": "motivation"
+  },
+  "motivation": {
+    "name": "Motivation questions",
+    "title": "Motivation",
+    "heading": "",
+    "description": "",
+    "icon": "",
+    "progress": 28,
+    "questions": [
+      {
+        "title": "How open are you to learning new skills and using digital tools as part of your job role?",
+        "value": "new_skills",
+        "type": "select-many",
+        "options": [
+          {
+            "answer": "Very open"
+          },
+          {
+            "answer": "Somewhat open"
+          },
+          {
+            "answer": "Not open"
+          },
+          {
+            "answer": "Undecided"
+          }
+        ]
+      },
+      {
+        "title": "What skills would you like to learn?",
+        "value": "learn_skills",
+        "type": "freetext"
+      },
+      {
+        "title": "Why would you like to learn this?",
+        "value": "why_learn_skills",
+        "type": "freetext"
+      }
+    ],
+    "next_section": "communicating"
+  },
+  "communicating": {
+    "name": "Communicating questions",
+    "title": "Essential Digital Skills for Work",
+    "heading": "Communicating",
+    "description": "",
+    "icon": "",
+    "progress": 42,
+    "questions": [
+      {
+        "title": "I can log in remotely to my email and other work-related communication tools ",
+        "value": "q1",
+        "type": "select-skill"
+      },
+      {
+        "title": "I can use online messaging such as MS Teams or Slack to communicate",
+        "value": "q2",
+        "type": "select-skill"
+      },
+      {
+        "title": "I can use my organisation’s email address book to send emails to colleagues and use the ‘cc’ and ‘bcc’ options when required",
+        "value": "q3",
+        "type": "select-skill"
+      },
+      {
+        "title": "I can use tools such as Sharepoint, MS Forms or Google Docs to collaborate online with colleagues",
+        "value": "q4",
+        "type": "select-skill"
+      },
+      {
+        "title": "I can use video-conferencing tools such as Zoom, MS Teams, Google Hangouts or Skype for Business to communicate with internal and external colleagues",
+        "value": "q5",
+        "type": "select-skill"
+      },
+      {
+        "title": "I can arrange, book and invite others to attend online and offline meetings",
+        "value": "q6",
+        "type": "select-skill"
+      },
+      {
+        "title": "I can understand and adhere to my organisation’s social media policies",
+        "value": "q7",
+        "type": "select-skill"
+      }
+    ],
+    "next_section": "transacting"
+  },
+  "transacting": {
+    "name": "Transacting questions",
+    "title": "Essential Digital Skills for Work",
+    "heading": "Transacting",
+    "description": "",
+    "icon": "",
+    "progress": 55,
+    "questions": [
+      {
+        "title": " ",
+        "value": "q1",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q2",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q3",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q4",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q5",
+        "type": "select-skill"
+      },
+    ],
+    "next_section": "handling-info"
+  },
+  "handling-info": {
+    "name": "Handling Information & Content questions",
+    "title": "Essential Digital Skills for Work",
+    "heading": "Handling Information & Content",
+    "description": "",
+    "icon": "",
+    "progress": 68,
+    "questions": [
+      {
+        "title": " ",
+        "value": "q1",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q2",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q3",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q4",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q5",
+        "type": "select-skill"
+      },
+    ],
+    "next_section": "problem-solving"
+  },
+  "problem-solving": {
+    "name": "Problem Solving questions",
+    "title": "Essential Digital Skills for Work",
+    "heading": "Problem Solving",
+    "description": "",
+    "icon": "",
+    "progress": 82,
+    "questions": [
+      {
+        "title": " ",
+        "value": "q1",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q2",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q3",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q4",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q5",
+        "type": "select-skill"
+      },
+    ],
+    "next_section": "safety"
+  },
+  "safety": {
+    "name": "Being Safe, Legal & Confident Online questions",
+    "title": "Essential Digital Skills for Work",
+    "heading": "Being Safe, Legal & Confident Online",
+    "description": "",
+    "icon": "",
+    "progress": 95,
+    "questions": [
+      {
+        "title": " ",
+        "value": "q1",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q2",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q3",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q4",
+        "type": "select-skill"
+      },
+      {
+        "title": "",
+        "value": "q5",
+        "type": "select-skill"
+      },
+    ],
+    "next_section": "results"
+  },
+  "results": {
+    "name": "Results",
+    "title": "Your checkup results",
+    "heading": "",
+    "description": "",
+    "icon": "results",
+    "progress": 100
+  }
+}
