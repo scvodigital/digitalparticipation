@@ -3,7 +3,7 @@
   {{> checkup_answers section=@root.request.body.answer-section}}
   <input type="hidden" name="answer-section" value="{{../section}}" />
   <div class="checkup-section-header b-padding-full v-margin-full">
-    <div class="container-fluid">
+    <div class="container">
       <div class="container-content">
         {{#if progress ~}}
         {{> checkup_progress progress=progress}}
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container">
     <div class="container-content">
       <div class="mdc-typography--body2">
         * required information
@@ -96,7 +96,7 @@
       </div>
       {{/each ~}}
       <div class="cta b-padding-full">
-        <button type="submit" class="mdc-button">Next section</button>
+        <button type="submit" class="btn">Next section</button>
       </div>
     </div>
   </div>

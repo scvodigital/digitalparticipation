@@ -12,13 +12,11 @@
     "bool": {
       "filter": [
         {
-          "term": {
-            "categories_slug": "digital-participation"
-          }
-        },
-        {
-          "term": {
-            "post_tags_slug": "digital-research"
+          "terms": {
+            "post_tags_slug": [
+              "digital-participation",
+              "digital-research"
+            ]
           }
         }
       ]

@@ -1,22 +1,22 @@
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner title description">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
+<div class="">
+  <div class="columns title description">
+    <div class="column col-12 col-md-6 col-sm-12">
       <h1 class="align-bottom">Stories</h1>
     </div>
-    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="column col-2 col-md-4 col-sm-12">
       <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Pledges-RGB-04.png" alt="Our Pledges illustration" class="responsive-img" />
     </div>
   </div>
   {{#each @root.data.primaryResponse.hits.hits ~}}
   {{#with _source ~}}
-  <div class="mdc-layout-grid__inner stories">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+  <div class="columns stories">
+    <div class="column col-12">
       <hr class="margin-bottom" />
     </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="column col-2 col-md-12">
       <a href="/{{replace post_slug "_" "/"}}"><img src="{{featured_image.sizes.full.source_url}}" alt="title" /></a>
     </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="column col-6 col-md-12">
       <h3>
         <a href="/{{replace post_slug "_" "/"}}">{{{title}}}</a>
       </h3>
@@ -24,7 +24,7 @@
         <a href="/{{replace post_slug "_" "/"}}">Read this story</a>
       </p>
     </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="column col-4 col-md-12">
       {{#if quotation}}
       <blockquote>
         {{#if quotation.text}}<p>“{{quotation.text}}”</p>{{/if}}
@@ -35,8 +35,8 @@
   </div>
   {{/with ~}}
   {{/each ~}}
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+  <div class="columns">
+    <div class="column col-12">
       <hr class="margin-top" />
     </div>
   </div>

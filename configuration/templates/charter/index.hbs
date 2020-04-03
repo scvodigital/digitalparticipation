@@ -1,6 +1,6 @@
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner title">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+<div class="">
+  <div class="columns title">
+    <div class="column col-7 col-md-6 col-sm-12">
       <h1>Charter</h1>
       <p>
         When you sign Scotland's Digital Participation Charter, we ask you
@@ -8,52 +8,52 @@
         and skill up our digital nation.
       </p>
       <h4 class="margin-top">
-        <a href="/charter/signatories" class="mdc-button"><span class="fas fa-search" aria-hidden="true"></span>&ensp;Current signatories</a>
+        <a href="/charter/signatories" class="btn"><span class="fas fa-search" aria-hidden="true"></span>&ensp;Current signatories</a>
       </h4>
       <h4>
-        <a href="/charter/sign-up" class="mdc-button"><span class="fas fa-file-signature" aria-hidden="true"></span>&ensp;Sign up</a>
+        <a href="/charter/sign-up" class="btn"><span class="fas fa-file-signature" aria-hidden="true"></span>&ensp;Sign up</a>
       </h4>
-      <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Skill-Up-Scotland-RGB-04.png" alt="Skill Up Scotland illustration" class="responsive-img hide-on-med-and-up" />
+      <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Skill-Up-Scotland-RGB-04.png" alt="Skill Up Scotland illustration" class="responsive-img hide-md hide-lg" />
     </div>
-    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-1">
+    <div class="column col-1 hide-sm">
       &nbsp;
     </div>
-    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="column col-4 col-md-6 hide-sm">
       <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Skill-Up-Scotland-RGB-04.png" alt="Skill Up Scotland illustration" class="responsive-img" />
     </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="column col-12">
       <hr />
     </div>
   </div>
-  <div class="mdc-layout-grid__inner description pledges">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
+  <div class="columns description pledges">
+    <div class="column col-12 col-md-6 col-sm-12">
       <h1 class="align-bottom">Our pledges</h1>
     </div>
-    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="column col-2 col-md-4 col-sm-12">
       <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Pledges-RGB-04.png" alt="Our Pledges illustration" class="responsive-img" />
     </div>
-    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-12">
-      <hr class="nomargin" style="margin-top:-1rem;" />
+    <div class="column col-12">
+      <hr class="nomargin" style="margin-top:0;" />
     </div>
   </div>
   {{#each @root.context.metaData.pledges ~}}
-  <div class="mdc-layout-grid__inner expand pledge">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+  <div class="columns expand pledge">
+    <div class="column col-1">
       <h3>
         <span class="number">{{@key}}</span>
       </h3>
     </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+    <div class="column col-4 col-md-6 col-sm-9">
       <h3>
         {{{title}}}
       </h3>
     </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="column col-7 col-md-12">
       <p>
         {{{description}}}
       </p>
     </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="column col-12">
       <hr class="nomargin" />
     </div>
   </div>

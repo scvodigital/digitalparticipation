@@ -1,9 +1,9 @@
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner title">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+<div class="">
+  <div class="columns title">
+    <div class="column col-12">
       <h1>Essential digital skills toolkit:<br />Your results</h1>
-      <div class="radarChartDesktop responsive-img hide-on-small-only" style="margin-top:2rem;margin-bottom: 2rem;height:560px;width:560px;background-image:url('{{~>asset_url url='images/toolkit-essential-labels.png'~}}');background-size:90%;background-color:#022347;border-radius:50%;background-repeat:no-repeat;background-position:center 38%;"></div>
-      <div class="radarChartMobile responsive-img hide-on-med-and-up" style="margin-top:1rem;height:300px;width:300px;background-image:url('{{~>asset_url url='images/toolkit-essential-labels.png'~}}');background-size:90%;background-color:#022347;border-radius:50%;background-repeat:no-repeat;background-position:center 38%;"></div>
+      <div class="radarChartDesktop responsive-img hide-sm" style="margin-top:2rem;margin-bottom: 2rem;height:560px;width:560px;background-image:url('{{~>asset_url url='images/toolkit-essential-labels.png'~}}');background-size:90%;background-color:#022347;border-radius:50%;background-repeat:no-repeat;background-position:center 38%;"></div>
+      <div class="radarChartMobile responsive-img hide-md hide-lg" style="margin-top:1rem;height:300px;width:300px;background-image:url('{{~>asset_url url='images/toolkit-essential-labels.png'~}}');background-size:90%;background-color:#022347;border-radius:50%;background-repeat:no-repeat;background-position:center 38%;"></div>
       {{!-- <p>
         To help interpret your results: if your points are closer to the edge of the circle you have a good understanding of this section, if the point is closer to the middle in each section you might need to improve your skills in this area.
       </p>
@@ -33,8 +33,8 @@
       </ul> --}}
       {{#compare @root.data.supplimentaryResponses.resources_relevant.hits.total ">" 0 ~}}
       <h2>Useful resources based on your results</h2>
-      <div class="mdc-layout-grid equal-height t-padding-full">
-        <div class="mdc-layout-grid__inner">
+      <div class="equal-height t-padding-full">
+        <div class="columns">
           {{#each @root.data.supplimentaryResponses.resources_relevant.hits.hits ~}}
           {{#with _source ~}}
           {{> resource slug=post_tags_slug.[0] tags=post_tags tags_slug=post_tags_slug link=link title=title author=author_attribution content=content}}
@@ -48,8 +48,8 @@
       {{/compare ~}}
     </div>
   </div>
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+  <div class="columns">
+    <div class="column col-12">
       <hr />
     </div>
   </div>

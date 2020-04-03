@@ -81,13 +81,13 @@ $(document).ready(function () {
 });
 </script>
 
-<div class="container-fluid">
+<div class="container">
   <div class="container-content">
     {{!-- <h1>JSON</h1>
     <pre id="json"></pre> --}}
     <h1>Export of checkup data for SFHA</h1>
     {{#ifAll @root.request.params.query.date_start @root.request.params.query.date_end ~}}
-    <a download="sfha-checkup-export.csv" href="#" id="csv" class="mdc-button mdc-button--raised b-margin-full">Download CSV</a>
+    <a download="sfha-checkup-export.csv" href="#" id="csv" class="btn btn-primary b-margin-full">Download CSV</a>
     <div class="b-margin-full">
       <a href="/checkup/results-export">Change date range</a>
     </div>
@@ -101,7 +101,7 @@ $(document).ready(function () {
         <label class="form-label" for="date_end">End date</label>
         <input class="form-input" type="date" name="date_end" id="date_end" value="{{momentFormat (moment now) 'YYYY-MM-DD'}}" />
       </div>
-      <input type="submit" value="Submit" class="mdc-button mdc-button--raised" />
+      <input type="submit" value="Submit" class="btn btn-primary" />
     </form>
     {{/ifAll ~}}
   </div>

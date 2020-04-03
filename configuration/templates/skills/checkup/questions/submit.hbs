@@ -1,14 +1,14 @@
 <div class="checkup-section b-padding-full" id="checkup-confirmation">
   <div class="checkup-section-header b-padding-full v-margin-full">
-    <div class="container-fluid">
+    <div class="container">
       <div class="container-content">
         {{> checkup_progress progress=99}}
-        <div class="mdc-layout-grid">
-          <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+        <div class="">
+          <div class="columns">
+            <div class="column col-2">
               <img src="{{~>asset_url url='images/icon-confirm@2x.png'~}}" title="Submitting" class="icon" />
             </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+            <div class="column col-10 col-md-9">
               <h1 class="mdc-typography--headline3">Please wait</h1>
               <div class="mdc-typography--body1">
                 Processing your answers...
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container">
     <div class="container-content">
       {{#with @root.data.response ~}}
       {{#ifAll (compare @root.data.currentSite.name "default") (compare area "scotland") ~}}

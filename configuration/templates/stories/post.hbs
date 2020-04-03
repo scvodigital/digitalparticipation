@@ -1,7 +1,7 @@
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner detail">
+<div class="">
+  <div class="columns detail">
     {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-layout-grid__cell--span-4-phone">
+    <div class="column col-12">
       <h1>{{{title}}}</h1>
       <p>
         <span class="fas fa-user-circle" aria-hidden="true"></span>&ensp;{{{author_name_full}}}{{#ifAny author_job_title author_organisation_name}}, {{#if author_job_title}}{{{author_job_title}}} at{{/if}} {{{author_organisation_name}}}{{else}}{{#if staff_profile.job_title}}, {{{staff_profile.job_title}}} at SCVO{{/if}}{{/ifAny}}<br />
