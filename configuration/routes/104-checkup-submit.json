@@ -1,7 +1,7 @@
 {
   "name": "checkup_submit",
   "debug": true,
-  "pattern": "/support/running-your-organisation/governance/checkup/submit",
+  "pattern": "/skills/checkup/submit",
   "tasks": [
     "context.metaData.commonTasks.getCheckupData",
     {
@@ -48,7 +48,7 @@
       "taskModule": "firebaseRtbSet",
       "renderer": "handlebars",
       "config": {
-        "appName": "digital-checkup",
+        "appName": "digital-participation-charter",
         "setOrUpdate": "set",
         "pathTemplate": "/submissions/{{@root.data.rid}}/",
         "dataTemplate": ">context.metaData.handlebars.templates.skills_checkup_database_firebase"

@@ -25,9 +25,11 @@
   </div>
   <div class="container">
     <div class="container-content">
+      {{#compare progress "<" 100 ~}}
       <p>
         * required information
-      </div>
+      </p>
+      {{/compare ~}}
       {{#each questions ~}}
       <div class="question-block">
         <div class="question">
@@ -47,12 +49,16 @@
           {{#switch ../type ~}}
           {{#case "select-one" ~}}
           {{#if answer ~}}
-          <div class="answer column {{#compare (length ../options) '>' 9}}col-3{{else}}col-12{{/compare}}">{{> forms_radio_button label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value required=required}}</div>
+          <div class="answer column {{#compare (length ../options) '>' 9}}col-3{{else}}col-12{{/compare}}">
+            {{> forms_radio_button label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value required=required}}
+          </div>
           {{/if ~}}
           {{/case ~}}
           {{#case "select-many" ~}}
           {{#if answer ~}}
-          <div class="answer column {{#compare (length ../options) '>' 9}}col-3{{else}}col-12{{/compare}}">{{> forms_checkbox label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value}}</div>
+          <div class="answer column {{#compare (length ../options) '>' 9}}col-3{{else}}col-12{{/compare}}">
+            {{> forms_checkbox label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value}}
+          </div>
           {{/if ~}}
           {{/case ~}}
           {{/switch ~}}
@@ -95,9 +101,11 @@
         {{/compare ~}}
       </div>
       {{/each ~}}
+      {{#compare progress "<" 100 ~}}
       <div class="cta v-padding-full">
         <button type="submit" class="btn">Next section</button>
       </div>
+      {{/compare ~}}
     </div>
   </div>
 </form>
