@@ -648,6 +648,7 @@ main {
       border-radius: 0.15rem;
       padding: 0.2rem 0.5rem;
       outline: none;
+      height: $unit*3;
       // height: 2rem;
       -ms-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -1441,6 +1442,12 @@ footer {
   }
   .menu ul {
     margin-top: 0;
+  }
+}
+
+.answer-block {
+  li {
+    list-style-type: none;
   }
 }
 
