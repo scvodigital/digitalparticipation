@@ -3,7 +3,8 @@
   "debug": true,
   "pattern": "/skills/checkup/submit",
   "tasks": [
-    "context.metaData.commonTasks.getCheckupData",
+    "context.metaData.commonTasks.getLifeSkillsData",
+    "context.metaData.commonTasks.getWorkSkillsData",
     {
       "name": "rid",
       "taskModule": "render",

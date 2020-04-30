@@ -1,5 +1,5 @@
 {{#with (getProperty @root.data.checkup section) ~}}
-<form action="/skills/checkup/{{next_section}}" method="post" class="checkup-section b-padding-full detail" id="checkup-{{../section}}">
+<form action="/skills/{{#if (contains @root.request.pathname 'skills/life')}}life{{else}}work{{/if}}/{{next_section}}" method="post" class="checkup-section b-padding-full detail" id="checkup-{{../section}}">
   {{> checkup_answers section=@root.request.body.answer-section}}
   <input type="hidden" name="answer-section" value="{{../section}}" />
   <div class="checkup-section-header b-padding-full v-margin-full title">
@@ -66,22 +66,22 @@
         </div>
         {{/ifAny ~}}
         {{#compare type "select-skill" ~}}
-        {{!-- <p>
-          Measuring your skills
-        </p> --}}
-        <ul class="answer-block">
-          {{#each (split "I can do this,I can partially do this,I can’t do this,I would like to learn how to do this,I have no interest in this" ",") ~}}
-          <li class="answer">{{> forms_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-measuring") value=(slugify this) required=required}}</li>
-          {{/each ~}}
-        </ul>
-        {{!-- <p>
-          Developing your skills
+        <p>
+          Your skills
         </p>
         <ul class="answer-block">
-          {{#each (split "I can confidently show others how to do this,I’d like to learn how to do this,N/A to job role" ",") ~}}
-          <li class="answer">{{> forms_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-developing") value=(slugify this) required=required}}</li>
+          {{#each (split "1,2,3,4,5" ",") ~}}
+          <li class="answer">{{> forms_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-skills") value=(slugify this) required=required}}</li>
           {{/each ~}}
-        </ul> --}}
+        </ul>
+        <p>
+          Your confidence
+        </p>
+        <ul class="answer-block">
+          {{#each (split "1,2,3,4,5" ",") ~}}
+          <li class="answer">{{> forms_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-confidence") value=(slugify this) required=required}}</li>
+          {{/each ~}}
+        </ul>
         {{/compare ~}}
         {{#compare type "freetext" ~}}
         <div class="answer-block">
