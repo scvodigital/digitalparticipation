@@ -5,17 +5,22 @@
   <div class="checkup-section-header b-padding-full v-margin-full title">
     <div class="container columns">
       <div class="container-content column col-12">
+        <h1>
+          Essential Digital Skills for {{#if (contains @root.request.pathname 'skills/life')}}Life{{else}}Work{{/if}}
+        </h1>
+
         {{#if progress ~}}
         {{> checkup_progress progress=progress}}
         {{/if ~}}
+
         {{!-- {{#if name ~}}
         <div>{{{name}}}</div>
         {{/if ~}} --}}
         {{#if title ~}}
-        <h1>{{{title}}}</h1>
+        <h2>{{{title}}}</h2>
         {{/if ~}}
         {{#if heading ~}}
-        <h2>{{{heading}}}</h2>
+        <h3>{{{heading}}}</h3>
         {{/if ~}}
         {{#if description ~}}
         <p>{{{description}}}</p>
