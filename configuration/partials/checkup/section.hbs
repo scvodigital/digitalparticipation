@@ -1,12 +1,12 @@
 {{#with (getProperty @root.data.checkup section) ~}}
-<form action="/skills/{{#if (contains @root.request.pathname 'skills/life')}}life{{else}}work{{/if}}/{{next_section}}" method="post" class="checkup-section b-padding-full detail" id="checkup-{{../section}}">
+<form action="/skills/{{#if (contains @root.request.url.pathname 'skills/life')}}life{{else}}work{{/if}}/{{next_section}}" method="post" class="checkup-section b-padding-full detail" id="checkup-{{../section}}">
   {{> checkup_answers section=@root.request.body.answer-section}}
   <input type="hidden" name="answer-section" value="{{../section}}" />
   <div class="checkup-section-header b-padding-full v-margin-full title">
     <div class="container columns">
       <div class="container-content column col-12">
         <h1>
-          Essential Digital Skills for {{#if (contains @root.request.pathname 'skills/life')}}Life{{else}}Work{{/if}}
+          Essential Digital Skills for {{#if (contains @root.request.url.pathname 'skills/life')}}Life{{else}}Work{{/if}}
         </h1>
 
         {{#if progress ~}}
