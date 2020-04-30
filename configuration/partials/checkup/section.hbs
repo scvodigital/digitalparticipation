@@ -50,14 +50,14 @@
           {{#case "select-one" ~}}
           {{#if answer ~}}
           <div class="answer column {{#compare (length ../options) '>' 9}}col-3 col-lg-4 col-md-6 col-sm-12{{else}}col-12{{/compare}}">
-            {{> forms_radio_button label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value required=required}}
+            {{> forms_radio_button label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value required=../required}}
           </div>
           {{/if ~}}
           {{/case ~}}
           {{#case "select-many" ~}}
           {{#if answer ~}}
           <div class="answer column {{#compare (length ../options) '>' 9}}col-3 col-lg-4 col-md-6 col-sm-12{{else}}col-12{{/compare}}">
-            {{> forms_checkbox label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value}}
+            {{> forms_checkbox label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value required=../required}}
           </div>
           {{/if ~}}
           {{/case ~}}
@@ -71,7 +71,7 @@
         </p>
         <ul class="answer-block">
           {{#each (split "1,2,3,4,5" ",") ~}}
-          <li class="answer">{{> forms_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-skills") value=(slugify this) required=required}}</li>
+          <li class="answer">{{> forms_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-skills") value=(slugify this) required=../required}}</li>
           {{/each ~}}
         </ul>
         <p>
@@ -79,7 +79,7 @@
         </p>
         <ul class="answer-block">
           {{#each (split "1,2,3,4,5" ",") ~}}
-          <li class="answer">{{> forms_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-confidence") value=(slugify this) required=required}}</li>
+          <li class="answer">{{> forms_radio_button label=this id=(slugify (concat this "-" ../value)) name=(concat "answers-" ../../../section "-" ../value "-confidence") value=(slugify this) required=../required}}</li>
           {{/each ~}}
         </ul>
         {{/compare ~}}
