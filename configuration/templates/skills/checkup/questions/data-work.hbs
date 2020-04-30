@@ -1,0 +1,606 @@
+{
+  "section-demographic": {
+    "name": "Demographic questions",
+    "title": "Skills checkup",
+    "heading": "",
+    "description": "",
+    "icon": "",
+    "progress": 0,
+    "questions": [
+      {
+        "title": "Name",
+        "value": "name",
+        "type": "text",
+        "required": false
+      },
+      {
+        "title": "Email",
+        "hint": "If you enter your email address we will send additional resources to you and you can return to your results over time",
+        "value": "email",
+        "type": "text",
+        "required": false
+      },
+      {
+        "title": "Name of organisation",
+        "value": "organisation_name",
+        "type": "text",
+        "required": false
+      },
+      {
+        "title": "What age are you?",
+        "value": "age_group",
+        "type": "select-one",
+        "required": true,
+        "options": [
+          {
+            "answer": "Under 18"
+          },
+          {
+            "answer": "18-24"
+          },
+          {
+            "answer": "25-34"
+          },
+          {
+            "answer": "35-44"
+          },
+          {
+            "answer": "55-64"
+          },
+          {
+            "answer": "65 and over"
+          },
+          {
+            "answer": "Prefer not to say"
+          }
+        ]
+      },
+      {
+        "title": "Postcode",
+        "value": "postcode",
+        "type": "text",
+        "required": false
+      },
+      {
+        "title": "Do you have access to WiFi at home?",
+        "value": "home_wifi",
+        "type": "select-one",
+        "required": true,
+        "options": [
+          {
+            "answer": "Yes"
+          },
+          {
+            "answer": "No"
+          }
+        ]
+      },
+      {
+        "title": "Which (if any) devices do you use to access online services",
+        "value": "devices",
+        "type": "select-many",
+        "options": [
+          {
+            "answer": "Desktop computer"
+          },
+          {
+            "answer": "Laptop"
+          },
+          {
+            "answer": "Tablet (e.g. iPad)"
+          },
+          {
+            "answer": "Smartphone"
+          },
+          {
+            "answer": "Voice assistant (e.g. Amazon Echo, Google Home)"
+          }
+        ]
+      },
+      {
+        "title": "Which of these have you used before?",
+        "value": "used_before",
+        "type": "select-many",
+        "options": [
+          {
+            "answer": "FaceTime"
+          },
+          {
+            "answer": "Facebook"
+          },
+          {
+            "answer": "Messenger"
+          },
+          {
+            "answer": "Whatsapp"
+          },
+          {
+            "answer": "Gmail"
+          },
+          {
+            "answer": "Outlook"
+          },
+          {
+            "answer": "YouTube"
+          },
+          {
+            "answer": "Google Maps"
+          },
+          {
+            "answer": "Netflix"
+          },
+          {
+            "answer": "BBC iPlayer"
+          },
+          {
+            "answer": "BBC News/Weather"
+          },
+          {
+            "answer": "Google"
+          },
+          {
+            "answer": "Instagram"
+          },
+          {
+            "answer": "Snapchat"
+          },
+          {
+            "answer": "TikTok"
+          },
+          {
+            "answer": "NHS"
+          },
+          {
+            "answer": "Uber"
+          },
+          {
+            "answer": "Uber Eats"
+          },
+          {
+            "answer": "Just Eat"
+          },
+          {
+            "answer": "Deliveroo"
+          },
+          {
+            "answer": "Zoom"
+          },
+          {
+            "answer": "Skype"
+          },
+          {
+            "answer": "Supermarket App"
+          },
+          {
+            "answer": "Energy Company App"
+          },
+          {
+            "answer": "Banking App"
+          },
+          {
+            "answer": "e-Reader App (i.e Kindle, PayPal, Audible)"
+          }
+        ]
+      },
+      {
+        "title": "Which (if any) of these would you like to use?",
+        "value": "like_to_use",
+        "type": "select-many",
+        "options": [
+          {
+            "answer": "FaceTime"
+          },
+          {
+            "answer": "Facebook"
+          },
+          {
+            "answer": "Messenger"
+          },
+          {
+            "answer": "Whatsapp"
+          },
+          {
+            "answer": "Gmail"
+          },
+          {
+            "answer": "Outlook"
+          },
+          {
+            "answer": "YouTube"
+          },
+          {
+            "answer": "Google Maps"
+          },
+          {
+            "answer": "Netflix"
+          },
+          {
+            "answer": "BBC iPlayer"
+          },
+          {
+            "answer": "BBC News/Weather"
+          },
+          {
+            "answer": "Google"
+          },
+          {
+            "answer": "Instagram"
+          },
+          {
+            "answer": "Snapchat"
+          },
+          {
+            "answer": "TikTok"
+          },
+          {
+            "answer": "NHS"
+          },
+          {
+            "answer": "Uber"
+          },
+          {
+            "answer": "Uber Eats"
+          },
+          {
+            "answer": "Just Eat"
+          },
+          {
+            "answer": "Deliveroo"
+          },
+          {
+            "answer": "Zoom"
+          },
+          {
+            "answer": "Skype"
+          },
+          {
+            "answer": "Supermarket App"
+          },
+          {
+            "answer": "Energy Company App"
+          },
+          {
+            "answer": "Banking App"
+          },
+          {
+            "answer": "e-Reader App (i.e Kindle, PayPal, Audible)"
+          }
+        ]
+      }
+      {{!-- {
+        "title": "Is your job office-based?",
+        "value": "office_based",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Yes"
+          },
+          {
+            "answer": "No"
+          },
+          {
+            "answer": "Prefer not to say"
+          }
+        ]
+      }, --}}
+      {{!-- {
+        "title": "Are you currently able to work remotely?",
+        "value": "working_remotely",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Yes"
+          },
+          {
+            "answer": "No"
+          },
+          {
+            "answer": "Prefer not to say"
+          }
+        ]
+      }, --}}
+      {{!-- {
+        "title": "How often do you work remotely?",
+        "value": "working_remotely_frequency",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Every day"
+          },
+          {
+            "answer": "A few days a week"
+          },
+          {
+            "answer": "A few days a month"
+          },
+          {
+            "answer": "Once a month"
+          },
+          {
+            "answer": "Less than once a month"
+          }
+        ]
+      } --}}
+    ],
+    "next_section": "confidence"
+  },
+  "confidence": {
+    "name": "Confidence & motivation questions",
+    "title": "Confidence & motivation",
+    "heading": "",
+    "description": "",
+    "icon": "",
+    "progress": 14,
+    "questions": [
+      {
+        "title": "How confident are you as an internet user?",
+        "value": "confidence_skills",
+        "type": "select-one",
+        "required": true,
+        "options": [
+          {
+            "answer": "Very confident"
+          },
+          {
+            "answer": "Confident"
+          },
+          {
+            "answer": "Fairly confident"
+          },
+          {
+            "answer": "Not very confident"
+          },
+          {
+            "answer": "Not confident at all"
+          }
+        ]
+      },
+      {
+        "title": "What would you like to learn how to do online?",
+        "value": "what_learn",
+        "type": "freetext"
+      },
+      {
+        "title": "Why would you like to learn how to this?",
+        "value": "why_learn",
+        "type": "freetext"
+      },
+      {
+        "title": "Is there anyone who could teach you how to do this? (Friends, family, support worker etc.)",
+        "value": "who_learn",
+        "type": "freetext"
+      }
+    ],
+    "next_section": "communicating"
+  },
+  "communicating": {
+    "name": "Communicating questions",
+    "title": "Essential Digital Skills",
+    "heading": "Communicating",
+    "description": "",
+    "icon": "",
+    "progress": 28,
+    "questions": [
+      {
+        "title": "I can send messages to my friends and family",
+        "hint": "For example, WhatsApp and Messenger",
+        "value": "q1",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can make video calls to my friends and family",
+        "hint": "For example, WhatsApp, FaceTime, Zoom and Skype",
+        "value": "q2",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can set up an email account and use it to communicate with others",
+        "hint": "For example, Gmail",
+        "value": "q3",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can create, add members and interact in online group chats",
+        "hint": "For example, Whatsapp and Messenger",
+        "value": "q4",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can post questions, comments and reply on social media and online forums in a respectful and appropriate manner",
+        "hint": "For example, Facebook community groups and pages",
+        "value": "q5",
+        "required": true,
+        "type": "select-skill"
+      }
+    ],
+    "next_section": "transacting"
+  },
+  "transacting": {
+    "name": "Transacting questions",
+    "title": "Essential Digital Skills",
+    "heading": "Transacting",
+    "description": "",
+    "icon": "",
+    "progress": 42,
+    "questions": [
+      {
+        "title": "I can use the internet to access online public services",
+        "hint": "For example, Universal Credit, NHS24 and online GP appointments",
+        "value": "q1",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can access and use online banking websites and apps to manage my money",
+        "hint": "For examples, to check my bank balance",
+        "value": "q2",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can create online accounts enabling me to purchase goods or services safely online",
+        "hint": "For example, on shopping sites such as Amazon",
+        "value": "q3",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can make, amend and cancel purchases, pay bills and make payments online",
+        "hint": "For example, setting up a direct debit to pay energy bills ",
+        "value": "q4",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can make reservations, arrange deliveries and book personal appointments online",
+        "hint": "For example, Just Eat or booking a supermarket delivery",
+        "value": "q5",
+        "required": true,
+        "type": "select-skill"
+      }
+    ],
+    "next_section": "handling-info"
+  },
+  "handling-info": {
+    "name": "Handling Information & Content questions",
+    "title": "Essential Digital Skills",
+    "heading": "Handling Information & Content",
+    "description": "",
+    "icon": "",
+    "progress": 57,
+    "questions": [
+      {
+        "title": "I can access entertainment online",
+        "hint": "For example, Netflix, BBC iPlayer, Amazon Prime and YouTube",
+        "value": "q1",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can listen to and stream music online",
+        "hint": "For example, Spotify and BBC Sounds",
+        "value": "q2",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can search for news and information online using a browser",
+        "hint": "For example, Chrome, Internet Explorer or Safari",
+        "value": "q3",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can download and read e-books online",
+        "hint": "For example, using Kindle or Audible",
+        "value": "q4",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I understand what Cloud storage is",
+        "hint": "For example, saving personal photos online",
+        "value": "q5",
+        "required": true,
+        "type": "select-skill"
+      }
+    ],
+    "next_section": "problem-solving"
+  },
+  "problem-solving": {
+    "name": "Problem Solving questions",
+    "title": "Essential Digital Skills",
+    "heading": "Problem Solving",
+    "description": "",
+    "icon": "",
+    "progress": 72,
+    "questions": [
+      {
+        "title": "I can use the internet to find advice and guidance on important issues",
+        "hint": "For example, public health updates from the NHS and ScotGov for accurate information",
+        "value": "q1",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can use online navigation tools to find my nearest facilities",
+        "hint": "For example, using Google Maps to locate your nearest pharmacy or supermarket",
+        "value": "q2",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can use search engines and websites to find out information on public services",
+        "hint": "For example, searching a local authority website to find out about bin collection",
+        "value": "q3",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can use the internet to make informed choices about which apps or websites are most suitable for me",
+        "hint": "For example, using Google to search rather than Bing",
+        "value": "q4",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can use the internet to improve my learning",
+        "hint": "For example, Learn my Way or BBC Bitesize",
+        "value": "q5",
+        "required": true,
+        "type": "select-skill"
+      }
+    ],
+    "next_section": "safety"
+  },
+  "safety": {
+    "name": "Being Safe, Legal & Confident Online questions",
+    "title": "Essential Digital Skills",
+    "heading": "Being Safe, Legal & Confident Online",
+    "description": "",
+    "icon": "",
+    "progress": 86,
+    "questions": [
+      {
+        "title": "I can create and use strong and secure passwords online and know not to write them down or share them with others",
+        "hint": "For example, when creating a personal email or Universal Credit account",
+        "value": "q1",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can check if online information is true or false",
+        "hint": "For example, checking reputable news sites rather than social media for information",
+        "value": "q2",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can use privacy settings to control what people can see online, including on social media",
+        "hint": "For example, changing my Facebook page to private rather than public",
+        "value": "q3",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can recognise suspicious weblinks and emails",
+        "hint": "For example, I know not to open an email with an unusual subject or mispelled sender name",
+        "value": "q4",
+        "required": true,
+        "type": "select-skill"
+      },
+      {
+        "title": "I can understand that my online activity can leave a permanent record for others to see",
+        "hint": "For example, a comment on a public social media page can be seen by others",
+        "value": "q5",
+        "required": true,
+        "type": "select-skill"
+      }
+    ],
+    "next_section": "submit"
+  }
+}

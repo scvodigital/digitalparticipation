@@ -500,6 +500,10 @@ main {
 .skills.foundation main {
   background: $brand-purple !important;
 }
+.skills.life main,
+.skills.work main {
+  background: white !important;
+}
 .post,
 .stories {
   main {
@@ -520,8 +524,14 @@ main {
   }
 }
 
+.columns {
+  .column {
+    padding: 0;
+  }
+}
+
 main {
-  padding-bottom: 4rem;
+  padding: 0 $unit $unit*4;
   h1 {
     font-size: 3rem;
     line-height: 3.4rem;

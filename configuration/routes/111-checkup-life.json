@@ -1,12 +1,15 @@
 {
-  "name": "checkup_page",
+  "name": "checkup_life",
   "debug": true,
+  "metaData": {
+    "title": "Essential Digital Skills for Life – Scotland's Digital Participation Charter"
+  },
   "pattern": {
-    "home": "/skills/checkup",
-    "section": "/skills/checkup/:section"
+    "main": "/skills/life",
+    "section": "/skills/life/:section"
   },
   "tasks": [
-    "context.metaData.commonTasks.getCheckupData",
+    "context.metaData.commonTasks.getLifeSkillsData",
     {
       "name": "destination",
       "taskModule": "renderLayout",

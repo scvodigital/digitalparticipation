@@ -2,9 +2,9 @@
 <form action="/skills/checkup/{{next_section}}" method="post" class="checkup-section b-padding-full detail" id="checkup-{{../section}}">
   {{> checkup_answers section=@root.request.body.answer-section}}
   <input type="hidden" name="answer-section" value="{{../section}}" />
-  <div class="checkup-section-header b-padding-full v-margin-full">
-    <div class="container">
-      <div class="container-content">
+  <div class="checkup-section-header b-padding-full v-margin-full title">
+    <div class="container columns">
+      <div class="container-content column col-12">
         {{#if progress ~}}
         {{> checkup_progress progress=progress}}
         {{/if ~}}
@@ -49,14 +49,14 @@
           {{#switch ../type ~}}
           {{#case "select-one" ~}}
           {{#if answer ~}}
-          <div class="answer column {{#compare (length ../options) '>' 9}}col-3{{else}}col-12{{/compare}}">
+          <div class="answer column {{#compare (length ../options) '>' 9}}col-3 col-lg-4 col-md-6 col-sm-12{{else}}col-12{{/compare}}">
             {{> forms_radio_button label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value required=required}}
           </div>
           {{/if ~}}
           {{/case ~}}
           {{#case "select-many" ~}}
           {{#if answer ~}}
-          <div class="answer column {{#compare (length ../options) '>' 9}}col-3{{else}}col-12{{/compare}}">
+          <div class="answer column {{#compare (length ../options) '>' 9}}col-3 col-lg-4 col-md-6 col-sm-12{{else}}col-12{{/compare}}">
             {{> forms_checkbox label=answer id=(slugify (concat answer ../value)) name=(concat "answers-" ../../../section "-" ../value) value=value}}
           </div>
           {{/if ~}}

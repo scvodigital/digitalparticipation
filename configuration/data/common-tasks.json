@@ -1,11 +1,21 @@
 {
-  "getCheckupData": {
+  "getLifeSkillsData": {
     "name": "checkup",
     "taskModule": "render",
     "renderer": "handlebars",
     "config": {
       "output": "data",
-      "template": ">context.metaData.handlebars.templates.skills_checkup_questions_data",
+      "template": ">context.metaData.handlebars.templates.skills_checkup_questions_data-life",
+      "parseJson": true
+    }
+  },
+  "getWorkSkillsData": {
+    "name": "checkup",
+    "taskModule": "render",
+    "renderer": "handlebars",
+    "config": {
+      "output": "data",
+      "template": ">context.metaData.handlebars.templates.skills_checkup_questions_data-work",
       "parseJson": true
     }
   }
