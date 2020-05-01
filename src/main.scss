@@ -53,6 +53,7 @@ $transition-speed: .3s;
 @import url('//fonts.googleapis.com/css?family=Roboto:300,400,700|Poppins:700|Open+Sans:400,600,700');
 
 $unit: 1rem;
+$medium-line: 3px;
 $thick-line: 5px;
 
 // Brand colours
@@ -350,7 +351,7 @@ header.navbar {
   background-color: transparent;
   box-shadow: none;
   .container {
-    border-bottom: 3px solid $brand-typography;
+    border-bottom: $medium-line solid $brand-typography;
   }
   .navbar__title {
     margin: 0;
@@ -497,6 +498,50 @@ main {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-teal', endColorstr='$brand-purple',GradientType=0 );
   }
 }
+.question-block {
+  padding: $unit/2 $unit*1.5 $unit;
+  margin-bottom: $unit*1.5;
+}
+.skills main .checkup-section-communicating {
+  h2 {
+    border-bottom: $medium-line solid $brand-pink;
+  }
+  .question-block {
+    border: $medium-line solid $brand-pink;
+  }
+}
+.skills main .checkup-section-transacting {
+  h2 {
+    border-bottom: $medium-line solid $brand-teal;
+  }
+  .question-block {
+    border: $medium-line solid $brand-teal;
+  }
+}
+.skills main .checkup-section-handling-information-content {
+  h2 {
+    border-bottom: $medium-line solid $brand-green;
+  }
+  .question-block {
+    border: $medium-line solid $brand-green;
+  }
+}
+.skills main .checkup-section-problem-solving {
+  h2 {
+    border-bottom: $medium-line solid $brand-yellow;
+  }
+  .question-block {
+    border: $medium-line solid $brand-yellow;
+  }
+}
+.skills main .checkup-section-being-safe-legal-confident-online {
+  h2 {
+    border-bottom: $medium-line solid $brand-purple;
+  }
+  .question-block {
+    border: $medium-line solid $brand-purple;
+  }
+}
 .skills.foundation main {
   background: $brand-purple !important;
 }
@@ -524,11 +569,11 @@ main {
   }
 }
 
-.columns {
-  .column {
-    padding: 0;
-  }
-}
+// .columns {
+//   .column {
+//     padding: 0;
+//   }
+// }
 
 main {
   padding: 0 $unit $unit*4;
@@ -1522,7 +1567,7 @@ footer {
     color: white;
   }
   .navbar .container {
-    border-bottom: 3px solid white;
+    border-bottom: $medium-line solid white;
   }
   main {
     background: $brand-typography;
