@@ -105,19 +105,12 @@
             {{#each context.metaData.menus.main ~}}
             <div class="dropdown">
               <a class="mdc-tab{{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-tab--active{{/if}}" href="{{path}}"><span class="mdc-tab--label">{{{label}}}</span></a>
-              {{!-- {{#if children ~}}
-              <ul class="dropdown-content">
-              {{#each children ~}}
-              <li><a class="mdc-tab{{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-tab--active{{/if}}" href="{{path}}"><span class="mdc-tab--label">{{{label}}}</span></a></li>
-              {{/each ~}}
-              </ul>
-              {{/if ~}} --}}
             </div>
             {{/each ~}}
           </nav>
         </section>
         <section class="navbar-section hide-md hide-lg pull-right">
-          <button class="mdc-top-app-bar__navigation-icon" data-drawer-target="#mobile-menu">
+          <button class="mdc-top-app-bar__navigation-icon">
             <span class="far fa-fw fa-2x fa-bars" aria-label="Menu"></span>
           </button>
         </section>
@@ -157,66 +150,61 @@
   <footer>
     <div class="footer-main">
       <div class="container">
-        <div class="">
-          <div class="columns">
-            <div class="column col-3 col-md-6 col-sm-12">
-              <h3>Contact</h3>
-              <ul class="fa-ul">
-                <li>
-                  <span class="fa-li"><span class="fas fa-envelope" aria-hidden="true"></span></span>
-                  <a href="mailto:digital@scvo.org.uk">digital@scvo.org.uk</a>
-                </li>
-                <li>
-                  <span class="fa-li"><span class="fab fa-twitter" aria-hidden="true"></span></span>
-                  <a href="https://twitter.com/digiscot" rel="noopener">Twitter</a>
-                </li>
-              </ul>
-            </div>
-            <div class="column col-3 col-md-6 col-sm-12">
-              <h3>Help</h3>
-              <ul>
-                <li>
-                  <a href="/accessibility">Accessibility</a>
-                </li>
-                <li>
-                  <a href="/privacy">Privacy</a>
-                </li>
-                <li>
-                  <a href="/cookies">Cookies</a>
-                </li>
-                <li>
-                  <a href="/terms">Terms &amp; conditions</a>
-                </li>
-              </ul>
-            </div>
-            <div class="column col-6 col-md-12">
-              <h3>About</h3>
-              <p>
-                Scotland's Digital Participation Charter is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a> with support from the <a href="https://www.gov.scot/policies/digital">Scottish Government</a>.
-              </p>
-            </div>
+        <div class="columns">
+          <div class="column col-3 col-md-6 col-sm-12">
+            <h3>Contact</h3>
+            <ul class="fa-ul">
+              <li>
+                <span class="fa-li"><span class="fas fa-envelope" aria-hidden="true"></span></span>
+                <a href="mailto:digital@scvo.org.uk">digital@scvo.org.uk</a>
+              </li>
+              <li>
+                <span class="fa-li"><span class="fab fa-twitter" aria-hidden="true"></span></span>
+                <a href="https://twitter.com/digiscot" rel="noopener">Twitter</a>
+              </li>
+            </ul>
+          </div>
+          <div class="column col-3 col-md-6 col-sm-12">
+            <h3>Help</h3>
+            <ul>
+              <li>
+                <a href="/accessibility">Accessibility</a>
+              </li>
+              <li>
+                <a href="/privacy">Privacy</a>
+              </li>
+              <li>
+                <a href="/cookies">Cookies</a>
+              </li>
+              <li>
+                <a href="/terms">Terms &amp; conditions</a>
+              </li>
+            </ul>
+          </div>
+          <div class="column col-6 col-md-12">
+            <h3>About</h3>
+            <p>
+              Scotland's Digital Participation Charter is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a> with support from the <a href="https://www.gov.scot/policies/digital">Scottish Government</a>.
+            </p>
           </div>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-        <div class="">
-          <div class="columns">
-            <div class="column col-8 col-md-12">
-              <p>
-                &copy; {{momentFormat (moment) "YYYY"}}. The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation.<br />Charity registered in Scotland <a href="https://www.oscr.org.uk/about-charities/search-the-register/charity-details?number=SC003558">SC003558</a>. Registered office Mansfield Traquair Centre, 15 Mansfield Place, Edinburgh EH3 6BB.
-              </p>
-            </div>
-            <div class="column col-4 col-md-12">
-              <a href="https://www.gov.scot/policies/digital">
-                <img src="{{~>asset_url url='images/logos/SG_Quaternary_govscot_RGB_reversed.png'~}}" alt="Scottish Government"  class="logo digital-scotland" />
-              </a>
-              <a href="https://scvo.org" title="Scottish Council for Voluntary Organisations">
-                {{!-- <img src="{{~>asset_url url='images/logos/scvo-legacy-black.png'~}}" alt="Scottish Council for Voluntary Organisations" class="logo scvo" /> --}}
-                <img src="{{~>asset_url url='images/logos/scvo-white.svg'~}}" alt="Scottish Council for Voluntary Organisations" class="logo scvo" />
-              </a>
-            </div>
+        <div class="columns">
+          <div class="column col-8 col-md-12">
+            <p>
+              &copy; {{momentFormat (moment) "YYYY"}}. The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation.<br />Charity registered in Scotland <a href="https://www.oscr.org.uk/about-charities/search-the-register/charity-details?number=SC003558">SC003558</a>. Registered office Mansfield Traquair Centre, 15 Mansfield Place, Edinburgh EH3&nbsp;6BB.
+            </p>
+          </div>
+          <div class="column col-4 col-md-12">
+            <a href="https://www.gov.scot/policies/digital" class="brand">
+              <img src="{{~>asset_url url='images/logos/SG_Quaternary_govscot_RGB_reversed.png'~}}" alt="Scottish Government"  class="logo digital-scotland" />
+            </a>
+            <a href="https://scvo.org" title="Scottish Council for Voluntary Organisations" class="brand">
+              <img src="{{~>asset_url url='images/logos/scvo-white.svg'~}}" alt="Scottish Council for Voluntary Organisations" class="logo scvo" />
+            </a>
           </div>
         </div>
       </div>
