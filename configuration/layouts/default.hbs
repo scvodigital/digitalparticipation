@@ -109,38 +109,95 @@
             {{/each ~}}
           </nav>
         </section>
-        <section class="navbar-section hide-md hide-lg pull-right">
-          <button class="mdc-top-app-bar__navigation-icon">
-            <span class="far fa-fw fa-2x fa-bars" aria-label="Menu"></span>
-          </button>
+        <section class="navbar-section pull-right">
+          <div class="mobile-header-buttons show-lg" style="margin-top:1.75rem; margin-right:-0.4rem">
+            <a href="#" class="btn btn-link no-margin" aria-label="Menu" data-component="TasksTrigger"
+              data-TasksTrigger='{
+                click: {
+                  tasks: [
+                    {
+                      type: "elementManipulator",
+                      config: {
+                        ".mobile-menu": {
+                          "removeClass": "mobile-menu_closed mobile-menu_closing",
+                          "addClass": "mobile-menu_open"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }'>
+              <span class="far fa-bars fa-2x" aria-hidden="true"></span>
+            </a>
+          </div>
         </section>
       </div>
     </header>
 
-    {{!-- <aside class="mdc-drawer mdc-drawer--modal" id="mobile-menu" data-mdc-auto-init="MDCDrawer">
-      <div class="mdc-drawer__content">
-        <nav class="mdc-list">
-          {{#each @root.context.metaData.menus.main ~}}
-          <a class="mdc-list-item{{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-             href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-            {{#if icon ~}}
-            <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-            {{/if ~}}
-            {{{label}}}
-          </a>
-          {{#each children ~}}
-          <a class="mdc-list-item{{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}} mdc-list-item--child"
-             href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-            {{#if icon ~}}
-            <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-            {{/if ~}}
-            {{{label}}}
-          </a>
-          {{/each ~}}
-          {{/each ~}}
-        </nav>
-      </div>
-    </aside> --}}
+    <div class="mobile-menu mobile-menu_closed">
+      <aside class="mobile-contents sidebar bg-primary">
+        <header class="navbar header">
+          <section class="navbar-section">
+            {{!-- <a href="/" class="navbar-brand" title="Scottish Council for Voluntary Organisations">
+              <img src="{{~>asset_url url='images/logos/scvo-white.svg'~}}" alt="Scottish Council for Voluntary Organisations" />
+            </a> --}}
+          </section>
+          <section class="navbar-section">
+            <div class="mobile-header-buttons">
+              <a href="#" class="btn btn-link" aria-label="Menu" data-component="TasksTrigger" data-TasksTrigger='{
+                  click: {
+                    tasks: [
+                      {
+                        type: "elementManipulator",
+                        config: {
+                          ".mobile-menu": {
+                            removeClass: "mobile-menu_open",
+                            addClass: "mobile-menu_closing"
+                          }
+                        }
+                      },
+                      {
+                        type: "delay",
+                        config: {
+                          "200": [
+                            {
+                              type: "elementManipulator",
+                              config: {
+                                ".mobile-menu": {
+                                  addClass: "mobile-menu_closed",
+                                  removeClass: "mobile-menu_closing"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }'>
+                <span class="far fa-times fa-2x" aria-hidden="true"></span>
+              </a>
+            </div>
+          </section>
+        </header>
+        <div class="b-margin-full v-padding-full">
+          <ul class="menu b-padding-full">
+            {{#each @root.context.metaData.menus.main ~}}
+            <li class="menu-item">
+              <a href="{{stripTrailingSlash path}}" class="{{#if (regexMatch @root.request.url.pathname route 'gi')}} active{{/if}}">
+                {{#if icon ~}}
+                <span class="far fa-fw fa-{{icon}}" aria-hidden="true"></span>
+                {{/if ~}}
+                {{{label}}}
+              </a>
+            </li>
+            {{/each ~}}
+          </ul>
+          {{!-- <h5 class="x-padding">Our sites</h5>
+          {{> components_scvo_bar}} --}}
+        </div>
+      </aside>
+    </div>
 
     <div class="container">
       {{{layoutParts.body}}}
@@ -210,6 +267,27 @@
       </div>
     </div>
   </footer>
+
+  {{#each @root.context.metaData.handlebars.frontend.configs ~}}
+  <script data-component-config="{{@key}}" type="javascript/blocked">
+  {{{regexReplace (regexReplace this "^\s*return\s" "igm" "") "([^\\{])({{){2,}" "igm" "$1\\$2"}}}
+  </script>
+  {{/each ~}}
+
+  {{#each @root.context.metaData.handlebars.frontend.tasks ~}}
+  <script data-task="{{@key}}" type="javascript/blocked">
+  {{{regexReplace (regexReplace this "^\s*return\s" "igm" "") "([^\\{])({{){2,}" "igm" "$1\\$2"}}}
+  </script>
+  {{/each ~}}
+
+  {{#each @root.context.metaData.handlebars.frontend.partials ~}}
+  <script data-partial="{{@key}}" type="javascript/blocked">
+  {{{this}}}
+  </script>
+  {{/each ~}}
+
+  <script type="text/javascript" src="{{~>asset_url url='component-manager.js'~}}"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript">
   var $buoop = {required:{e:-3,f:-3,o:-3,s:-1,c:-3},insecure:true,unsupported:true,api:2018.07 };

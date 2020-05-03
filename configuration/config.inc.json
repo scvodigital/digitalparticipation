@@ -27,6 +27,17 @@
       },
       "queries": {
         "{$./queries/**/*.*}": ""
+      },
+      "frontend": {
+        "tasks": {
+          "{$./frontend/tasks/**/*.*}": ""
+        },
+        "configs": {
+          "{$./frontend/configs/**/*.*}": ""
+        },
+        "partials": {
+          "{$./frontend/partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
+        }
       }
     }
   }
