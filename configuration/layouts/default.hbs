@@ -85,9 +85,9 @@
   <link type="text/css" rel="stylesheet" href="{{~>asset_url url='main.css'}}">
 </head>
 <body class="{{#if request.params.path}}{{replace request.params.path '_' ' '}}{{else}}home{{/if}}">
-  <div class=" hide-sm hide-md">
+  {{!-- <div class=" hide-sm hide-md">
     {{> components_scvo_bar}}
-  </div>
+  </div> --}}
   <main>
     <header class="navbar header">
       <div class="container">
