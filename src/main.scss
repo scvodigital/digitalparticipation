@@ -687,7 +687,10 @@ main {
 
   .form-group {
     input[type=text],
+    input[type=number],
+    input[type=email],
     input[type=search],
+    textarea,
     .mdc-select,
     select,
     select:focus {
@@ -706,12 +709,69 @@ main {
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
     }
+    .form-select {
+      line-height: 2;
+    }
+  }
+  .form-input-hint {
+    color: $brand-typography;
+    font-size: 90% !important;
+  }
+  .form-group textarea {
+    height: $unit*8;
+    line-height: 2;
+  }
+  span.count-words {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
   }
   .form-group.sort {
     margin-top: -0.4rem;
   }
   .form-input {
     font-size: 1.2rem;
+  }
+  .form-checkbox, .form-radio, .form-switch {
+    padding-left: 1.75rem;
+  }
+  .form-checkbox .form-icon, .form-radio .form-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 0;
+  }
+  .form-checkbox .form-icon, .form-radio .form-icon, .form-switch .form-icon {
+    border-color: $brand-typography;
+    border-width: $brand-border-width;
+  }
+  .form-checkbox input:checked+.form-icon, .form-radio input:checked+.form-icon, .form-switch input:checked+.form-icon {
+    border-color: $brand-typography;
+    background: $brand-typography;
+  }
+  .form-checkbox input:focus+.form-icon, .form-radio input:focus+.form-icon, .form-switch input:focus+.form-icon {
+    box-shadow: none;
+  }
+  .form-checkbox input:checked+.form-icon::before {
+    height: 14px;
+    margin-top: -8px;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  .input-group.has-icon-right {
+    height: $unit*3;
+    .form-input {
+      padding-right: 1.5rem;
+    }
+    .form-icon {
+      margin-right: $unit/2;
+    }
   }
 
   .title {
@@ -1936,7 +1996,10 @@ footer {
     }
     .form-group {
       input[type=text],
+      input[type=number],
+      input[type=email],
       input[type=search],
+      textarea,
       .mdc-select,
       select,
       select:focus {
