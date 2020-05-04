@@ -342,6 +342,9 @@ a {
   background: $brand-typography;
 }
 
+#main-tab-bar {
+  margin-top: 1.5rem !important;
+}
 
 header.navbar {
   background-color: transparent;
@@ -426,6 +429,7 @@ header.navbar {
       transition: border $transition-speed, background $transition-speed;
     }
     .mdc-tab--active,
+    .mdc-tab:focus,
     .mdc-tab:hover {
       border: $brand-border-width solid $brand-typography;
       background: white;
