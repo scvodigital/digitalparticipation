@@ -111,7 +111,7 @@
         </section>
         <section class="navbar-section pull-right">
           <div class="mobile-header-buttons show-lg" style="margin-top:1.75rem; margin-right:-0.4rem">
-            <a href="#" class="btn btn-link no-margin" aria-label="Menu" data-component="TasksTrigger"
+            <a href="javascript:void(0);" class="btn btn-link no-margin" aria-label="Menu" data-component="TasksTrigger"
               data-TasksTrigger='{
                 click: {
                   tasks: [
@@ -135,16 +135,20 @@
     </header>
 
     <div class="mobile-menu mobile-menu_closed">
-      <aside class="mobile-contents sidebar bg-primary">
-        <header class="navbar header">
+      <aside class="mobile-contents sidebar">
+        <header class="navbar header h-padding">
           <section class="navbar-section">
-            {{!-- <a href="/" class="navbar-brand" title="Scottish Council for Voluntary Organisations">
-              <img src="{{~>asset_url url='images/logos/scvo-white.svg'~}}" alt="Scottish Council for Voluntary Organisations" />
-            </a> --}}
+            <span class="navbar__title catalog-title">
+              <a href="/" class="brand-logo">
+                <span class="digital">Digital</span>
+                <span class="participation">Participation</span>
+                <span class="charter">Charter</span>
+              </a>
+            </span>
           </section>
           <section class="navbar-section">
-            <div class="mobile-header-buttons">
-              <a href="#" class="btn btn-link" aria-label="Menu" data-component="TasksTrigger" data-TasksTrigger='{
+            <div class="mobile-header-buttons" style="margin-top:1.75rem; margin-right:0;">
+              <a href="javascript:void(0);" class="btn btn-link no-margin" aria-label="Menu" data-component="TasksTrigger" data-TasksTrigger='{
                   click: {
                     tasks: [
                       {
@@ -175,7 +179,7 @@
                     ]
                   }
                 }'>
-                <span class="far fa-times fa-2x" aria-hidden="true"></span>
+                <span class="far fa-times fa-2x text-white" aria-hidden="true"></span>
               </a>
             </div>
           </section>
