@@ -621,6 +621,7 @@ main {
     text-transform: uppercase;
   }
   .active,
+  .btn:focus,
   .btn:hover {
     border: $brand-border-width solid $brand-typography;
     background: white;
@@ -759,6 +760,9 @@ main {
   .form-checkbox input:checked+.form-icon::before {
     height: 14px;
     margin-top: -8px;
+  }
+  .form-radio input:checked+.form-icon::before {
+    border-radius: 0;
   }
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
