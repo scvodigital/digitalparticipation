@@ -1,0 +1,38 @@
+{{#json type="object"}}
+  {{{json key="responseId" value=(default @root.request.params.rid @root.data.rid)}}},
+  {{{json key="sharingId" value=(default @root.request.params.sid "")}}},
+  {{{json key="recordType" value=(default @root.data.recordType "Digital")}}},
+  {{#each @root.data.checkup}}
+    {{#each questions}}
+      {{#if checkup_question}}
+        {{{json key=checkup_question value=(lookup @root.request.body (concat 'answers-' @../key '-' value))}}},
+      {{/if}}
+    {{/each}}
+  {{/each}}
+  {{#json key="responses" type="array"}}
+    {{#each (groupBy @root.data.metrics "metric")}}
+      {{#json type="object"}}
+        {{{json key="metric" value=(concat @key)}}},
+        {{{json key="percentageScore" value=(maths "(sum(skills_scores) + sum(confidence_scores)) / (setSize(confidence_scores) * 10) * 100" skills_scores=(pluck this "skills_score") confidence_scores=(pluck this "skills_score"))}}}
+      {{/json}},
+      {{#json type="object"}}
+        {{{json key="metric" value=(concat "confidence-" @key)}}},
+        {{{json key="percentageScore" value=(maths "sum(scores) / (setSize(scores) * 5) * 100" scores=(pluck this "confidence_score"))}}}
+      {{/json}},
+      {{#json type="object"}}
+        {{{json key="metric" value=(concat "skills-" @key)}}},
+        {{{json key="percentageScore" value=(maths "sum(scores) / (setSize(scores) * 5) * 100" scores=(pluck this "skills_score"))}}}
+      {{/json}},
+    {{/each}}
+    {{#each @root.data.checkup}}
+      {{#each questions}}
+        {{#ifNone metric checkup_question}}
+          {{#json type="object"}}
+            {{{json key="question" value=title}}},
+            {{{json key="answer" value=(lookup @root.request.body (concat 'answers-' @../key '-' value))}}}
+          {{/json}},
+        {{/ifNone}}
+      {{/each}}
+    {{/each}}
+  {{/json}}
+{{/json}}

@@ -1,0 +1,19 @@
+{{#json type="array"}}
+  {{#each @root.data.checkup}}
+    {{#each questions}}
+      {{#if metric}}
+        {{#json type="object"}}
+          {{{json key="metric" value=metric}}},
+          {{#if @root.route.debugs}}
+            {{{json key="section" value=@../key}}},
+            {{{json key="question" value=(concat 'answers-' value)}}},
+            {{{json key="confidence_path" value=(concat "@root.request.body." (concat 'answers-' @../key '-' value '-confidence'))}}},
+            {{{json key="skills_path" value=(concat "@root.request.body." (concat 'answers-' @../key '-' value '-skills'))}}},
+          {{/if}}
+          {{{json key="confidence_score" value=(lookup @root.request.body (concat 'answers-' @../key '-' value '-confidence'))}}},
+          {{{json key="skills_score" value=(lookup @root.request.body (concat 'answers-' @../key '-' value '-skills'))}}}
+        {{/json}},
+      {{/if}}
+    {{/each}}
+  {{/each}}
+{{/json}}

@@ -1,10 +1,22 @@
 {
   "name": "checkup_submit",
   "debug": true,
-  "pattern": "/skills/checkup/submit",
+  "pattern": {
+    "base": "/skills/:checkup/submit",
+    "life": "/skills/life/submit",
+    "work": "/skills/work/submit"
+  },
   "tasks": [
-    "context.metaData.commonTasks.getLifeSkillsData",
-    "context.metaData.commonTasks.getWorkSkillsData",
+    {
+      "name": "checkup",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{{{parse (json value=(lookup @root.context.metaData.handlebars.templates (concat 'skills_checkup_questions_data-' @root.request.params.checkup)))}}}",
+        "output": "data",
+        "parseJson": true
+      }
+    },
     {
       "name": "rid",
       "taskModule": "render",
@@ -12,6 +24,47 @@
       "config": {
         "template": "{{hash (concat (moment null 'X') '-' (hash @root.request.body.email))}}",
         "output": "data"
+      }
+    },
+    {
+      "name": "metrics",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": ">context.metaData.handlebars.templates.skills_checkup_scores_metrics",
+        "output": "data",
+        "parseJson": true
+      }
+    },
+    {
+      "name": "recordType",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": ">context.metaData.handlebars.templates.skills_checkup_scores_record-type",
+        "output": "data"
+      }
+    },
+    {
+      "name": "salesforceSession",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": ">context.metaData.handlebars.templates.skills_checkup_scores_salesforce-session",
+        "output": "data",
+        "parseJson": true
+      }
+    },
+    {
+      "name": "saveCheckupSession",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoMattSandbox",
+        "output": "data",
+        "method": "POST",
+        "body": ">data.salesforceSession",
+        "apexClassPath": "/CheckupSession/"
       }
     },
     {

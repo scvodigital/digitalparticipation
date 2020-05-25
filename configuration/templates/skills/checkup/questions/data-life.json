@@ -9,6 +9,7 @@
         "title": "Name",
         "value": "name",
         "type": "text",
+        "checkup_question": "contactName",
         "required": false
       },
       {
@@ -16,6 +17,7 @@
         "hint": "If you enter your email address we will send additional resources to you and you can return to your results over time",
         "value": "email",
         "type": "text",
+        "checkup_question": "email",
         "required": false
       },
       {
@@ -193,54 +195,63 @@
         "title": "I can communicate online using messaging apps such as WhatsApp and Messenger",
         "value": "q1",
         "required": true,
+        "metric": "leadership_culture_and_skills",
         "type": "select-skill"
       },
       {
         "title": "I can post and reply to comments on social media platforms such as Instagram and Facebook in a respectful and appropriate manner",
         "value": "q2",
         "required": true,
+        "metric": "leadership_culture_and_skills",
         "type": "select-skill"
       },
       {
         "title": "I can create video content to be shared on social media platforms such as YouTube, Tik Tok and Snapchat",
         "value": "q3",
         "required": true,
+        "metric": "leadership_culture_and_skills",
         "type": "select-skill"
       },
       {
         "title": "I can use apps such as FaceTime, Zoom and Skype to make video and audio calls",
         "value": "q4",
         "required": true,
+        "metric": "leadership_culture_and_skills",
         "type": "select-skill"
       },
       {
         "title": "I can create, add members and interact in online group chats on messaging platforms such as WhatsApp or Messenger",
         "value": "q5",
         "required": true,
+        "metric": "leadership_culture_and_skills",
         "type": "select-skill"
       },
       {
         "title": "I can send photos, videos and other media links to others",
         "value": "q6",
         "required": true,
+        "metric": "leadership_culture_and_skills",
         "type": "select-skill"
       },
       {
         "title": "I understand that the contents and views I share online create a permanent online record",
         "value": "q7",
         "required": true,
+        "metric": "leadership_culture_and_skills",
         "type": "select-skill"
       },
       {
         "title": "I can set up an email account and use it to communicate with others",
         "value": "q8",
         "required": true,
+        "metric": "leadership_culture_and_skills",
         "type": "select-skill"
       },
       {
         "title": "I can share documents with others by attaching them to an email",
         "value": "q9",
         "required": true,
+        "metric": "leadership_culture_and_skills",
         "type": "select-skill"
       }
     ],
@@ -255,54 +266,63 @@
         "title": "I can use the internet to access online services such as Universal Credit or ordering prescriptions",
         "value": "q1",
         "required": true,
+        "metric": "tools_and_equipment",
         "type": "select-skill"
       },
       {
         "title": "I can access and use online banking websites and apps",
         "value": "q2",
         "required": true,
+        "metric": "tools_and_equipment",
         "type": "select-skill"
       },
       {
         "title": "I can set up secure personal accounts enabling me to purchase goods or services safely online",
         "value": "q3",
         "required": true,
+        "metric": "tools_and_equipment",
         "type": "select-skill"
       },
       {
         "title": "I can complete online forms and upload documents and photographs when required to such as when applying for a passport or driving licence",
         "value": "q4",
         "required": true,
+        "metric": "tools_and_equipment",
         "type": "select-skill"
       },
       {
         "title": "I can use transport apps such as Scotrail or Google Maps to make travel arrangements",
         "value": "q5",
         "required": true,
+        "metric": "tools_and_equipment",
         "type": "select-skill"
       },
       {
         "title": "I can use travel websites and apps to book transport, flights and accommodation",
         "value": "q6",
         "required": true,
+        "metric": "tools_and_equipment",
         "type": "select-skill"
       },
       {
         "title": "I can upload a CV to recruitment websites and complete job applications online",
         "value": "q7",
         "required": true,
+        "metric": "tools_and_equipment",
         "type": "select-skill"
       },
       {
         "title": "I can make, amend and cancel purchases, pay bills and make payments online",
         "value": "q8",
         "required": true,
+        "metric": "tools_and_equipment",
         "type": "select-skill"
       },
       {
         "title": "I can make reservations, arrange deliveries and book personal appointments online",
         "value": "q9",
         "required": true,
+        "metric": "tools_and_equipment",
         "type": "select-skill"
       }
     ],
@@ -317,42 +337,49 @@
         "title": "I can search for news and online information using a browser such as Chrome, Internet Explorer or Safari",
         "value": "q1",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can clear my browser and online search history",
         "value": "q2",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can use multiple tabs on my internet browser and use bookmarks to save and retrieve information",
         "value": "q3",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can use an online cloud storage account such as iCloud or One Drive and access it from different devices, such as a laptop or a smartphone",
         "value": "q4",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can access entertainment online such as Netflix, Apple TV, Amazon Prime or BBC iPlayer",
         "value": "q5",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can stream music from sites such as Spotify, BBC Sounds or Apple Music",
         "value": "q6",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can download and read e-books online using apps such as Kindle or Audible",
         "value": "q7",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       }
     ],
@@ -367,36 +394,42 @@
         "title": "I can use websites, chat bots, online tutorials, FAQs and advice forums to solve problems online",
         "value": "q1",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can use online learning and webinars to improve my digital skills",
         "value": "q2",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can find and use online alternatives to my usual sites and apps if they are unavailable",
         "value": "q3",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can use online language and translation tools when required",
         "value": "q4",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can use the internet to find advice and guidance on important issues such as public health information",
         "value": "q5",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       },
       {
         "title": "I can use online tools such as Google Maps to find the best route depending on my mode of transport",
         "value": "q6",
         "required": true,
+        "metric": "content_marketing_and_data",
         "type": "select-skill"
       }
     ],
@@ -411,54 +444,63 @@
         "title": "I can create and use strong and secure passwords online and know not to write them down or share them with others",
         "value": "q1",
         "required": true,
+        "metric": "cyber_resilience",
         "type": "select-skill"
       },
       {
         "title": "I can use a password manager such as LastPass or Dashlane to keep my passwords secure",
         "value": "q2",
         "required": true,
+        "metric": "cyber_resilience",
         "type": "select-skill"
       },
       {
         "title": "I can use privacy settings to control what people can see online, including on social media",
         "value": "q3",
         "required": true,
+        "metric": "cyber_resilience",
         "type": "select-skill"
       },
       {
         "title": "I can check if online information is true or false",
         "value": "q4",
         "required": true,
+        "metric": "cyber_resilience",
         "type": "select-skill"
       },
       {
         "title": "I can recognise suspicious weblinks and emails",
         "value": "q5",
         "required": true,
+        "metric": "cyber_resilience",
         "type": "select-skill"
       },
       {
         "title": "I can respond to requests for authentication for my online accounts and email",
         "value": "q6",
         "required": true,
+        "metric": "cyber_resilience",
         "type": "select-skill"
       },
       {
         "title": "I can update my operating system and security software on my device to keep it protected",
         "value": "q7",
         "required": true,
+        "metric": "cyber_resilience",
         "type": "select-skill"
       },
       {
         "title": "I understand that my online activity produces a permanent record which could be accessed and used by others now and in the future",
         "value": "q8",
         "required": true,
+        "metric": "cyber_resilience",
         "type": "select-skill"
       },
       {
         "title": "I understand that I must not share other people’s data online without their consent",
         "value": "q9",
         "required": true,
+        "metric": "cyber_resilience",
         "type": "select-skill"
       }
     ],
