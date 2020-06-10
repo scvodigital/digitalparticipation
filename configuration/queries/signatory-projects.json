@@ -2,6 +2,7 @@
   "size": 100,
   "from": 0,
   "_source": [
+    "Id",
     "title",
     "call",
     "amount_awarded",
