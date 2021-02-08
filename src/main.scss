@@ -165,6 +165,7 @@ h1, h2, h3, h4, h5 {
   font-weight: $heading-font-weight;
 }
 
+li a,
 p a {
   color: $brand-typography;
   text-decoration: underline;
@@ -180,6 +181,9 @@ a:focus {
   outline: none;
   color: $brand-typography;
   box-shadow: none;
+}
+a:hover {
+  background: white;
 }
 .cookieinfo {
   box-shadow: $toolbar-shadow-reverse;
@@ -947,7 +951,7 @@ main {
       position: relative;
       a {
         padding: 1rem 0;
-        display: block;
+        display: inline-block;
         color: $brand-typography;
         font-weight: bold;
         font-size: 1.5rem;
@@ -1313,7 +1317,7 @@ hr {
       padding: $unit*(3/4);
       max-width: 100%;
       width: 12rem;
-      display: block;
+      display: inline-block;
       vertical-align: middle;
       position: relative;
       text-align: center;
@@ -1409,7 +1413,7 @@ hr {
       padding: 0;
       margin: 0;
       font-weight: 600;
-      display: block;
+      display: inline-block;
     }
     a.pagination-arrow {
       color: $brand-typography;

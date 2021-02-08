@@ -1,8 +1,8 @@
 {
-  "name": "resources_help_others",
-  "pattern": "/resources/help-others",
+  "name": "resources_donate",
+  "pattern": "/resources/donate",
   "metaData": {
-    "title": "Help others get online – Scotland's Digital Participation Charter"
+    "title": "Resources – Scotland's Digital Participation Charter"
   },
   "tasks": [
     {
@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.resources_help-others",
+              "body": ">context.metaData.handlebars.templates.resources_donate",
               "foot": ""
             },
             "contentType": "text/html"
