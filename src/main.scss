@@ -185,6 +185,10 @@ a:focus {
 a:hover {
   background: white;
 }
+footer a:hover,
+a.brand-logo:hover {
+  background: transparent;
+}
 .cookieinfo {
   box-shadow: $toolbar-shadow-reverse;
 }
