@@ -6,6 +6,14 @@
   },
   "tasks": [
     {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "https://skills.checkup.scot",
+        "statusCode": 301
+      }
+    },
+    {
       "name": "supplimentaryResponses",
       "taskModule": "elasticsearch",
       "config": {
