@@ -1,1 +1,112 @@
-<iframe src="https://www.surveygizmo.eu/s3/90088287/DPCSUStage2?key={{request.params.query.key}}" frameborder="0" width="100%" height="400" style="overflow:hidden"></iframe>
+{{!-- <iframe src="https://www.surveydisabledgizmo.eu/s3/90088287/DPCSUStage2?key={{request.params.query.key}}" frameborder="0" width="100%" height="400" style="overflow:hidden"></iframe> --}}
+
+<!-- FORM: HEAD SECTION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="referrer" content="no-referrer-when-downgrade">
+            <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(){
+            const FORM_TIME_START = Math.floor((new Date).getTime()/1000);
+            let formElement = document.getElementById("tfa_0");
+            if (null === formElement) {
+                formElement = document.getElementById("0");
+            }
+            let appendJsTimerElement = function(){
+                let formTimeDiff = Math.floor((new Date).getTime()/1000) - FORM_TIME_START;
+                let cumulatedTimeElement = document.getElementById("tfa_dbCumulatedTime");
+                if (null !== cumulatedTimeElement) {
+                    let cumulatedTime = parseInt(cumulatedTimeElement.value);
+                    if (null !== cumulatedTime && cumulatedTime > 0) {
+                        formTimeDiff += cumulatedTime;
+                    }
+                }
+                let jsTimeInput = document.createElement("input");
+                jsTimeInput.setAttribute("type", "hidden");
+                jsTimeInput.setAttribute("value", formTimeDiff.toString());
+                jsTimeInput.setAttribute("name", "tfa_dbElapsedJsTime");
+                jsTimeInput.setAttribute("id", "tfa_dbElapsedJsTime");
+                jsTimeInput.setAttribute("autocomplete", "off");
+                if (null !== formElement) {
+                    formElement.appendChild(jsTimeInput);
+                }
+            };
+            if (null !== formElement) {
+                if(formElement.addEventListener){
+                    formElement.addEventListener('submit', appendJsTimerElement, false);
+                } else if(formElement.attachEvent){
+                    formElement.attachEvent('onsubmit', appendJsTimerElement);
+                }
+            }
+        });
+    </script>
+
+    <link href="https://www.tfaforms.com/dist/form-builder/5.0.0/wforms-jsonly.css?v=1628583967" rel="alternate stylesheet" title="This stylesheet activated by javascript" type="text/css" />
+    <script type="text/javascript" src="https://www.tfaforms.com/wForms/3.11/js/wforms.js?v=1628583967"></script>
+    <script type="text/javascript">
+        wFORMS.behaviors.prefill.skip = false;
+    </script>
+        <script type="text/javascript" src="https://www.tfaforms.com/wForms/3.11/js/localization-en_GB.js?v=1628583967"></script>
+
+
+        <!-- FORM: BODY SECTION -->
+        <div class="container detail wFormContainer" >
+
+          <h1>Sign up</h1>
+
+            <div class="wForm" id="4924812-WRPR" dir="ltr">
+        <div class="codesection" id="code-4924812"></div>
+        {{!-- <h3 class="wFormTitle" data-testid="form-title" id="4924812-T">Charter sign up stage 2</h3> --}}
+        <form method="post" action="https://www.tfaforms.com/responses/processor" class="hintsBelow labelsAbove form form-horizontal" id="4924812" role="form">
+        <div class="wfPage" id="wfPgIndex-1"><div class="section pageSection" id="tfa_3">
+        <input type="hidden" id="tfa_26" name="tfa_26" value="{{@root.request.params.query.key}}" title="Session key"><div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_1-D">
+        <label id="tfa_1-L" class="form-label preField " for="tfa_1">Briefly, what does your organisation do?</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><textarea id="tfa_1" name="tfa_1" title="Briefly, what does your organisation do?" class="form-input"></textarea></div>
+        </div>
+        <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_2-D">
+        <label id="tfa_2-L" class="form-label preField " for="tfa_2">Briefly, what commitment will you make to digital participation?</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><textarea id="tfa_2" name="tfa_2" title="Briefly, what commitment will you make to digital participation?" class="form-input"></textarea></div>
+        </div>
+        </div></div>
+        <div class="wfPage" id="wfPgIndex-2"><div class="section pageSection" id="tfa_4">
+        <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_5-D">
+        <label id="tfa_5-L" class="form-label preField " for="tfa_5">What digital skills or resources will you offer over the next 12 months that will help others develop their citizens or customers?</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><textarea id="tfa_5" name="tfa_5" title="What digital skills or resources will you offer over the next 12 months that will help others develop their citizens or customers?" class="form-input"></textarea></div>
+        </div>
+        <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_6-D">
+        <label id="tfa_6-L" class="form-label preField " for="tfa_6">What needs do you have that others may offer to help you develop the digital skills of your citizens or customers?</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><textarea id="tfa_6" name="tfa_6" title="What needs do you have that others may offer to help you develop the digital skills of your citizens or customers?" class="form-input"></textarea></div>
+        </div>
+        </div></div>
+        <div class="wfPage" id="wfPgIndex-3"><div class="section pageSection" id="tfa_7">
+        <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_8-D" role="radiogroup" aria-labelledby="tfa_8-L" data-tfa-labelledby="-L tfa_8-L">
+        <label id="tfa_8-L" class="form-label preField ">Sector</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><span id="tfa_8" class="choices vertical "><span class="oneChoice">
+          <label class="form-radio postField" id="tfa_9-L" for="tfa_9">
+            <input type="radio" value="tfa_9" class="" id="tfa_9" name="tfa_8" aria-labelledby="tfa_9-L" data-tfa-labelledby="tfa_8-L tfa_9-L">
+            <span class="form-icon"></span>Public sector</label></span><span class="oneChoice">
+            <label class="form-radio postField" id="tfa_10-L" for="tfa_10">
+              <input type="radio" value="tfa_10" class="" id="tfa_10" name="tfa_8" aria-labelledby="tfa_10-L" data-tfa-labelledby="tfa_8-L tfa_10-L">
+              <span class="form-icon"></span>Private sector</label></span><span class="oneChoice">
+              <label class="form-radio postField" id="tfa_11-L" for="tfa_11">
+                <input type="radio" value="tfa_11" class="" id="tfa_11" name="tfa_8" data-conditionals="#tfa_12-D" aria-labelledby="tfa_11-L" data-tfa-labelledby="tfa_8-L tfa_11-L">
+                <span class="form-icon"></span>Third sector</label>
+            </span></span></div>
+        </div>
+        <div class="form-group" id="tfa_12-D" data-condition="`#tfa_11`"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    ">
+        <label id="tfa_12-L" class="form-label preField " for="tfa_12">Category</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><select id="tfa_12" name="tfa_12" title="Category" class="form-select"><option value="">Please select...</option>
+        <option value="tfa_13" id="tfa_13" class="">Education</option>
+        <option value="tfa_14" id="tfa_14" class="">Health</option>
+        <option value="tfa_15" id="tfa_15" class="">Community, Social or Economic Development</option>
+        <option value="tfa_16" id="tfa_16" class="">Culture and Recreation</option>
+        <option value="tfa_17" id="tfa_17" class="">Education and Research</option>
+        <option value="tfa_18" id="tfa_18" class="">Environment and Animals</option>
+        <option value="tfa_19" id="tfa_19" class="">Faith Related</option>
+        <option value="tfa_20" id="tfa_20" class="">General Purposes</option>
+        <option value="tfa_21" id="tfa_21" class="">Housing</option>
+        <option value="tfa_22" id="tfa_22" class="">IT &amp; Telecommunications</option>
+        <option value="tfa_23" id="tfa_23" class="">Law, Advocacy, Politics</option>
+        <option value="tfa_24" id="tfa_24" class="">Social Care</option>
+        <option value="tfa_25" id="tfa_25" class="">Other</option></select></div>
+        </div>
+        </div></div>
+        <div class="actions" id="4924812-A"><input type="submit" data-label="Submit" class="btn primaryAction" id="submit_button" value="Submit"></div>
+        <div style="clear:both"></div>
+        <input type="hidden" value="4924812" name="tfa_dbFormId" id="tfa_dbFormId"><input type="hidden" value="" name="tfa_dbResponseId" id="tfa_dbResponseId"><input type="hidden" value="3656abc808b53e9ce7dd1e7dadf9fd38" name="tfa_dbControl" id="tfa_dbControl"><input type="hidden" value="" name="tfa_dbWorkflowSessionUuid" id="tfa_dbWorkflowSessionUuid"><input type="hidden" value="2" name="tfa_dbVersionId" id="tfa_dbVersionId"><input type="hidden" value="" name="tfa_switchedoff" id="tfa_switchedoff">
+        </form>
+        </div>
+         </div>
