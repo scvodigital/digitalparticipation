@@ -1,3 +1,52 @@
+<!-- FORM: HEAD SECTION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="referrer" content="no-referrer-when-downgrade">
+            <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(){
+            const FORM_TIME_START = Math.floor((new Date).getTime()/1000);
+            let formElement = document.getElementById("tfa_0");
+            if (null === formElement) {
+                formElement = document.getElementById("0");
+            }
+            let appendJsTimerElement = function(){
+                let formTimeDiff = Math.floor((new Date).getTime()/1000) - FORM_TIME_START;
+                let cumulatedTimeElement = document.getElementById("tfa_dbCumulatedTime");
+                if (null !== cumulatedTimeElement) {
+                    let cumulatedTime = parseInt(cumulatedTimeElement.value);
+                    if (null !== cumulatedTime && cumulatedTime > 0) {
+                        formTimeDiff += cumulatedTime;
+                    }
+                }
+                let jsTimeInput = document.createElement("input");
+                jsTimeInput.setAttribute("type", "hidden");
+                jsTimeInput.setAttribute("value", formTimeDiff.toString());
+                jsTimeInput.setAttribute("name", "tfa_dbElapsedJsTime");
+                jsTimeInput.setAttribute("id", "tfa_dbElapsedJsTime");
+                jsTimeInput.setAttribute("autocomplete", "off");
+                if (null !== formElement) {
+                    formElement.appendChild(jsTimeInput);
+                }
+            };
+            if (null !== formElement) {
+                if(formElement.addEventListener){
+                    formElement.addEventListener('submit', appendJsTimerElement, false);
+                } else if(formElement.attachEvent){
+                    formElement.attachEvent('onsubmit', appendJsTimerElement);
+                }
+            }
+        });
+    </script>
+
+    <link href="https://www.tfaforms.com/dist/form-builder/5.0.0/wforms-jsonly.css?v=1628582619" rel="alternate stylesheet" title="This stylesheet activated by javascript" type="text/css" />
+    <script type="text/javascript" src="https://www.tfaforms.com/wForms/3.11/js/wforms.js?v=1628582619"></script>
+    <script type="text/javascript">
+        wFORMS.behaviors.prefill.skip = false;
+    </script>
+        <script type="text/javascript" src="https://www.tfaforms.com/wForms/3.11/js/localization-en_GB.js?v=1628582619"></script>
+
+
+
 <div class="">
   <div class="columns title">
     <div class="column col-7 col-md-6 col-sm-12">
@@ -21,7 +70,55 @@
       <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Sign-Charter-RGB-04.png" alt="Sign up illustration" class="responsive-img" />
     </div>
     <div class="column col-12">
-      <iframe src="https://www.surveygizmo.eu/s3/90088286/DigitalCharter" frameborder="0" width="100%" height="550" style="overflow:hidden" class="b-margin-full"></iframe>
+      {{!-- <iframe src="https://www.surveydisabledgizmo.eu/s3/90088286/DigitalCharter" frameborder="0" width="100%" height="550" style="overflow:hidden" class="b-margin-full"></iframe> --}}
+      <!-- FORM: BODY SECTION -->
+      <div class="wFormContainer" >
+        <div class="wForm" id="4924808-WRPR" dir="ltr">
+          <div class="codesection" id="code-4924808"></div>
+          {{!-- <h3 class="wFormTitle" data-testid="form-title" id="4924808-T">Charter sign up stage 1</h3> --}}
+          <form method="post" action="https://www.tfaforms.com/responses/processor" class="hintsBelow labelsAbove form form-horizontal" id="4924808" role="form">
+          <div class="wfPage" id="wfPgIndex-1"><div class="section pageSection" id="tfa_3">
+          <h2 id="tfa_3-T">About your organisation</h2>
+          <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_1-D">
+          <label id="tfa_1-L" class="form-label preField reqMark" for="tfa_1">Organisation</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><input aria-required="true" type="text" id="tfa_1" name="tfa_1" value="" title="Organisation" class="form-input required" required></div>
+          </div>
+          <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_2-D">
+          <label id="tfa_2-L" class="form-label preField reqMark" for="tfa_2">Postcode</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><input aria-required="true" type="text" id="tfa_2" name="tfa_2" value="" title="Postcode" class="form-input required" required></div>
+          </div>
+          </div></div>
+          <div class="wfPage" id="wfPgIndex-2"><div class="section pageSection" id="tfa_4">
+          <h2 id="tfa_4-T">About you</h2>
+          <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_5-D">
+          <label id="tfa_5-L" class="form-label preField reqMark" for="tfa_5">Name</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><input aria-required="true" type="text" id="tfa_5" name="tfa_5" value="" title="Name" class="form-input required" required></div>
+          </div>
+          <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_7-D">
+          <label id="tfa_7-L" class="form-label preField " for="tfa_7">Job title</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><input type="text" id="tfa_7" name="tfa_7" value="" title="Job title" class="form-input"></div>
+          </div>
+          <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_6-D">
+          <label id="tfa_6-L" class="form-label preField reqMark" for="tfa_6">Email address</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><input aria-required="true" type="text" id="tfa_6" name="tfa_6" value="" title="Email address" class="validate-email form-input required" required></div>
+          </div>
+          </div></div>
+          <div class="wfPage" id="wfPgIndex-3"><div class="section pageSection" id="tfa_8">
+          <h2 id="tfa_8-T">About your organisation</h2>
+          <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_9-D">
+          <label id="tfa_9-L" class="form-label preField " for="tfa_9">Phone</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><input type="text" id="tfa_9" name="tfa_9" value="" title="Phone" class="form-input"></div>
+          </div>
+          <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_10-D">
+          <label id="tfa_10-L" class="form-label preField " for="tfa_10">Website</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><input type="text" id="tfa_10" name="tfa_10" value="" title="Website" class="form-input"></div>
+          </div>
+          <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_11-D">
+          <label id="tfa_11-L" class="form-label preField " for="tfa_11">Twitter</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><input type="text" id="tfa_11" name="tfa_11" value="" title="Twitter" class="form-input"></div>
+          </div>
+          <div class="form-group"><div class="col-3 col-xl-4 col-lg-5 col-md-6 col-sm-12"><div class="oneField field-container-D    " id="tfa_12-D">
+          <label id="tfa_12-L" class="form-label preField " for="tfa_12">Facebook</label></div></div><div class="col-6 col-xl-8 col-lg-7 col-md-6 col-sm-12"><input type="text" id="tfa_12" name="tfa_12" value="" title="Facebook" class="form-input"></div>
+          </div>
+          </div></div>
+          <div class="actions" id="4924808-A"><input type="submit" data-label="Submit" class="primaryAction btn" id="submit_button" value="Submit"></div>
+          <div style="clear:both"></div>
+          <input type="hidden" value="4924808" name="tfa_dbFormId" id="tfa_dbFormId"><input type="hidden" value="" name="tfa_dbResponseId" id="tfa_dbResponseId"><input type="hidden" value="324332e6ec430b6356f4ef6fef50d776" name="tfa_dbControl" id="tfa_dbControl"><input type="hidden" value="" name="tfa_dbWorkflowSessionUuid" id="tfa_dbWorkflowSessionUuid"><input type="hidden" value="2" name="tfa_dbVersionId" id="tfa_dbVersionId"><input type="hidden" value="" name="tfa_switchedoff" id="tfa_switchedoff">
+          </form>
+          </div>
+       </div>
     </div>
   </div>
 </div>
