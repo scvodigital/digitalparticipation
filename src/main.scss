@@ -1668,6 +1668,10 @@ footer {
     p a {
       text-decoration: underline;
     }
+    li a:hover,
+    p a:hover {
+      color: $brand-typography;
+    }
     header {
       .brand-logo {
         color: white;
