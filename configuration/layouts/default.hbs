@@ -10,7 +10,15 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-RT97Z4Q3W2');
+    gtag('config', 'G-RT97Z4Q3W2', {
+      'send_page_view': true,
+      'anonymize_ip': true,
+      'cookieDomain': 'none',
+      'custom_map': {
+        'dimension1': 'hit_type',
+        'dimension2': 'parent_document'
+      }
+    });
   </script>
 
   {{{layoutParts.head}}}
