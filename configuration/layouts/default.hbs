@@ -3,6 +3,16 @@
 <head>
   <meta charset="utf-8">
   <base href="/">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RT97Z4Q3W2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RT97Z4Q3W2');
+  </script>
+
   {{{layoutParts.head}}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -36,15 +46,7 @@
   <meta name="msapplication-TileImage" content="https://storage.googleapis.com/digitalparticipation/images/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#022347">
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-19"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-3467930-19', { 'send_page_view': true, 'anonymize_ip': true });
-
   {{#ifAny request.params.query.debug (compare request.url.hostname "digitalparticipation.local") ~}}
   console.log('#### DEBUG MODE ON ####');
   console.log('Request:', {{{regexReplace (regexReplace (stringify request) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
