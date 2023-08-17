@@ -42,7 +42,7 @@
     {
       "label": "Stories",
       "path": "/stories",
-      "route": "^/stories|^/post"
+      "route": "^/stories|^/post|^/p/"
     },
     {
       "children": [
