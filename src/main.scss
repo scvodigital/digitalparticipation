@@ -2445,3 +2445,52 @@ figure,
 // @media (min-width: 840px) {
 //   .hide-lg { display: none !important; }
 // }
+
+.wFormContainer {
+  max-width: 100% !important;
+  .wFormHeader {
+    margin: 0 !important;
+  }
+  .wForm {
+    background-color: transparent !important;
+    margin-top: 0 !important;
+    form {
+      padding: 0 !important;
+    }
+    .htmlSection .htmlContent,
+    .label {
+      background-color: transparent;
+      font-size: 1.2rem !important;
+    }
+    h4 {
+      margin-top: 0 !important;
+      font-size: 2rem !important;
+      color: #022347 !important;
+    }
+  }
+  .actions .primaryAction,
+  .wfPagingButtons .wfPageNextButton,
+  .wfPagingButtons .wfPagePreviousButton {
+    border-radius: 0.15rem !important;
+    font-size: 1.4rem !important;
+    letter-spacing: -0.02rem !important;
+    line-height: 1.5 !important;
+    padding: 0.35rem 0.6rem !important;
+    background-color: #ffffff !important;
+    border: 0.2rem solid #022347 !important;
+    padding: 0.1rem 0.5rem !important;
+    border-color: #022347 !important;
+    color: #022347 !important;
+    transition: background-color 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s;
+  }
+  .actions .primaryAction:focus,
+  .actions .primaryAction:hover,
+  .wfPagingButtons .wfPageNextButton:focus,
+  .wfPagingButtons .wfPageNextButton:hover,
+  .wfPagingButtons .wfPagePreviousButton:focus,
+  .wfPagingButtons .wfPagePreviousButton:hover {
+    background-color: #022347 !important;
+    border-color: #022347 !important;
+    color: white !important;
+  }
+}
