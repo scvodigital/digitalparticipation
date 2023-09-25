@@ -22,8 +22,21 @@
     "facebook"
   ],
   "query": {
-    "term": {
-      "slug": "{{@root.request.params.slug}}"
+    "bool": {
+      "filter": [
+        {
+          "exists": {
+            "field": "date_signed"
+          }
+        }
+      ],
+      "must": [
+        {
+          "term": {
+            "slug": "{{@root.request.params.slug}}"
+          }
+        }
+      ]
     }
   }
 }

@@ -8,63 +8,91 @@
     "mission_statement",
     "date_signed",
     "status",
+    "sector",
+    "category",
     "logos"
   ],
   "query": {
     "bool": {
-      {{#ifAny @root.request.params.query.sector @root.request.params.query.category @root.request.params.query.exclude_expired ~}}
-      "filter": [
-        {{#if @root.request.params.query.sector ~}}
-        {
-          "term": {
-            "sector": "{{request.params.query.sector}}"
-          }
-        }{{#ifAny @root.request.params.query.category @root.request.params.query.exclude_expired}},{{/ifAny}}
-        {{/if ~}}
-        {{#if @root.request.params.query.category ~}}
-        {
-          "term": {
-            "category": "{{request.params.query.category}}"
-          }
-        }{{#if @root.request.params.query.exclude_expired}},{{/if}}
-        {{/if ~}}
-        {{#if @root.request.params.query.exclude_expired ~}}
-        {
-          "term": {
-            "status": "Signed"
-          }
-        }
-        {{/if ~}}
-      ],
-      {{/ifAny ~}}
-      {{#if @root.request.params.query.q ~}}
       "must": [
-        {
-          "query_string": {
-            "query": {{{stringify (default @root.request.params.query.q "")}}},
-            "default_field": "text_bag",
-            "default_operator": "AND",
-            "analyzer": "snowball"
-          }
-        }
-      ],
-      "should": [
-        {
-          "match_phrase": {
-            "title": {
-              "query": {{{stringify (default @root.request.params.query.q "")}}},
-              "boost": 10
+        {{#ifAny @root.request.params.query.sector @root.request.params.query.category @root.request.params.query.exclude_expired ~}}
+          {
+            "bool": {
+              "filter": [
+                {
+                  "exists": {
+                    "field": "date_signed"
+                  }
+                }{{#ifAny @root.request.params.query.sector @root.request.params.query.category @root.request.params.query.exclude_expired}},{{/ifAny}}
+                {{#if @root.request.params.query.sector ~}}
+                {
+                  "term": {
+                    "sector": "{{@root.request.params.query.sector}}"
+                  }
+                }{{#ifAny @root.request.params.query.category @root.request.params.query.exclude_expired}},{{/ifAny}}
+                {{/if ~}}
+                {{#if @root.request.params.query.category ~}}
+                {
+                  "term": {
+                    "category": "{{@root.request.params.query.category}}"
+                  }
+                }{{#if @root.request.params.query.exclude_expired}},{{/if}}
+                {{/if ~}}
+                {{#if @root.request.params.query.exclude_expired ~}}
+                {
+                  "term": {
+                    "status": "Signed"
+                  }
+                }
+                {{/if ~}}
+              ]
+            }
+          },
+        {{/ifAny ~}}
+        {{#if @root.request.params.query.q ~}}
+          {
+            "bool": {
+              "must": [
+                {
+                  "query_string": {
+                    "query": {{{stringify (default @root.request.params.query.q "")}}},
+                    "default_field": "text_bag",
+                    "default_operator": "AND",
+                    "analyzer": "snowball"
+                  }
+                }
+              ],
+              "should": [
+                {
+                  "match_phrase": {
+                    "title": {
+                      "query": {{{stringify (default @root.request.params.query.q "")}}},
+                      "boost": 10
+                    }
+                  }
+                }
+              ]
             }
           }
-        }
+        {{else}}
+          {
+            "bool": {
+              "filter": [
+                {
+                  "exists": {
+                    "field": "date_signed"
+                  }
+                }
+              ],
+              "must": [
+                {
+                  "match_all": {}
+                }
+              ]
+            }
+          }
+        {{/if ~}}
       ]
-      {{else}}
-      "must": [
-        {
-          "match_all": {}
-        }
-      ]
-      {{/if ~}}
     }
   },
   "sort": {
